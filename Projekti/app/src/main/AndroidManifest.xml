@@ -10,6 +10,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MenuActivity"></activity>
+        <activity android:name=".ProgramMenu"
+                    android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".BuildMuscle"
+            android:parentActivityName=".ProgramMenu">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".ProgramMenu" />
+        </activity>
+        <activity android:name=".MaintainFitnessLevel"
+            android:parentActivityName=".ProgramMenu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ProgramMenu" />
+        </activity>
+        <activity android:name=".Weightloss"
+            android:parentActivityName=".ProgramMenu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ProgramMenu" />
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
