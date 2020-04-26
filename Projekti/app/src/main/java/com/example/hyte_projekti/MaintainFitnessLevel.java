@@ -1,0 +1,14 @@
+package com.example.hyte_projekti;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+public class MaintainFitnessLevel extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_maintain_fitness_level);
+    }
+}

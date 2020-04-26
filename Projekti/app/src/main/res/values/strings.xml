@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">HyTe_Projekti</string>
+    <string name="text_choose">Choose yourself a main goal</string>
+    <string name="button_muscle">Build muscle mass</string>
+    <string name="button_weightloss">Lose weight</string>
+    <string name="button_maintaining">Maintain your fitness level</string>
+    <string name="text_weightloss">Let\'s lose weight!</string>
+    <string name="text_buildmuscle">Let\'s build muscle mass!</string>
+    <string name="text_fitnesslevel">Let\'s maintain your fitness level!</string>
+    <string name="button_mainToMenu">Go to menu</string>
 </resources>
