@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(targetActivity == 1){
             Log.i("Activity", "Menu");
-            Intent intent = new Intent(this, MenuActivity.class);
+            Intent intent = new Intent(this, ProgramMenu.class);
             startActivity(intent);
         }
     }
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             }
             prefEditor.commit();
 
-            Intent intent = new Intent(this, MenuActivity.class);
+            Intent intent = new Intent(this, ProgramMenu.class);
             startActivity(intent);
         }
 
