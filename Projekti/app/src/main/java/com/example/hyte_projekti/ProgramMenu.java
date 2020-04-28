@@ -13,15 +13,13 @@ import android.widget.Toast;
 
 public class ProgramMenu extends AppCompatActivity {
 
-    public static final String KEY = "SavedData";
-    public static final String TARGETACTIVITY = "SavedActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_program_menu);
-        SharedPreferences prefPut = getSharedPreferences(KEY, Activity.MODE_PRIVATE);
+        SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
-        prefEditor.putInt(TARGETACTIVITY, 1);
+        prefEditor.putInt(MainActivity.TARGETACTIVITY, 1);
         prefEditor.commit();
     }
 
