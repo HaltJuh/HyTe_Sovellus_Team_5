@@ -44,7 +44,7 @@ public class MaintainFitnessLevel extends AppCompatActivity {
             int difference = caloriesEaten - rmr;
             Log.i("Calories", Integer.toString(difference));
         }else{
-            Toast.makeText(this, "You do not eat enough!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Your resting metabolic rate is " + rmr +" kcal. You do not eat enough!", Toast.LENGTH_LONG).show();
         }
 
     }
