@@ -13,19 +13,18 @@ import android.widget.Toast;
 
 public class ProgramMenu extends AppCompatActivity {
 
-    public static final String KEY = "SavedData";
-    public static final String TARGETACTIVITY = "SavedActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_program_menu);
-        SharedPreferences prefPut = getSharedPreferences(KEY, Activity.MODE_PRIVATE);
+        SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
-        prefEditor.putInt(TARGETACTIVITY, 1);
+        prefEditor.putInt(MainActivity.TARGETACTIVITY, 1);
         prefEditor.commit();
     }
 
     public void goToMuscle(View view) {
+        saveLatestActivity(3);
         Intent intentMuscle = new Intent(this, BuildMuscle.class);
         startActivity(intentMuscle);
         Toast muscleToast = Toast.makeText(ProgramMenu.this, "You chose building muscle, awesome! \n\nPick an activity from the list to include in your weekly program.", Toast.LENGTH_LONG);
@@ -36,6 +35,7 @@ public class ProgramMenu extends AppCompatActivity {
     }
 
     public void goToLoseWeight(View view) {
+        saveLatestActivity(1);
         Intent intentWeight = new Intent(this, Weightloss.class);
         startActivity(intentWeight);
         Toast weightToast = Toast.makeText(ProgramMenu.this, "You chose weight loss, great! \n\nNext you have to pick an activity from the list to include in your weekly program.", Toast.LENGTH_LONG);
@@ -47,6 +47,7 @@ public class ProgramMenu extends AppCompatActivity {
     }
 
     public void goToMaintain(View view) {
+        saveLatestActivity(2);
         Intent intentMaintain = new Intent(this, MaintainFitnessLevel.class);
         startActivity(intentMaintain);
         Toast maintainToast = Toast.makeText(ProgramMenu.this, "Fantastic choice! \n\nNext pick an activity from the list to include in your weekly program.", Toast.LENGTH_LONG);
@@ -54,6 +55,13 @@ public class ProgramMenu extends AppCompatActivity {
         if(toastMaintainText != null) toastMaintainText.setGravity(Gravity.CENTER);
         maintainToast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0,0);
         maintainToast.show();
+    }
+
+    public void saveLatestActivity(int i){
+        SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor prefEditor = prefPut.edit();
+        prefEditor.putInt(MainActivity.LATESTACTIVITY, i);
+        prefEditor.commit();
     }
 
 }

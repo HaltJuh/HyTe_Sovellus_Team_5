@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String WEIGHTKEY = "SavedWeight";
     public static final String GENDERKEY = "SavedGender";
     public static final String TARGETACTIVITY = "SavedActivity";
+    public static final String LATESTACTIVITY = "SavedActivityLatest";
 
     private int targetActivity;
     private EditText ageView;
