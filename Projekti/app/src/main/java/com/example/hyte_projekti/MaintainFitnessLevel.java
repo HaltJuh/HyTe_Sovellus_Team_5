@@ -41,8 +41,9 @@ public class MaintainFitnessLevel extends AppCompatActivity {
             SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
             SharedPreferences.Editor prefEditor = prefPut.edit();
             prefEditor.putInt(CALORIESEATENKEY, caloriesEaten);
-            int difference = caloriesEaten - rmr;
-            Log.i("Calories", Integer.toString(difference));
+            prefEditor.putInt(MainActivity.LATESTACTIVITY, 2);
+            Intent nextActivity = new Intent(MaintainFitnessLevel.this, DaysActivity.class);
+            startActivity(nextActivity);
         }else{
             Toast.makeText(this, "Your resting metabolic rate is " + rmr +" kcal. You do not eat enough!", Toast.LENGTH_LONG).show();
         }
