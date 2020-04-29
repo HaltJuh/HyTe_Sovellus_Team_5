@@ -41,7 +41,7 @@ public class MaintainFitnessLevel extends AppCompatActivity {
             SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
             SharedPreferences.Editor prefEditor = prefPut.edit();
             prefEditor.putInt(CALORIESEATENKEY, caloriesEaten);
-            prefEditor.putInt(MainActivity.LATESTACTIVITY, 2);
+            prefEditor.commit();
             Intent nextActivity = new Intent(MaintainFitnessLevel.this, DaysActivity.class);
             startActivity(nextActivity);
         }else{
