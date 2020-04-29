@@ -26,7 +26,7 @@ public class Calculator {
        return rmrInt;
     }
 
-    public double getCaloriesBurned() {
+    public double getCaloriesBurned(double metValue) {
         calBurned = Math.round( this.weight * metValue);
 
         return calBurned;
