@@ -7,7 +7,8 @@ public class Calculator {
     private String gender;
     private Double rmr;
     private int rmrInt;
-    private double calBurned;
+    private int calBurned;
+    private int calPerDay;
 
     public Calculator(int age, Double height, Double weight, String gender){
         this.age = age;
@@ -26,9 +27,17 @@ public class Calculator {
        return rmrInt;
     }
 
-    public double getCaloriesBurned(double metValue) {
-        calBurned = Math.round( this.weight * metValue);
+    public int getCaloriesBurned(double timeInHours, double metValue) {
+        calBurned = (int) Math.round( this.weight * metValue * timeInHours);
 
         return calBurned;
     }
+
+    /*
+    public int getCaloriesPerDay() {
+        calPerDay = getRmr() + getCaloriesBurned();
+
+        return calPerDay;
+    }
+     */
 }
