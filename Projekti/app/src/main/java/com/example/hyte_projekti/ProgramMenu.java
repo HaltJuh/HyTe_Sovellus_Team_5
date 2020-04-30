@@ -36,7 +36,7 @@ public class ProgramMenu extends AppCompatActivity {
 
     public void goToLoseWeight(View view) {
         saveLatestActivity(1);
-        Intent intentWeight = new Intent(this, Weightloss.class);
+        Intent intentWeight = new Intent(this, ExActivityOne.class);
         startActivity(intentWeight);
         Toast weightToast = Toast.makeText(ProgramMenu.this, "You chose weight loss, great! \n\nNext Enter your ideal weight and how many calories you approximately eat in a day.", Toast.LENGTH_LONG);
         TextView toastWeightText = (TextView) weightToast.getView().findViewById(android.R.id.message);
