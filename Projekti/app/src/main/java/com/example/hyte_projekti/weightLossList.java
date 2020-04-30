@@ -20,4 +20,10 @@ public class weightLossList {
         exercises.add(new Exercise("Rope Jumping","Rope Jumping with around 100 skips per minute.",11.8));
         exercises.add(new Exercise("Pilates","",3.0));
     }
+    public List<Exercise> getWeightLossList(){
+        return exercises;
+    }
+    public Exercise getWeightLossExercise(int index){
+        return exercises.get(index);
+    }
 }
