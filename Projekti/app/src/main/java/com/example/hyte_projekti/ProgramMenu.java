@@ -38,7 +38,7 @@ public class ProgramMenu extends AppCompatActivity {
         saveLatestActivity(1);
         Intent intentWeight = new Intent(this, Weightloss.class);
         startActivity(intentWeight);
-        Toast weightToast = Toast.makeText(ProgramMenu.this, "You chose weight loss, great! \n\nNext you have to pick an activity from the list to include in your weekly program.", Toast.LENGTH_LONG);
+        Toast weightToast = Toast.makeText(ProgramMenu.this, "You chose weight loss, great! \n\nNext Enter your ideal weight and how many calories you approximately eat in a day.", Toast.LENGTH_LONG);
         TextView toastWeightText = (TextView) weightToast.getView().findViewById(android.R.id.message);
         if(toastWeightText != null) toastWeightText.setGravity(Gravity.CENTER);
         weightToast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0,0);
