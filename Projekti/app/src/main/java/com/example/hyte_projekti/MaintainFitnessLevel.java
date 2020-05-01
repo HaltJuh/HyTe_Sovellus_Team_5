@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +19,7 @@ public class MaintainFitnessLevel extends AppCompatActivity {
     private Double weight;
     private String gender;
     private Calculator calculator;
-    private TextView tvCaloriesEaten;
+    private EditText tvCaloriesEaten;
     private int caloriesEaten;
     private int rmr;
     @Override
