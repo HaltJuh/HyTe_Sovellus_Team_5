@@ -20,6 +20,9 @@ import static com.example.hyte_projekti.MainActivity.WEIGHTKEY;
 
 public class ExActivityOne extends AppCompatActivity {
 
+    public static final String EXTRA_IDEAL_WEIGHT = "idealWeight";
+    public static final String EXTRA_CALORIE_INTAKE = "calorieIntake";
+
     private EditText weightText;
     private EditText calorieText;
     private int idealWeight;
@@ -47,12 +50,19 @@ public class ExActivityOne extends AppCompatActivity {
     private boolean checkIfOk(){
         String weightString = weightText.getText().toString();
         String calorieString = calorieText.getText().toString();
-        if(TextUtils.isEmpty(weightString)||TextUtils.isEmpty(calorieString)){
+        if(TextUtils.isEmpty(weightString)){
             return false;
         }
+        else{
+            idealWeight = Integer.parseInt(weightString);
+        }
+        if(TextUtils.isEmpty(calorieString)){
+            dailyCalories = calculator.getRmr();
+        }
+        else{
+            dailyCalories = Integer.parseInt(calorieString);
+        }
         double lowestHealthyWeight = lowHealthyBMI * Math.pow((Double.longBitsToDouble(prefGet.getLong(HEIGHTKEY,0)))/100,2);
-        idealWeight = Integer.parseInt(weightString);
-        dailyCalories = Integer.parseInt(calorieString);
         Log.d("weighLoss", "onContinue: "+idealWeight+" "+lowestHealthyWeight+" "+Double.longBitsToDouble(prefGet.getLong(HEIGHTKEY,0)));
         if(idealWeight < lowestHealthyWeight){
             Toast.makeText(this, "This ideal weight is too low for your height", Toast.LENGTH_SHORT).show();
@@ -66,7 +76,10 @@ public class ExActivityOne extends AppCompatActivity {
     }
     public void onContinue(View view){
         if(checkIfOk()){
-            Intent intent = new Intent();
+            Intent intent = new Intent(this,WeightLossWeekPlan.class);
+            intent.putExtra(EXTRA_IDEAL_WEIGHT,idealWeight);
+            intent.putExtra(EXTRA_CALORIE_INTAKE,dailyCalories);
+            startActivity(intent);
         }
     }
 }

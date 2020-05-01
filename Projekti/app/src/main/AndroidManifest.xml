@@ -14,6 +14,7 @@
         <activity android:name=".ExActivityOne" />
         <activity android:name=".DaysActivity" />
         <activity android:name=".MenuActivity" />
+        <activity android:name=".WeightLossWeekPlan"></activity>
         <activity
             android:name=".ProgramMenu"
             android:parentActivityName=".MainActivity">
