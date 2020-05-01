@@ -1,5 +1,7 @@
 package com.example.hyte_projekti;
 
+import android.util.Log;
+
 public class Calculator {
     private int age;
     private Double height;
@@ -23,6 +25,7 @@ public class Calculator {
        }else{
            rmr = (447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age)) * 1.3;
        }
+        Log.d("Weigh",age+" "+height+" "+weight);
        rmrInt = (int) Math.round(rmr);
        return rmrInt;
     }
