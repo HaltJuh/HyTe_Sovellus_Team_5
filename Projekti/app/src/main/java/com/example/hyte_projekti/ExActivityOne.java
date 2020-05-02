@@ -26,7 +26,7 @@ public class ExActivityOne extends AppCompatActivity {
     private EditText weightText;
     private EditText calorieText;
     private int idealWeight;
-    private int dailyCalories;
+    private double dailyCalories;
     private Calculator calculator;
     private double lowHealthyBMI = 18.5;
     private SharedPreferences prefGet;
@@ -60,7 +60,7 @@ public class ExActivityOne extends AppCompatActivity {
             dailyCalories = calculator.getRmr();
         }
         else{
-            dailyCalories = Integer.parseInt(calorieString);
+            dailyCalories = Double.parseDouble(calorieString);
         }
         double lowestHealthyWeight = lowHealthyBMI * Math.pow((Double.longBitsToDouble(prefGet.getLong(HEIGHTKEY,0)))/100,2);
         Log.d("weighLoss", "onContinue: "+idealWeight+" "+lowestHealthyWeight+" "+Double.longBitsToDouble(prefGet.getLong(HEIGHTKEY,0)));

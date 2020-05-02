@@ -3,6 +3,9 @@ package com.example.hyte_projekti;
 import android.util.Log;
 
 public class Calculator {
+    public static final int KALORIESTOLOSEKGMULTIPLIER = 9000;
+    public static final double KILOSTOLOSEPERWEEK = 0.75;
+
     private int age;
     private Double height;
     private Double weight;
@@ -11,6 +14,9 @@ public class Calculator {
     private int rmrInt;
     private int calBurned;
     private int calPerDay;
+    private double kilosToLose;
+    private double caloriesToLose;
+    private double extraCalories;
 
     public Calculator(int age, Double height, Double weight, String gender){
         this.age = age;
@@ -25,7 +31,6 @@ public class Calculator {
        }else{
            rmr = (447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age)) * 1.3;
        }
-        Log.d("Weigh",age+" "+height+" "+weight);
        rmrInt = (int) Math.round(rmr);
        return rmrInt;
     }
@@ -34,6 +39,19 @@ public class Calculator {
         calBurned = (int) Math.round( this.weight * metValue * timeInHours);
 
         return calBurned;
+    }
+    public double getCaloriesToBurnPerWeek(double dailyCalories){
+        extraCalories = dailyCalories - getRmr();
+        caloriesToLose = (KILOSTOLOSEPERWEEK*KALORIESTOLOSEKGMULTIPLIER)+(extraCalories*7);
+        Log.d("calories", "getCaloriesToBurnPerWeek: "+dailyCalories);
+        return caloriesToLose;
+    }
+    public int getWeeksToLoseAllExtraWeight(int idealWeight,double dailyCalories){
+        double caloriesToBurnPerWeek = getCaloriesToBurnPerWeek(dailyCalories);
+        kilosToLose = weight-idealWeight;
+        double totalCaloriesToBurn = kilosToLose * KALORIESTOLOSEKGMULTIPLIER;
+        int weeks = (int)Math.round(totalCaloriesToBurn/caloriesToBurnPerWeek);
+        return weeks;
     }
 
     /*

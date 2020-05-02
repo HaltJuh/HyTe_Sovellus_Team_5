@@ -3,12 +3,12 @@ package com.example.hyte_projekti;
 import java.util.ArrayList;
 import java.util.List;
 
-public class weightLossList {
+public class WeightLossList {
 
     private List<Exercise> exercises;
-    private static final weightLossList ourInstance = new weightLossList();
+    private static final WeightLossList ourInstance = new WeightLossList();
 
-    private weightLossList(){
+    private WeightLossList(){
         exercises = new ArrayList<>();
         exercises.add(new Exercise("Walking","Walking at your at your own pace",3.5));
         exercises.add(new Exercise("Jogging","Walking at a moderately faster pace than your normal walking pace",7.0));
@@ -19,6 +19,9 @@ public class weightLossList {
         exercises.add(new Exercise("Hatha Yoga","",2.5));
         exercises.add(new Exercise("Rope Jumping","Rope Jumping with around 100 skips per minute.",11.8));
         exercises.add(new Exercise("Pilates","",3.0));
+    }
+    public static WeightLossList getInstance(){
+        return ourInstance;
     }
     public List<Exercise> getWeightLossList(){
         return exercises;
