@@ -13,11 +13,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class SelectEx extends AppCompatActivity {
+    public static final String CALORIESBURNED = "SavedCaloriesBurned";
     private TextView name;
     private TextView info;
     private EditText time;
     private int i;
     private int timeInt;
+    private int age;
+    private Double height;
+    private Double weight;
+    private String gender;
+    private Calculator calculator;
+    private int calories;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,15 +49,31 @@ public class SelectEx extends AppCompatActivity {
             }else{
                 Bundle b = getIntent().getExtras();
                 final int k = b.getInt(DaysActivity.EXTRA, 0);
-                int correctedI = i + 10;
-                SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
-                SharedPreferences.Editor prefEditor = prefPut.edit();
-                prefEditor.putInt(Integer.toString(k), i);
-                prefEditor.putInt(Integer.toString(correctedI), timeInt);
-                prefEditor.commit();
-                Intent intent = new Intent(this, DaysActivity.class);
-                startActivity(intent);
-                Toast.makeText(this, "Information saved successfully.", Toast.LENGTH_LONG).show();
+                SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
+                int isItEmpty = prefGet.getInt(Integer.toString(k), 100);
+                if(isItEmpty == 100) {
+                    int correctedI = i + 10;
+                    Double multiplier = ExercisesListTwo.getInstance().getExercise(i).getMetMultiplier();
+                    calories = prefGet.getInt(CALORIESBURNED, 0);
+                    age = prefGet.getInt(MainActivity.AGEKEY, 0);
+                    height = Double.longBitsToDouble(prefGet.getLong(MainActivity.HEIGHTKEY, 0));
+                    weight = Double.longBitsToDouble(prefGet.getLong(MainActivity.WEIGHTKEY, 0));
+                    gender = prefGet.getString(MainActivity.GENDERKEY, "Not found.");
+                    calculator = new Calculator(age, height, weight, gender);
+                    int caloriesBurned = calculator.getCaloriesBurned(multiplier, timeInt);
+
+                    SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
+                    SharedPreferences.Editor prefEditor = prefPut.edit();
+                    prefEditor.putInt(Integer.toString(k), i);
+                    prefEditor.putInt(Integer.toString(correctedI), timeInt);
+                    prefEditor.putInt(CALORIESBURNED, (calories + caloriesBurned));
+                    prefEditor.commit();
+                    Intent intent = new Intent(this, DaysActivity.class);
+                    startActivity(intent);
+                    Toast.makeText(this, "Information saved successfully.", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(this, "You have already selected this day's activity!", Toast.LENGTH_LONG).show();
+                }
             }
         }
     }

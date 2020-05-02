@@ -1,5 +1,7 @@
 package com.example.hyte_projekti;
 
+import android.service.autofill.FieldClassification;
+
 public class Calculator {
     private int age;
     private Double height;
@@ -7,6 +9,9 @@ public class Calculator {
     private String gender;
     private Double rmr;
     private int rmrInt;
+    private int weeklyCaloriestoBurn;
+    private Double caloriesBurned;
+    private int caloriesBurnedInt;
 
     public Calculator(int age, Double height, Double weight, String gender){
         this.age = age;
@@ -23,5 +28,17 @@ public class Calculator {
        }
        rmrInt = (int) Math.round(rmr);
        return rmrInt;
+    }
+
+    public int getWeeklyCaloriesToBurn(int caloriesEaten){
+        weeklyCaloriestoBurn = (7 * caloriesEaten) - (7 * getRmr());
+        return  weeklyCaloriestoBurn;
+    }
+
+    public int getCaloriesBurned(Double multiplier, int time){
+        Double timeDouble = Double.valueOf(time);
+        caloriesBurned = multiplier * this.weight * (timeDouble/60);
+        caloriesBurnedInt = (int) Math.round(caloriesBurned);
+        return caloriesBurnedInt;
     }
 }
