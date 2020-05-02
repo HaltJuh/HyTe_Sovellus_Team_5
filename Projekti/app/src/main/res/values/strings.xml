@@ -8,4 +8,7 @@
     <string name="text_buildmuscle">Let\'s build muscle mass!</string>
     <string name="text_fitnesslevel">Let\'s maintain your fitness level!</string>
     <string name="button_mainToMenu">Go to menu</string>
+    <string name="text_buildMuscleIntro">Start creating your weekly plan by selecting \'Create plan\'</string>
+    <string name="text_buildMuscleIntro2">or go back to choose a different program</string>
+    <string name="button_BuildMuscleIntro">Create plan</string>
 </resources>
