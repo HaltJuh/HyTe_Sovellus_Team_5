@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".muscleDayList"></activity>
+        <activity android:name=".MuscleBuildingExerciseInfo"></activity>
+        <activity android:name=".muscleDayList" />
         <activity android:name=".ExActivityThree" />
         <activity android:name=".ExActivityTwo" />
         <activity android:name=".ExActivityOne" />

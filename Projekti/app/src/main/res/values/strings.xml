@@ -11,4 +11,9 @@
     <string name="text_buildMuscleIntro">Start creating your weekly plan by selecting \'Create plan\'</string>
     <string name="text_buildMuscleIntro2">or go back to choose a different program</string>
     <string name="button_BuildMuscleIntro">Create plan</string>
+    <string name="text_muscleInfoName">Info name</string>
+    <string name="text_muscleInfoGuideline">Info Guideline</string>
+    <string name="text_muscleInfoExercises">Info Exercises</string>
+    <string name="text_infoMuscleOptions">Info Options</string>
+    <string name="button_addToPlan">Add to weekly plan</string>
 </resources>

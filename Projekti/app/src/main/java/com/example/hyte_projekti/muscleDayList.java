@@ -3,6 +3,8 @@ package com.example.hyte_projekti;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,6 +25,7 @@ public class muscleDayList extends AppCompatActivity {
         //Bundle b = getIntent().getExtras();
         //int i = b.getInt(muscleDayList.EXTRA, 0);
 
+
         SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         latestActivity = prefGet.getInt(MainActivity.LATESTACTIVITY, 0);
         ListView lv = findViewById(R.id.muscleDayList);
@@ -38,9 +41,7 @@ public class muscleDayList extends AppCompatActivity {
                     Intent nextActivity = new Intent(muscleDayList.this, ExActivityThree.class);
                     nextActivity.putExtra(EXTRA, i);
                     startActivity(nextActivity);
-
             }
         });
-
     }
 }
