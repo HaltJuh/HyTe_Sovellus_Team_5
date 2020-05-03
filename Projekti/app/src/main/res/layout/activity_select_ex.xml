@@ -69,7 +69,7 @@
         android:height="75sp"
         android:background="@android:color/holo_red_dark"
         android:onClick="selectButtonPressed"
-        android:text="Select"
+        android:text="Add to the week plan"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

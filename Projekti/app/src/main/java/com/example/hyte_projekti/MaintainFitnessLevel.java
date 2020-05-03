@@ -36,18 +36,22 @@ public class MaintainFitnessLevel extends AppCompatActivity {
 
     public void caloriesEatenButtonPressed(View view){
         tvCaloriesEaten = findViewById(R.id.caloriesEatenText);
-        caloriesEaten = Integer.parseInt(tvCaloriesEaten.getText().toString());
-        rmr = calculator.getRmr();
-        if(caloriesEaten > rmr){
-            SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
-            SharedPreferences.Editor prefEditor = prefPut.edit();
-            prefEditor.putInt(CALORIESEATENKEY, caloriesEaten);
-            prefEditor.commit();
-            Intent nextActivity = new Intent(MaintainFitnessLevel.this, DaysActivity.class);
-            startActivity(nextActivity);
-        }else{
-            Toast.makeText(this, "Your resting metabolic rate is " + rmr +" kcal. You do not eat enough!", Toast.LENGTH_LONG).show();
+        String text = tvCaloriesEaten.getText().toString().trim();
+        if(text.isEmpty() || text.length() == 0 || text.equals("")){
+            Toast.makeText(this, "You can not leave this text field empty!", Toast.LENGTH_LONG).show();
+        }else {
+            caloriesEaten = Integer.parseInt(tvCaloriesEaten.getText().toString());
+            rmr = calculator.getRmr();
+            if (caloriesEaten > rmr) {
+                SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
+                SharedPreferences.Editor prefEditor = prefPut.edit();
+                prefEditor.putInt(CALORIESEATENKEY, caloriesEaten);
+                prefEditor.commit();
+                Intent nextActivity = new Intent(MaintainFitnessLevel.this, DaysActivity.class);
+                startActivity(nextActivity);
+            } else {
+                Toast.makeText(this, "Your resting metabolic rate is " + rmr + " kcal. You do not eat enough!", Toast.LENGTH_LONG).show();
+            }
         }
-
     }
 }

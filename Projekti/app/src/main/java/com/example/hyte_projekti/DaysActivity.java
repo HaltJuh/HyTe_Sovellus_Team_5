@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,6 +15,7 @@ import android.widget.TextView;
 public class DaysActivity extends AppCompatActivity {
     public static final String EXTRA = "MESSAGE";
     public static final String RESET = "RESET";
+    public static final String CALORIESREMAINING = "CALORIESREMAINING";
     private int latestActivity;
     private int reset;
     private int age;
@@ -31,10 +31,6 @@ public class DaysActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_days);
-        /*SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
-        SharedPreferences.Editor prefEditor = prefPut.edit();
-        prefEditor.putInt(RESET, 0);
-        prefEditor.commit();*/
         resetValues();
         updateUI();
         SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
@@ -79,11 +75,10 @@ public class DaysActivity extends AppCompatActivity {
                 prefEditor.putInt(Integer.toString(i), 100);
                 prefEditor.commit();
             }
-            for (int i = 0; i < 9; i++){
-                int corrected = i + 10;
+            for (int i = 10; i < 78; i++){
                 SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
                 SharedPreferences.Editor prefEditor = prefPut.edit();
-                prefEditor.putInt(Integer.toString(corrected), 0);
+                prefEditor.putInt(Integer.toString(i), 0);
                 prefEditor.commit();
             }
             SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
@@ -107,5 +102,15 @@ public class DaysActivity extends AppCompatActivity {
 
         caloriesAdded = findViewById(R.id.caloriesAdded);
         caloriesAdded.setText(Integer.toString(caloriesBurned) + "/" + Integer.toString(caloriesToBurn) + " kcal");
+    }
+
+    public void DoneButtonPressed(View view){
+        SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor prefEditor = prefPut.edit();
+        prefEditor.putInt(CALORIESREMAINING, caloriesToBurn);
+        prefEditor.putInt(ProgramMenu.ISITFIRSTTIME, 1);
+        prefEditor.commit();
+        Intent nextActivity = new Intent(DaysActivity.this, WeekPlanActivity.class);
+        startActivity(nextActivity);
     }
 }

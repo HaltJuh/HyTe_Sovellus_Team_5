@@ -52,7 +52,7 @@ public class SelectEx extends AppCompatActivity {
                 SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
                 int isItEmpty = prefGet.getInt(Integer.toString(k), 100);
                 if(isItEmpty == 100) {
-                    int correctedI = i + 10;
+                    int correctedI = (10 * k) + i + 10;
                     Double multiplier = ExercisesListTwo.getInstance().getExercise(i).getMetMultiplier();
                     calories = prefGet.getInt(CALORIESBURNED, 0);
                     age = prefGet.getInt(MainActivity.AGEKEY, 0);

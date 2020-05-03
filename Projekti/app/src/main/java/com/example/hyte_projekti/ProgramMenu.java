@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ProgramMenu extends AppCompatActivity {
-
+    public static final String ISITFIRSTTIME = "FirstTimeOrNot";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,14 +47,24 @@ public class ProgramMenu extends AppCompatActivity {
     }
 
     public void goToMaintain(View view) {
-        saveLatestActivity(2);
-        Intent intentMaintain = new Intent(this, MaintainFitnessLevel.class);
-        startActivity(intentMaintain);
-        Toast maintainToast = Toast.makeText(ProgramMenu.this, "Fantastic choice! \n\nNext pick an activity from the list to include in your weekly program.", Toast.LENGTH_LONG);
-        TextView toastMaintainText = (TextView) maintainToast.getView().findViewById(android.R.id.message);
-        if(toastMaintainText != null) toastMaintainText.setGravity(Gravity.CENTER);
-        maintainToast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0,0);
-        maintainToast.show();
+        SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
+        int firstTime = prefGet.getInt(ISITFIRSTTIME, 0);
+        if(firstTime == 0) {
+            saveLatestActivity(2);
+            Intent intentMaintain = new Intent(this, MaintainFitnessLevel.class);
+            startActivity(intentMaintain);
+            Toast maintainToast = Toast.makeText(ProgramMenu.this, "Fantastic choice! \n\nNext pick an activity from the list to include in your weekly program.", Toast.LENGTH_LONG);
+            TextView toastMaintainText = (TextView) maintainToast.getView().findViewById(android.R.id.message);
+            if (toastMaintainText != null) toastMaintainText.setGravity(Gravity.CENTER);
+            maintainToast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
+            maintainToast.show();
+        }else if(firstTime == 1){
+            Intent intentMaintain = new Intent(this, WeekPlanActivity.class);
+            startActivity(intentMaintain);
+        }else {
+            Intent intentMaintain = new Intent(this, DaysActivity.class);
+            startActivity(intentMaintain);
+        }
     }
 
     public void saveLatestActivity(int i){

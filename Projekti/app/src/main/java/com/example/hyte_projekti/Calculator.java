@@ -22,9 +22,9 @@ public class Calculator {
 
     public int getRmr(){
        if(gender.equals("Male")){
-           rmr = (88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age)) * 1.3;
+           rmr = (88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age)) * 1.5;
        }else{
-           rmr = (447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age)) * 1.3;
+           rmr = (447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age)) * 1.5;
        }
        rmrInt = (int) Math.round(rmr);
        return rmrInt;
