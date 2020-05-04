@@ -77,4 +77,9 @@ public class WeekPlanActivity extends AppCompatActivity {
         int calories = prefGet.getInt(DaysActivity.CALORIESREMAINING, 0);
         caloriesView.setText("You have " + calories + " kcal left to burn this week");
     }
+
+    public void backToMenuButton(View view){
+        Intent nextActivity = new Intent(WeekPlanActivity.this, ProgramMenu.class);
+        startActivity(nextActivity);
+    }
 }

@@ -18,6 +18,15 @@
             android:parentActivityName=".ExActivityOne" />
         <activity android:name=".WpExerciseActivity" />
         <activity android:name=".WeekPlanActivity" />
+            android:parentActivityName=".ExActivityOne"></activity>
+        <activity android:name=".WpExerciseActivity"></activity>
+        <activity
+            android:name=".WeekPlanActivity"
+            android:parentActivityName=".ProgramMenu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ProgramMenu" />
+        </activity>
         <activity android:name=".TestActivity" />
         <activity
             android:name=".SelectEx"
