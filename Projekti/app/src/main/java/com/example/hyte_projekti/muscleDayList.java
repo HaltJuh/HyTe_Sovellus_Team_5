@@ -15,12 +15,13 @@ import android.widget.ListView;
 
 public class muscleDayList extends AppCompatActivity {
 
+    public static final String RESET = "RESET";
     public static final String EXTRA = "MESSAGE";
     private int latestActivity;
     private int caloriesPerDay; //this will hold the value of calories burned in a day
     private int caloriesToEat; //this will hold the value of calores burned + to eat more
     private int reset;
-    public static final String RESET = "RESET";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +85,7 @@ public class muscleDayList extends AppCompatActivity {
         SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
         //prefEditor.putInt(CALORIESREMAINING, caloriesToBurn);
-        prefEditor.putInt(ProgramMenu.ISITFIRSTTIME, 1);
+        prefEditor.putInt(ProgramMenu.MUSCLEPROGRAMRESET, 1);
         prefEditor.commit();
         Intent nextActivity = new Intent(muscleDayList.this, MuscleWeekPlanActivity.class);
         startActivity(nextActivity);

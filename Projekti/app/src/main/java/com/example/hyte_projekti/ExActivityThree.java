@@ -12,7 +12,6 @@ import android.widget.ListView;
 
 public class ExActivityThree extends AppCompatActivity {
 
-    public static final String EXTRA = "MESSAGE";
     public static final String EXEXTRA = "EXMESSAGE";
 
     @Override
@@ -37,7 +36,7 @@ public class ExActivityThree extends AppCompatActivity {
         lv.setOnItemClickListener((adapterView, view, i, l) -> {
             Intent nextActivity = new Intent(ExActivityThree.this, MuscleBuildingExerciseInfo.class);
             nextActivity.putExtra(EXEXTRA, i);
-            nextActivity.putExtra(DaysActivity.EXTRA, k);
+            nextActivity.putExtra(muscleDayList.EXTRA, k);
             startActivity(nextActivity);
         });
     }

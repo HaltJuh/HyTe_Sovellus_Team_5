@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 public class ProgramMenu extends AppCompatActivity {
     public static final String ISITFIRSTTIME = "FirstTimeOrNot";
+    public static final String MUSCLEPROGRAMRESET = "MuscleProgram";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,17 +25,19 @@ public class ProgramMenu extends AppCompatActivity {
     }
 
     public void goToMuscle(View view) {
-        saveLatestActivity(3);
-        Intent intentMuscle = new Intent(this, BuildMuscle.class);
-        startActivity(intentMuscle);
-        /*
-        Toast muscleToast = Toast.makeText(ProgramMenu.this, "You chose building muscle, awesome! \n\nPick an activity from the list to include in your weekly program.", Toast.LENGTH_LONG);
-        TextView toastMuscleText = (TextView) muscleToast.getView().findViewById(android.R.id.message);
-        if(toastMuscleText != null) toastMuscleText.setGravity(Gravity.CENTER);
-        muscleToast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0,0);
-        muscleToast.show();
-
-         */
+        SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
+        int muscleProgram = prefGet.getInt(MUSCLEPROGRAMRESET, 0);
+        if(muscleProgram == 0) {
+            saveLatestActivity(3);
+            Intent intentMuscle = new Intent(this, BuildMuscle.class);
+            startActivity(intentMuscle);
+        }else if(muscleProgram == 1){
+            Intent intentMuscle = new Intent(this, MuscleWeekPlanActivity.class);
+            startActivity(intentMuscle);
+        }else {
+            Intent intentMuscle = new Intent(this, muscleDayList.class);
+            startActivity(intentMuscle);
+        }
     }
 
     public void goToLoseWeight(View view) {
