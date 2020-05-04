@@ -27,11 +27,14 @@ public class ProgramMenu extends AppCompatActivity {
         saveLatestActivity(3);
         Intent intentMuscle = new Intent(this, BuildMuscle.class);
         startActivity(intentMuscle);
+        /*
         Toast muscleToast = Toast.makeText(ProgramMenu.this, "You chose building muscle, awesome! \n\nPick an activity from the list to include in your weekly program.", Toast.LENGTH_LONG);
         TextView toastMuscleText = (TextView) muscleToast.getView().findViewById(android.R.id.message);
         if(toastMuscleText != null) toastMuscleText.setGravity(Gravity.CENTER);
         muscleToast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0,0);
         muscleToast.show();
+
+         */
     }
 
     public void goToLoseWeight(View view) {

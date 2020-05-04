@@ -23,6 +23,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ExActivityTwo" />
         </activity>
+        <activity android:name=".IconScreen"></activity>
+        <activity android:name=".MuscleBuildingExerciseInfo" />
+        <activity android:name=".muscleDayList" />
         <activity android:name=".ExActivityThree" />
         <activity android:name=".ExActivityTwo" />
         <activity android:name=".ExActivityOne" />
