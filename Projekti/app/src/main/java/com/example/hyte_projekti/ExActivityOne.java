@@ -64,7 +64,6 @@ public class ExActivityOne extends AppCompatActivity {
                     R.layout.days_item_layout,
                     days.getDays()
             ));
-
             weekPlanView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
@@ -119,7 +118,7 @@ public class ExActivityOne extends AppCompatActivity {
     }
     public void onContinue(View view){
         if(checkIfOk()){
-            //Reset();
+            Reset();
             Intent intent = new Intent(this,WeightLossWeekPlan.class);
             startActivity(intent);
         }
