@@ -17,6 +17,9 @@ public class muscleDayList extends AppCompatActivity {
 
     public static final String EXTRA = "MESSAGE";
     private int latestActivity;
+    private int caloriesPerDay; //this will hold the value of calories burned in a day
+    private int caloriesToEat; //this will hold the value of calores burned + to eat more
+    private int reset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,4 +47,8 @@ public class muscleDayList extends AppCompatActivity {
             }
         });
     }
+    // DaysActivity:
+    // UpdateUI method with calculations to caloriesPerDay AND caloriesToEat!!
+    // resetValues method to reset saved values of weekly plan!
+    // "Done" button method and button for XML view that takes user to MuscleWeekPlanActivity"
 }

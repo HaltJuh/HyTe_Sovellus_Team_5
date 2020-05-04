@@ -26,4 +26,8 @@ public class MuscleBuildingExerciseInfo extends AppCompatActivity {
         ((TextView)findViewById(R.id.infoExercise)).setText(GymExerciseList.getThisInstance().getGymExercises().get(i).getInfo());
 
     }
+
+    // SelectEx:
+    // SelectExerciseButtonPressed method to select the time of exercise done and then saves exercise into week list!
+
 }

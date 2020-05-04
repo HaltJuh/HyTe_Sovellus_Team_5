@@ -38,6 +38,7 @@ public class ExActivityThree extends AppCompatActivity {
             startActivity(nextActivity);
         });
     }
+
     private void showDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(ExActivityThree.this);
         builder.setTitle("Muscle Building Info");
