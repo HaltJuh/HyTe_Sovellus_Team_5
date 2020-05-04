@@ -14,7 +14,6 @@ public class Calculator {
     private int rmrInt;
     private int calBurned;
     private int calPerDay;
-    private double kilosToLose;
     private double caloriesToLose;
     private double extraCalories;
 
@@ -27,31 +26,32 @@ public class Calculator {
 
     public int getRmr(){
        if(gender.equals("Male")){
-           rmr = (88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age)) * 1.3;
+           rmr = (88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age)) * 1.5;
        }else{
-           rmr = (447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age)) * 1.3;
+           rmr = (447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age)) * 1.5;
        }
-       rmrInt = (int) Math.round(rmr);
+       rmrInt = (int) (Math.round(rmr));
        return rmrInt;
     }
 
     public int getCaloriesBurned(double timeInHours, double metValue) {
         calBurned = (int) Math.round( this.weight * metValue * timeInHours);
-
         return calBurned;
     }
     public double getCaloriesToBurnPerWeek(double dailyCalories){
         extraCalories = dailyCalories - getRmr();
         caloriesToLose = (KILOSTOLOSEPERWEEK*KALORIESTOLOSEKGMULTIPLIER)+(extraCalories*7);
-        Log.d("calories", "getCaloriesToBurnPerWeek: "+dailyCalories);
         return caloriesToLose;
     }
     public int getWeeksToLoseAllExtraWeight(int idealWeight,double dailyCalories){
         double caloriesToBurnPerWeek = getCaloriesToBurnPerWeek(dailyCalories);
-        kilosToLose = weight-idealWeight;
-        double totalCaloriesToBurn = kilosToLose * KALORIESTOLOSEKGMULTIPLIER;
+        double totalCaloriesToBurn = getTotalCaloriesToBurn(idealWeight,weight);
         int weeks = (int)Math.round(totalCaloriesToBurn/caloriesToBurnPerWeek);
         return weeks;
+    }
+    public double getTotalCaloriesToBurn(int targetWeight,double currentWeight){
+        double kilosToLose = currentWeight-targetWeight;
+        return kilosToLose*KALORIESTOLOSEKGMULTIPLIER;
     }
 
     /*

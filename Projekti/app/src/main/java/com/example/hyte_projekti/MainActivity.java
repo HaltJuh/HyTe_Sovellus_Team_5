@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String GENDERKEY = "SavedGender";
     public static final String TARGETACTIVITY = "SavedActivity";
     public static final String LATESTACTIVITY = "SavedActivityLatest";
-    public static final String WEEKLYCALORIEKEY = "WeeklyCalories";
+    public static final String WEEKPLANKEY = "weekPlan";
+    public static final String WEEKLYCALORIESTOBURN = "CaloriesToBurn";
 
     private int targetActivity;
     private EditText ageView;
@@ -55,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         targetActivity = prefGet.getInt(TARGETACTIVITY, 0);
 
         if(targetActivity == 1){
+            SharedPreferences.Editor prefEditor = prefGet.edit();
+            prefEditor.putInt(WEEKPLANKEY,0);
+            prefEditor.commit();
             Log.i("Activity", "Menu");
             Intent intent = new Intent(this, ProgramMenu.class);
             startActivity(intent);

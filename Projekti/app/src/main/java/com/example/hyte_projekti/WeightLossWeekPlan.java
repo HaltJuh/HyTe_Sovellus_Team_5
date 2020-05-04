@@ -15,13 +15,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static com.example.hyte_projekti.ExActivityOne.EXTRA_CALORIE_INTAKE;
-import static com.example.hyte_projekti.ExActivityOne.EXTRA_IDEAL_WEIGHT;
+
+import static com.example.hyte_projekti.ExActivityOne.CALORIE_INTAKE;
+import static com.example.hyte_projekti.ExActivityOne.IDEAL_WEIGHT;
 import static com.example.hyte_projekti.MainActivity.AGEKEY;
 import static com.example.hyte_projekti.MainActivity.GENDERKEY;
 import static com.example.hyte_projekti.MainActivity.HEIGHTKEY;
 import static com.example.hyte_projekti.MainActivity.KEY;
-import static com.example.hyte_projekti.MainActivity.WEEKLYCALORIEKEY;
+import static com.example.hyte_projekti.MainActivity.WEEKLYCALORIESTOBURN;
+import static com.example.hyte_projekti.MainActivity.WEEKPLANKEY;
 import static com.example.hyte_projekti.MainActivity.WEIGHTKEY;
 
 public class WeightLossWeekPlan extends AppCompatActivity {
@@ -30,6 +32,7 @@ public class WeightLossWeekPlan extends AppCompatActivity {
     public static final String CURRENTCALORIETEXT = "The amount of kilocalories your\n current week plan burns: ";
     public static final String EXTRA_WEEK_INDEX = "weekIndex";
     private DaysList days;
+    private WeightLossList exercises;
     private ListView weekList;
     private TextView totalCalorieView;
     private TextView currentCalorieView;
@@ -47,6 +50,7 @@ public class WeightLossWeekPlan extends AppCompatActivity {
         setContentView(R.layout.activity_weight_loss_week_planner);
         Bundle extras = getIntent().getExtras();
         days = DaysList.getInstance();
+        exercises = WeightLossList.getInstance();
         weekList = findViewById(R.id.weekList);
         weekList.setAdapter(new ArrayAdapter<Days>(
                 this,
@@ -60,13 +64,17 @@ public class WeightLossWeekPlan extends AppCompatActivity {
                 Double.longBitsToDouble(prefGet.getLong(WEIGHTKEY,0)),
                 prefGet.getString(GENDERKEY,"Male")
         );
-        idealWeight = extras.getInt(EXTRA_IDEAL_WEIGHT);
-        dailyCalories = extras.getDouble(EXTRA_CALORIE_INTAKE);
+        idealWeight = prefGet.getInt(IDEAL_WEIGHT,0);
+        dailyCalories = Double.longBitsToDouble(prefGet.getLong(CALORIE_INTAKE,0));
         Log.d("calories", ""+dailyCalories);
         caloriesToLosePerWeek = calculator.getCaloriesToBurnPerWeek(dailyCalories);
         weeksToLoseExtraWeight = calculator.getWeeksToLoseAllExtraWeight(idealWeight,dailyCalories);
-        currentBurnedWeeklyCalories = Double.longBitsToDouble(prefGet.getLong(WEEKLYCALORIEKEY,0));
-
+        for(int i=0;i<days.getDays().size();i++){
+            Days day = days.getDay(i);
+            int time = prefGet.getInt(day.getSaveKey(),0);
+            Exercise exercise = exercises.getWeightLossExercise(prefGet.getInt(Integer.toString(day.getIndex()),0));
+            currentBurnedWeeklyCalories += calculator.getCaloriesBurned(time/60,exercise.getMetMultiplier());
+        }
         totalCalorieView = findViewById(R.id.totalWeeklyCaloriesView);
         currentCalorieView = findViewById(R.id.currentWeeklyCaloriesView);
         totalCalorieView.setText(TOTALCALORIETEXT+caloriesToLosePerWeek);
@@ -75,17 +83,20 @@ public class WeightLossWeekPlan extends AppCompatActivity {
         weekList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-
-                int index = i++;
-                if(i==7){
-                    i=0;
-                }
-
-                Log.d("Click",""+days.getDay(index).getName());
+                Log.d("Click",""+days.getDay(i).getName());
                 Intent intent = new Intent(WeightLossWeekPlan.this,WeightLossExercises.class);
-                intent.putExtra(EXTRA_WEEK_INDEX,index);
+                intent.putExtra(EXTRA_WEEK_INDEX,i);
                 startActivity(intent);
             }
         });
+    }
+    public void onDone(View view){
+        SharedPreferences prefPut = getSharedPreferences(KEY,Activity.MODE_PRIVATE);
+        SharedPreferences.Editor prefEditor = prefPut.edit();
+        prefEditor.putInt(WEEKPLANKEY,1);
+        prefEditor.putLong(WEEKLYCALORIESTOBURN,Double.doubleToLongBits(currentBurnedWeeklyCalories));
+        prefEditor.commit();
+        Intent intent = new Intent(WeightLossWeekPlan.this,ExActivityOne.class);
+        startActivity(intent);
     }
 }

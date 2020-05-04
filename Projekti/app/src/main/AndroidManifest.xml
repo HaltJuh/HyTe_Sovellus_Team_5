@@ -9,14 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ExActivityThree"></activity>
+        <activity
+            android:name=".DayActivity"
+            android:parentActivityName=".ExActivityOne"></activity>
+        <activity android:name=".ExActivityThree" />
         <activity android:name=".ExActivityTwo" />
         <activity android:name=".ExActivityOne" />
         <activity android:name=".DaysActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".WeightLossWeekPlan"></activity>
-        <activity android:name=".WeightLossExercises"></activity>
-        <activity android:name=".WeightLossExercise"></activity>
+        <activity android:name=".WeightLossWeekPlan" />
+        <activity android:name=".WeightLossExercises" />
+        <activity android:name=".WeightLossExercise" />
         <activity
             android:name=".ProgramMenu"
             android:parentActivityName=".MainActivity">
