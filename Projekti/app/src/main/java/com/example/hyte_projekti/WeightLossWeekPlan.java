@@ -16,9 +16,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import java.util.Calendar;
+import java.util.Date;
+
 import static com.example.hyte_projekti.ExActivityOne.CALORIE_INTAKE;
 import static com.example.hyte_projekti.ExActivityOne.IDEAL_WEIGHT;
 import static com.example.hyte_projekti.MainActivity.AGEKEY;
+import static com.example.hyte_projekti.MainActivity.CREATIONDAY;
 import static com.example.hyte_projekti.MainActivity.GENDERKEY;
 import static com.example.hyte_projekti.MainActivity.HEIGHTKEY;
 import static com.example.hyte_projekti.MainActivity.KEY;
@@ -39,6 +43,7 @@ public class WeightLossWeekPlan extends AppCompatActivity {
     private TextView currentCalorieView;
     private SharedPreferences prefGet;
     private Calculator calculator;
+    private Calendar calendar;
 
     private int idealWeight;
     private double dailyCalories;
@@ -97,7 +102,11 @@ public class WeightLossWeekPlan extends AppCompatActivity {
         prefEditor.putInt(WEEKPLANKEY,1);
         prefEditor.putLong(WEEKLYCALORIESTOBURN,Double.doubleToLongBits(currentBurnedWeeklyCalories));
         prefEditor.putLong(CALORIESBURNEDWEEKLY,Double.doubleToLongBits(currentBurnedWeeklyCalories));
+        calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        prefEditor.putInt(CREATIONDAY,calendar.get(Calendar.DAY_OF_WEEK));
         prefEditor.commit();
+        Log.d("Calendar",""+calendar.get(Calendar.DAY_OF_WEEK));
         Intent intent = new Intent(WeightLossWeekPlan.this,ExActivityOne.class);
         startActivity(intent);
     }

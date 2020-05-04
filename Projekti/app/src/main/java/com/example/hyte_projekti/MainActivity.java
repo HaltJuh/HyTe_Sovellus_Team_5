@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String WEEKPLANKEY = "weekPlan";
     public static final String WEEKLYCALORIESTOBURN = "CaloriesToBurn";
     public static final String TOTALCALORIESLEFTTOBURNKEY = "TotalCaloriesLeft";
+    public static final String CREATIONDAY = "CreationDay";
 
     private int targetActivity;
     private EditText ageView;

@@ -16,7 +16,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 import static com.example.hyte_projekti.MainActivity.AGEKEY;
+import static com.example.hyte_projekti.MainActivity.CREATIONDAY;
 import static com.example.hyte_projekti.MainActivity.GENDERKEY;
 import static com.example.hyte_projekti.MainActivity.HEIGHTKEY;
 import static com.example.hyte_projekti.MainActivity.KEY;
@@ -38,6 +41,7 @@ public class ExActivityOne extends AppCompatActivity {
     private EditText calorieText;
     private TextView caloriesToBurn;
     private TextView kilosLostPerWeek;
+    private TextView dayWiew;
     private int idealWeight;
     private double dailyCalories;
     private Calculator calculator;
@@ -46,6 +50,7 @@ public class ExActivityOne extends AppCompatActivity {
     private SharedPreferences prefPut;
     private DaysList days;
     private ListView weekPlanView;
+    Calendar calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +91,33 @@ public class ExActivityOne extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+            dayWiew = findViewById(R.id.creationDay);
+            switch (prefGet.getInt(CREATIONDAY,0)){
+                case 1:
+                    dayWiew.setText("Reset every Sunday");
+                    break;
+                case 2:
+                    dayWiew.setText("Reset every Monday");
+                    break;
+                case 3:
+                    dayWiew.setText("Reset every Tuesday");
+                    break;
+                case 4:
+                    dayWiew.setText("Reset every Wednesday");
+                    break;
+                case 5:
+                    dayWiew.setText("Reset every Thursday");
+                    break;
+                case 6:
+                    dayWiew.setText("Reset every Friday");
+                    break;
+                case 7:
+                    dayWiew.setText("Reset every Saturday");
+                    break;
+                default:
+                    dayWiew.setText("I am Error.");
+                    break;
+            }
         }else{
             setContentView(R.layout.activity_ex_one);
             weightText = findViewById(R.id.weightView);
@@ -128,6 +160,20 @@ public class ExActivityOne extends AppCompatActivity {
             Intent intent = new Intent(this,WeightLossWeekPlan.class);
             startActivity(intent);
         }
+    }
+    public void onResetButton(View view){
+        SharedPreferences.Editor prefEditor = prefGet.edit();
+        for(int i=0;i<days.getDays().size();i++) {
+            Days day = days.getDay(i);
+            prefEditor.putInt(day.getDoneKey(),0);
+        }
+        double weeklyCalories = Double.longBitsToDouble(prefGet.getLong(CALORIESBURNEDWEEKLY,0));
+        prefEditor.putLong(WEEKLYCALORIESTOBURN,Double.doubleToLongBits(weeklyCalories));
+        prefEditor.putInt(CREATIONDAY,calendar.DAY_OF_WEEK);
+        prefEditor.commit();
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
     private void reset(){
         prefPut = getSharedPreferences(KEY,Activity.MODE_PRIVATE);
