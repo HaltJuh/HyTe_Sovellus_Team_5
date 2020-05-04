@@ -23,6 +23,7 @@ import static com.example.hyte_projekti.MainActivity.KEY;
 import static com.example.hyte_projekti.MainActivity.WEEKLYCALORIESTOBURN;
 import static com.example.hyte_projekti.MainActivity.WEEKPLANKEY;
 import static com.example.hyte_projekti.MainActivity.WEIGHTKEY;
+import static com.example.hyte_projekti.WeightLossWeekPlan.CALORIESBURNEDWEEKLY;
 
 public class ExActivityOne extends AppCompatActivity {
 
@@ -36,6 +37,7 @@ public class ExActivityOne extends AppCompatActivity {
     private EditText weightText;
     private EditText calorieText;
     private TextView caloriesToBurn;
+    private TextView kilosLostPerWeek;
     private int idealWeight;
     private double dailyCalories;
     private Calculator calculator;
@@ -53,10 +55,18 @@ public class ExActivityOne extends AppCompatActivity {
         prefGet = getSharedPreferences(KEY, Activity.MODE_PRIVATE);
         Log.d("Created",""+prefGet.getInt(WEEKPLANKEY,0));
         days = DaysList.getInstance();
+        calculator = new Calculator(
+                prefGet.getInt(AGEKEY,0),
+                Double.longBitsToDouble(prefGet.getLong(HEIGHTKEY,0)),
+                Double.longBitsToDouble(prefGet.getLong(WEIGHTKEY,0)),
+                prefGet.getString(GENDERKEY,"Male"));
         if(prefGet.getInt(WEEKPLANKEY,0)==1){
             setContentView(R.layout.activity_weightloss_week_plan);
             caloriesToBurn = findViewById(R.id.caloriesToBurn);
             caloriesToBurn.setText("You have "+Double.longBitsToDouble(prefGet.getLong(WEEKLYCALORIESTOBURN,0))+" kcal left to burn this week");
+            kilosLostPerWeek = findViewById(R.id.kilosLostPerWeek);
+            double kilosLost = Math.floor(calculator.getKilosLostPerWeek(Double.longBitsToDouble(prefGet.getLong(CALORIESBURNEDWEEKLY,0)))*100)/100;
+            kilosLostPerWeek.setText("Kilos lost per week "+kilosLost+"kg");
             exercises = WeightLossList.getInstance();
             weekPlanView = findViewById(R.id.weightLossPlan);
             weekPlanView.setAdapter(new ArrayAdapter<Days>(
@@ -81,11 +91,7 @@ public class ExActivityOne extends AppCompatActivity {
             weightText = findViewById(R.id.weightView);
             calorieText = findViewById(R.id.calorieView);
         }
-        calculator = new Calculator(
-                prefGet.getInt(AGEKEY,0),
-                Double.longBitsToDouble(prefGet.getLong(HEIGHTKEY,0)),
-                Double.longBitsToDouble(prefGet.getLong(WEIGHTKEY,0)),
-                prefGet.getString(GENDERKEY,"Male"));
+
 
     }
 
@@ -118,12 +124,12 @@ public class ExActivityOne extends AppCompatActivity {
     }
     public void onContinue(View view){
         if(checkIfOk()){
-            Reset();
+            reset();
             Intent intent = new Intent(this,WeightLossWeekPlan.class);
             startActivity(intent);
         }
     }
-    private void Reset(){
+    private void reset(){
         prefPut = getSharedPreferences(KEY,Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
         prefEditor.putInt(IDEAL_WEIGHT,idealWeight);

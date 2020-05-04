@@ -31,6 +31,7 @@ public class WeightLossWeekPlan extends AppCompatActivity {
     public static final String TOTALCALORIETEXT= "The amount of kilocalories you\n should burn weekly: ";
     public static final String CURRENTCALORIETEXT = "The amount of kilocalories your\n current week plan burns: ";
     public static final String EXTRA_WEEK_INDEX = "weekIndex";
+    public static final String CALORIESBURNEDWEEKLY = "CaloriesBurnedWeekly";
     private DaysList days;
     private WeightLossList exercises;
     private ListView weekList;
@@ -95,6 +96,7 @@ public class WeightLossWeekPlan extends AppCompatActivity {
         SharedPreferences.Editor prefEditor = prefPut.edit();
         prefEditor.putInt(WEEKPLANKEY,1);
         prefEditor.putLong(WEEKLYCALORIESTOBURN,Double.doubleToLongBits(currentBurnedWeeklyCalories));
+        prefEditor.putLong(CALORIESBURNEDWEEKLY,Double.doubleToLongBits(currentBurnedWeeklyCalories));
         prefEditor.commit();
         Intent intent = new Intent(WeightLossWeekPlan.this,ExActivityOne.class);
         startActivity(intent);

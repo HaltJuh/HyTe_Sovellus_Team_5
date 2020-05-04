@@ -42,6 +42,9 @@ public class Calculator {
         caloriesToLose = (KILOSTOLOSEPERWEEK*KALORIESTOLOSEKGMULTIPLIER)+(extraCalories*7);
         return caloriesToLose;
     }
+    public double getKilosLostPerWeek(double caloriesBurnedPerWeek){
+        return caloriesBurnedPerWeek/KALORIESTOLOSEKGMULTIPLIER;
+    }
     public int getWeeksToLoseAllExtraWeight(int idealWeight,double dailyCalories){
         double caloriesToBurnPerWeek = getCaloriesToBurnPerWeek(dailyCalories);
         double totalCaloriesToBurn = getTotalCaloriesToBurn(idealWeight,weight);
