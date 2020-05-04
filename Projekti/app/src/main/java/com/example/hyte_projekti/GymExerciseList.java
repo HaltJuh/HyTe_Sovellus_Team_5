@@ -94,4 +94,8 @@ public class GymExerciseList {
     public List<Exercise> getGymExercises() {
         return gymExercises;
     }
+
+    public Exercise getGymExercise(int i) {
+        return gymExercises.get(i);
+    }
 }

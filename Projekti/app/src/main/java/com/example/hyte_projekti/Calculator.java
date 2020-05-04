@@ -19,6 +19,7 @@ public class Calculator {
     private int weeklyCaloriestoBurn;
     private Double caloriesBurned;
     private int caloriesBurnedInt;
+    private int caloriesBurnedAtGym;
 
     public Calculator(int age, Double height, Double weight, String gender){
         this.age = age;
@@ -67,6 +68,12 @@ public class Calculator {
         return caloriesBurnedInt;
     }
 
+    public int getCalPerDay(int time) {
+        Double timeDouble = Double.valueOf(time);
+        caloriesBurnedAtGym = (int) Math.round(5.0 * this.weight * (timeDouble/60));
+        calPerDay = caloriesBurnedAtGym;
+        return calPerDay;
+    }
     /*
     public int getCaloriesPerDay() {
         calPerDay = getRmr() + getCaloriesBurned();

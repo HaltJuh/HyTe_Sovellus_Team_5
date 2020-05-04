@@ -8,9 +8,36 @@
 
     <ListView
         android:id="@+id/muscleDayList"
-        android:layout_width="285dp"
-        android:layout_height="556dp"
+        android:layout_width="297dp"
+        android:layout_height="435dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/doneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/buttondesign"
+        android:textColor="@android:color/white"
+        android:onClick="DoneButtonPressed"
+        android:text="Done"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/muscleDayList" />
+
+    <TextView
+        android:id="@+id/caloriesToEat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create your plan"
+        android:textColor="#0054A6"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/muscleDayList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

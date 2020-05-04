@@ -12,7 +12,7 @@ import android.widget.ListView;
 
 public class ExActivityThree extends AppCompatActivity {
 
-    public static final String EXTRA = "MESSAGE";
+    public static final String EXEXTRA = "EXMESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,8 @@ public class ExActivityThree extends AppCompatActivity {
         if(ifShowDialog) {
             showDialog();
         }
-
+        Bundle b = getIntent().getExtras();
+        final int k = b.getInt(muscleDayList.EXTRA, 0);
         ListView lv = findViewById(R.id.muscleExerciseList);
 
         lv.setAdapter(new ArrayAdapter<Exercise>(
@@ -34,10 +35,12 @@ public class ExActivityThree extends AppCompatActivity {
         ));
         lv.setOnItemClickListener((adapterView, view, i, l) -> {
             Intent nextActivity = new Intent(ExActivityThree.this, MuscleBuildingExerciseInfo.class);
-            nextActivity.putExtra(EXTRA, i);
+            nextActivity.putExtra(EXEXTRA, i);
+            nextActivity.putExtra(muscleDayList.EXTRA, k);
             startActivity(nextActivity);
         });
     }
+
     private void showDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(ExActivityThree.this);
         builder.setTitle("Muscle Building Info");

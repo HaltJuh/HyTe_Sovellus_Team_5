@@ -20,6 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
+        android:background="@drawable/buttondesign"
+        android:textColor="@android:color/white"
         android:onClick="DoneButtonPressed"
         android:text="Done"
         app:layout_constraintBottom_toBottomOf="parent"
