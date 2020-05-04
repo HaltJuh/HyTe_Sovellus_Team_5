@@ -73,7 +73,7 @@ public class WeightLossWeekPlan extends AppCompatActivity {
             Days day = days.getDay(i);
             int time = prefGet.getInt(day.getSaveKey(),0);
             Exercise exercise = exercises.getWeightLossExercise(prefGet.getInt(Integer.toString(day.getIndex()),0));
-            currentBurnedWeeklyCalories += calculator.getCaloriesBurned(time/60,exercise.getMetMultiplier());
+            currentBurnedWeeklyCalories += calculator.getCaloriesBurned(exercise.getMetMultiplier(),time);
         }
         totalCalorieView = findViewById(R.id.totalWeeklyCaloriesView);
         currentCalorieView = findViewById(R.id.currentWeeklyCaloriesView);

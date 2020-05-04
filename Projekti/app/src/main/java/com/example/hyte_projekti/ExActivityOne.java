@@ -70,7 +70,7 @@ public class ExActivityOne extends AppCompatActivity {
                     Intent intent = new Intent(ExActivityOne.this,DayActivity.class);
                     Days day = days.getDay(i);
                     int time = prefGet.getInt(day.getSaveKey(),0);
-                    intent.putExtra(EXTRA_DAY_INDEX,day.getIndex());
+                    intent.putExtra(EXTRA_DAY_INDEX,i);
                     intent.putExtra(EXTRA_DAY_TIME,time);
                     intent.putExtra(EXTRA_DAY_NAME,day.getName());
                     startActivity(intent);
@@ -132,6 +132,7 @@ public class ExActivityOne extends AppCompatActivity {
             Days day = days.getDay(i);
             prefEditor.putInt(day.getSaveKey(), 0);
             prefEditor.putInt(Integer.toString(day.getIndex()), 0);
+            prefEditor.putInt(day.getDoneKey(),0);
         }
         prefEditor.commit();
     }

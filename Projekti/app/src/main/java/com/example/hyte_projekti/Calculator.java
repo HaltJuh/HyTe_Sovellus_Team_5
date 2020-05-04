@@ -37,10 +37,6 @@ public class Calculator {
        return rmrInt;
     }
 
-    public int getCaloriesBurned(double timeInHours, double metValue) {
-        calBurned = (int) Math.round( this.weight * metValue * timeInHours);
-        return calBurned;
-    }
     public double getCaloriesToBurnPerWeek(double dailyCalories){
         extraCalories = dailyCalories - getRmr();
         caloriesToLose = (KILOSTOLOSEPERWEEK*KALORIESTOLOSEKGMULTIPLIER)+(extraCalories*7);

@@ -6,13 +6,15 @@ public class Days {
     private String name;
     private String exercise;
     private String saveKey;
+    private String doneKey;
     private int exerciseTime;
     private int index;
 
-    public Days(String name, int index, String saveKey){
+    public Days(String name, int index, String saveKey, String doneKey){
         this.name = name;
         this.index = index;
         this.saveKey = saveKey;
+        this.doneKey = doneKey;
     }
 
     public String getName() {
@@ -32,6 +34,8 @@ public class Days {
     }
 
     public String getSaveKey() {return this.saveKey;}
+
+    public String getDoneKey() {return  this.doneKey;}
 
     @Override
     public String toString() {

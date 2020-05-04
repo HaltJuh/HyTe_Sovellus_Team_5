@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static com.example.hyte_projekti.ExActivityOne.EXTRA_DAY_INDEX;
 import static com.example.hyte_projekti.ExActivityOne.EXTRA_DAY_NAME;
@@ -31,6 +32,7 @@ public class DayActivity extends AppCompatActivity {
     private SharedPreferences prefGet;
     private Exercise exercise;
     private WeightLossList exercises;
+    private Days day;
     Calculator calculator;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +46,10 @@ public class DayActivity extends AppCompatActivity {
         }else{
             setContentView(R.layout.activity_day);
             dayIndex = b.getInt(EXTRA_DAY_INDEX);
+            day = DaysList.getInstance().getDay(dayIndex);
             prefGet = getSharedPreferences(KEY, Activity.MODE_PRIVATE);
             exercises = WeightLossList.getInstance();
-            exercise = exercises.getWeightLossExercise(prefGet.getInt(Integer.toString(dayIndex),0));
+            exercise = exercises.getWeightLossExercise(prefGet.getInt(Integer.toString(day.getIndex()),0));
             dayText = findViewById(R.id.day);
             dayText.setText(b.getString(EXTRA_DAY_NAME));
             exerciseText = findViewById(R.id.exerciseName);
@@ -64,12 +67,17 @@ public class DayActivity extends AppCompatActivity {
 
     }
     public void onDone(View view){
-        double burnedCalories = calculator.getCaloriesBurned(time/60,exercise.getMetMultiplier());
-        double weeklyCaloriesLeft = Double.longBitsToDouble(prefGet.getLong(WEEKLYCALORIESTOBURN,0))-burnedCalories;
-        SharedPreferences.Editor prefEditor = prefGet.edit();
-        prefEditor.putLong(WEEKLYCALORIESTOBURN,Double.doubleToLongBits(weeklyCaloriesLeft));
-        prefEditor.commit();
-        Intent intent = new Intent(DayActivity.this,ExActivityOne.class);
-        startActivity(intent);
+        if(prefGet.getInt(day.getDoneKey(),0)==0){
+            double burnedCalories = calculator.getCaloriesBurned(exercise.getMetMultiplier(),time);
+            double weeklyCaloriesLeft = Double.longBitsToDouble(prefGet.getLong(WEEKLYCALORIESTOBURN,0))-burnedCalories;
+            SharedPreferences.Editor prefEditor = prefGet.edit();
+            prefEditor.putLong(WEEKLYCALORIESTOBURN,Double.doubleToLongBits(weeklyCaloriesLeft));
+            prefEditor.putInt(day.getDoneKey(),1);
+            prefEditor.commit();
+            Intent intent = new Intent(DayActivity.this,ExActivityOne.class);
+            startActivity(intent);
+        }else {
+            Toast.makeText(this,"You've already done the activity for this day.",Toast.LENGTH_SHORT).show();
+        }
     }
 }

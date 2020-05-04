@@ -80,7 +80,7 @@ public class WeightLossExercise extends AppCompatActivity {
                 time = 15;
             }
         }
-        double burnedCalories = calculator.getCaloriesBurned(time/60,exercise.getMetMultiplier());
+        //double burnedCalories = calculator.getCaloriesBurned(time/60,exercise.getMetMultiplier());
         prefPut = getSharedPreferences(KEY,Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefGet.edit();
         prefEditor.putInt(days.getDay(dayIndex).getSaveKey(),time);
