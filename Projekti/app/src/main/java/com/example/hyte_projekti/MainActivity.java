@@ -40,22 +40,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // MUISTA LAITTAA IF LAUSEELLA TSEKKAUS MISSÄ AKTIVITEETISSA OLTU VIIMEKSI!
-        setContentView(R.layout.activity_main);
         latestActivity();
-        ageView = (EditText)findViewById(R.id.ageView);
-        heightView = (EditText)findViewById(R.id.heightView);
-        weightView = (EditText)findViewById(R.id.weightView);
-        maleButton = (RadioButton)findViewById(R.id.maleButton);
-        femaleButton = (RadioButton)findViewById(R.id.femaleButton);
-        clicked = false;
-
     }
 
     public void latestActivity(){
         SharedPreferences prefGet = getSharedPreferences(KEY, Activity.MODE_PRIVATE);
         targetActivity = prefGet.getInt(TARGETACTIVITY, 0);
-
-        if(targetActivity == 1){
+        if(targetActivity == 0){
+            setContentView(R.layout.activity_main);
+            ageView = (EditText)findViewById(R.id.ageView);
+            heightView = (EditText)findViewById(R.id.heightView);
+            weightView = (EditText)findViewById(R.id.weightView);
+            maleButton = (RadioButton)findViewById(R.id.maleButton);
+            femaleButton = (RadioButton)findViewById(R.id.femaleButton);
+            clicked = false;
+        }else if(targetActivity == 1){
             SharedPreferences.Editor prefEditor = prefGet.edit();
             prefEditor.putInt(WEEKPLANKEY,0);
             prefEditor.commit();

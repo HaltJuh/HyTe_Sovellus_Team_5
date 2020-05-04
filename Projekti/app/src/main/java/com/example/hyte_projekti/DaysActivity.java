@@ -45,21 +45,9 @@ public class DaysActivity extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(latestActivity == 1) {
-                    Intent nextActivity = new Intent(DaysActivity.this, ExActivityOne.class);
-                    nextActivity.putExtra(EXTRA, i);
-                    startActivity(nextActivity);
-                }
-                if (latestActivity == 2){
                     Intent nextActivity = new Intent(DaysActivity.this, ExActivityTwo.class);
                     nextActivity.putExtra(EXTRA, i);
                     startActivity(nextActivity);
-                }
-                if (latestActivity == 3){
-                    Intent nextActivity = new Intent(DaysActivity.this, ExActivityThree.class);
-                    nextActivity.putExtra(EXTRA, i);
-                    startActivity(nextActivity);
-                }
             }
         });
     }

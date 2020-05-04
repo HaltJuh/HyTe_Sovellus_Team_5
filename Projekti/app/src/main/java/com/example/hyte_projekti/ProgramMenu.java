@@ -77,4 +77,13 @@ public class ProgramMenu extends AppCompatActivity {
         prefEditor.commit();
     }
 
+    public void changeInfoClicked(View view){
+        SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor prefEditor = prefPut.edit();
+        prefEditor.putInt(MainActivity.TARGETACTIVITY, 0);
+        prefEditor.commit();
+        Intent intentMaintain = new Intent(this, MainActivity.class);
+        startActivity(intentMaintain);
+    }
+
 }
