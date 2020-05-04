@@ -6,6 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".MuscleBuildingExerciseInfo">
 
+    <EditText
+        android:id="@+id/editTime2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="How many minutes will you do this activity?"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTime2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/infoName"
         android:layout_width="wrap_content"
@@ -78,5 +100,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.77" />
+        app:layout_constraintGuide_percent="0.84" />
 </androidx.constraintlayout.widget.ConstraintLayout>

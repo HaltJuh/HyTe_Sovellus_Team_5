@@ -7,12 +7,14 @@ import android.widget.TextView;
 
 public class MuscleBuildingExerciseInfo extends AppCompatActivity {
 
+    private int i;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_muscle_building_exercise_info);
         Bundle b = getIntent().getExtras();
-        int i = b.getInt(ExActivityThree.EXTRA, 0);
+        i =  b.getInt(ExActivityTwo.EXEXTRA, 0);
 
 
         ((TextView)findViewById(R.id.infoName)).setText(GymExerciseList.getThisInstance().getGymExercises().get(i).getName());
@@ -29,5 +31,7 @@ public class MuscleBuildingExerciseInfo extends AppCompatActivity {
 
     // SelectEx:
     // SelectExerciseButtonPressed method to select the time of exercise done and then saves exercise into week list!
+
+    
 
 }
