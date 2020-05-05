@@ -12,7 +12,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * @author Tommi Vainio
+ * @version 1.0
+ */
 public class SelectEx extends AppCompatActivity {
+    /**
+     * The value of this key tells how many kilocalories selected exercise burn in total.
+     */
     public static final String CALORIESBURNED = "SavedCaloriesBurned";
     private TextView name;
     private TextView info;
@@ -25,6 +32,11 @@ public class SelectEx extends AppCompatActivity {
     private String gender;
     private Calculator calculator;
     private int calories;
+
+    /**
+     * Retrieves right text views and sets the name and the information of the exercise to them.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +49,17 @@ public class SelectEx extends AppCompatActivity {
         info.setText(ExercisesListTwo.getInstance().getExercise(i).getInfo());
     }
 
+    /**
+     * Saves the value entered in the text field. Calculates how many kilocalories this exercise burns
+     * when performed for this (entered value) amount of minutes and adds it to CALORIESBURNED.
+     * <p>
+     * Checks that text field is not empty and the entered value is not under 15. Also there should
+     * not be any exercise already set for this day.
+     *
+     * @param view
+     * @see Calculator
+     * @see ExercisesListTwo
+     */
     public void selectButtonPressed(View view){
         time = findViewById(R.id.editTime);
         String text = time.getText().toString().trim();

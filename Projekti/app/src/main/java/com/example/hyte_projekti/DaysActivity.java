@@ -12,9 +12,22 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/**
+ * @author Tommi Vainio
+ * @version 1.0
+ */
 public class DaysActivity extends AppCompatActivity {
+    /**
+     * The key of the extra which is sent to next  activity.
+     */
     public static final String EXTRA = "MESSAGE";
+    /**
+     * If value of this key is 0, the information retrieved in resetValues method is reset.
+     */
     public static final String RESET = "RESET";
+    /**
+     * The value of this key tells how many calories a user still needs to burn.
+     */
     public static final String CALORIESREMAINING = "CALORIESREMAINING";
     private int latestActivity;
     private int reset;
@@ -27,6 +40,13 @@ public class DaysActivity extends AppCompatActivity {
     private int caloriesToBurn;
     private int caloriesBurned;
     private TextView caloriesAdded;
+
+    /**
+     * Reset saved information if needed, updates textView, creates a list which includes days of the week and
+     * sets onItemClickListener to that list.
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +72,14 @@ public class DaysActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Changes all days of the week values to 100 and time values to 0 if RESET key's value is 0.
+     * <p>
+     * Days' of the week keys are their indexes (0-6). Exercise time keys range from 10 t0 78 so
+     * this method set all those keys' values to 0. After that CALORIESBURNED key's value is reset too.
+     * Finally RESET key's value is changed to 1 so that those values are not reset every time
+     * this activity is started.
+     */
     public void resetValues(){
         SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         reset = prefGet.getInt(RESET, 0);
@@ -77,6 +105,15 @@ public class DaysActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Updates the text view at the top of the screen.
+     * <p>
+     * Retrieves needed information, creates new Calculator instance, calculates how many calories
+     * a user needs to burn per week and then checks how many calories activities, the user has already
+     * added to the week plan, burn. Finally those values are set to the text view.
+     *
+     * @see Calculator
+     */
     public void updateUI(){
         SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         age = prefGet.getInt(MainActivity.AGEKEY, 0);
@@ -92,6 +129,13 @@ public class DaysActivity extends AppCompatActivity {
         caloriesAdded.setText(Integer.toString(caloriesBurned) + "/" + Integer.toString(caloriesToBurn) + " kcal");
     }
 
+    /**
+     * Saves the amount of calories a user needs to burn in a week and starts WeekPlanActivity.
+     * Changes also ISITFIRSTTIME key's value so that the right activity is started when a user
+     * clicks the button of this program in the menu.
+     *
+     * @param view Done button that is clicked to perform this method.
+     */
     public void DoneButtonPressed(View view){
         SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();

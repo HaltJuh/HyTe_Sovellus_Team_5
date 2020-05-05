@@ -10,6 +10,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * @author Tommi Vainio
+ * @version 1.0
+ */
 public class WpExerciseActivity extends AppCompatActivity {
     private int i;
     private int iEx;
@@ -23,6 +27,14 @@ public class WpExerciseActivity extends AppCompatActivity {
     private Double weight;
     private String gender;
     private Calculator calculator;
+
+    /**
+     * Retrieves the index of the exercise selected for this day and calculates the key for time
+     * with help of the indexes of the exercise and the day of the week.
+     * Then calls updateUI method.
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +48,10 @@ public class WpExerciseActivity extends AppCompatActivity {
         updateUI();
     }
 
+    /**
+     * Retrieves the name, the info text and the time for the exercise selected for this day.
+     * If there is no exercises selected for this day, it is told.
+     */
     public void updateUI(){
         dayName = findViewById(R.id.whatDay);
         exName = findViewById(R.id.whatActivity);
@@ -51,6 +67,16 @@ public class WpExerciseActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * If there is exercise for this day this method calculates calories burned and subtracts them
+     * from the calories a user needs to burn this week. If there are less calories to burn than this
+     * exercise burned, CALORIESREMAINING is set to 0. After that calls resetValue method and starts
+     * WeekPlanActivity.
+     *
+     * @param view Done button that is clicked to perform this method.
+     * @see Calculator
+     * @see ExercisesListTwo
+     */
     public void doneButtonClicked(View view){
         if(iEx != 100) {
             SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
@@ -79,6 +105,9 @@ public class WpExerciseActivity extends AppCompatActivity {
         startActivity(nextActivity);
     }
 
+    /**
+     * Resets this day's exercise value and this day/exercise combination's time value.
+     */
     public void resetValue(){
         SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();

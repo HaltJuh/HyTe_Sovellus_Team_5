@@ -9,8 +9,25 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+/**
+ * @author Tommi Vainio
+ * @version 1.0
+ */
 public class ExActivityTwo extends AppCompatActivity {
+    /**
+     * The key for the index of the exercise.
+     */
     public static final String EXEXTRA = "EXMESSAGE";
+
+    /**
+     * Creates exercise list and sets onItemClickListener to it.
+     * <p>
+     * This method receives the index of the day of the week and puts it into extra.
+     * This extra alongside the other extra which is the index of the exercise, is sent
+     * to SelectEx activity when a user clicks one list item.
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
