@@ -20,6 +20,10 @@ import static com.example.hyte_projekti.MainActivity.WEIGHTKEY;
 import static com.example.hyte_projekti.WeightLossExercises.EXTRA_EXERCISE_INDEX;
 import static com.example.hyte_projekti.WeightLossWeekPlan.EXTRA_WEEK_INDEX;
 
+/**
+ * @author Juho Halttunen
+ * @version 1.0
+ */
 public class WeightLossExercise extends AppCompatActivity {
 
     private int exerciseIndex;
@@ -33,7 +37,12 @@ public class WeightLossExercise extends AppCompatActivity {
     private int time;
     private Calculator calculator;
     private SharedPreferences prefGet;
-    private SharedPreferences prefPut;
+
+    /**
+     * On create Instantiates needed fields
+     * @param savedInstanceState
+     */
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weight_loss_exercise);
@@ -58,6 +67,11 @@ public class WeightLossExercise extends AppCompatActivity {
         );
 
     }
+
+    /**
+     * Checks if given value is correct
+     * @return true if the value given is correct
+     */
     private boolean checkIfOk(){
         String timeString = timeText.getText().toString();
         try {
@@ -68,6 +82,13 @@ public class WeightLossExercise extends AppCompatActivity {
         }
         return true;
     }
+
+    /**
+     * Saves given time and exercise index into preferences
+     * Returns to the WeightLossWeekPlan
+     * @param view
+     * @return void
+     */
     public void onClick(View view){
         Log.d("Click","Click");
         Toast.makeText(this,"Toast",Toast.LENGTH_SHORT);
@@ -80,8 +101,6 @@ public class WeightLossExercise extends AppCompatActivity {
                 time = 15;
             }
         }
-        //double burnedCalories = calculator.getCaloriesBurned(time/60,exercise.getMetMultiplier());
-        prefPut = getSharedPreferences(KEY,Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefGet.edit();
         prefEditor.putInt(days.getDay(dayIndex).getSaveKey(),time);
         prefEditor.putInt(Integer.toString(days.getDay(dayIndex).getIndex()),exerciseIndex);

@@ -20,6 +20,10 @@ import static com.example.hyte_projekti.MainActivity.KEY;
 import static com.example.hyte_projekti.MainActivity.WEEKLYCALORIESTOBURN;
 import static com.example.hyte_projekti.MainActivity.WEIGHTKEY;
 
+/**
+ * @author Juho Halttunen
+ * @version 1.0
+ */
 public class DayActivity extends AppCompatActivity {
 
     private int time;
@@ -34,6 +38,11 @@ public class DayActivity extends AppCompatActivity {
     private WeightLossList exercises;
     private Days day;
     Calculator calculator;
+
+    /**
+     * On create setups the correct layout and instantiates needed fields
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +75,13 @@ public class DayActivity extends AppCompatActivity {
         }
 
     }
+
+    /**
+     * Calculates burned calories and saves the gained value into two fields in sharedpreferences
+     * @param view
+     * @See {@link #calculator}
+     * @retutn void
+     */
     public void onDone(View view){
         if(prefGet.getInt(day.getDoneKey(),0)==0){
             double burnedCalories = calculator.getCaloriesBurned(exercise.getMetMultiplier(),time);
