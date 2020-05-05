@@ -25,7 +25,7 @@ public class ExActivityThree extends AppCompatActivity {
             showDialog();
         }
         Bundle b = getIntent().getExtras();
-        final int k = b.getInt(muscleDayList.EXTRA, 0);
+        final int k = b.getInt(MuscleDayList.EXTRA, 0);
         ListView lv = findViewById(R.id.muscleExerciseList);
 
         lv.setAdapter(new ArrayAdapter<Exercise>(
@@ -36,7 +36,7 @@ public class ExActivityThree extends AppCompatActivity {
         lv.setOnItemClickListener((adapterView, view, i, l) -> {
             Intent nextActivity = new Intent(ExActivityThree.this, MuscleBuildingExerciseInfo.class);
             nextActivity.putExtra(EXEXTRA, i);
-            nextActivity.putExtra(muscleDayList.EXTRA, k);
+            nextActivity.putExtra(MuscleDayList.EXTRA, k);
             startActivity(nextActivity);
         });
     }

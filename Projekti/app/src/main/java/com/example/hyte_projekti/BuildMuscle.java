@@ -16,7 +16,7 @@ public class BuildMuscle extends AppCompatActivity {
 
     }
     public void goToMuscleDayList(View view) {
-        Intent intentMuscleDayList = new Intent(this, muscleDayList.class);
+        Intent intentMuscleDayList = new Intent(this, MuscleDayList.class);
         startActivity(intentMuscleDayList);
     }
 }

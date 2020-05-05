@@ -35,7 +35,7 @@
         </activity>
         <activity android:name=".IconScreen" />
         <activity android:name=".MuscleBuildingExerciseInfo" />
-        <activity android:name=".muscleDayList" />
+        <activity android:name=".MuscleDayList" />
         <activity android:name=".ExActivityThree" />
         <activity android:name=".ExActivityTwo" />
         <activity android:name=".ExActivityOne" />

@@ -129,7 +129,7 @@ public class ProgramMenu extends AppCompatActivity {
             SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
             SharedPreferences.Editor prefEditor = prefPut.edit();
             prefEditor.putInt(MUSCLEPROGRAMRESET, 0);
-            prefEditor.putInt(muscleDayList.RESET, 0);
+            prefEditor.putInt(MuscleDayList.RESET, 0);
             prefEditor.putInt(MainActivity.WEEKPLANKEY, 0);
             prefEditor.commit();
             saveLatestActivity(2);
@@ -166,7 +166,7 @@ public class ProgramMenu extends AppCompatActivity {
             Intent intentMuscle = new Intent(this, MuscleWeekPlanActivity.class);
             startActivity(intentMuscle);
         }else {
-            Intent intentMuscle = new Intent(this, muscleDayList.class);
+            Intent intentMuscle = new Intent(this, MuscleDayList.class);
             startActivity(intentMuscle);
         }
     }
@@ -175,7 +175,7 @@ public class ProgramMenu extends AppCompatActivity {
         SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
         prefEditor.putInt(MUSCLEPROGRAMRESET, 0);
-        prefEditor.putInt(muscleDayList.RESET, 0);
+        prefEditor.putInt(MuscleDayList.RESET, 0);
         prefEditor.putInt(ISITFIRSTTIME, 0);
         prefEditor.putInt(DaysActivity.RESET, 0);
         prefEditor.commit();

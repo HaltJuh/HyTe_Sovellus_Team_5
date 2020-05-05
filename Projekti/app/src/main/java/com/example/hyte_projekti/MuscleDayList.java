@@ -3,8 +3,6 @@ package com.example.hyte_projekti;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,7 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class muscleDayList extends AppCompatActivity {
+public class MuscleDayList extends AppCompatActivity {
 
     public static final String RESET = "RESET";
     public static final String EXTRA = "MESSAGE";
@@ -45,7 +43,7 @@ public class muscleDayList extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Intent nextActivity = new Intent(muscleDayList.this, ExActivityThree.class);
+                    Intent nextActivity = new Intent(MuscleDayList.this, ExActivityThree.class);
                     nextActivity.putExtra(EXTRA, i);
                     startActivity(nextActivity);
             }
@@ -87,7 +85,7 @@ public class muscleDayList extends AppCompatActivity {
         //prefEditor.putInt(CALORIESREMAINING, caloriesToBurn);
         prefEditor.putInt(ProgramMenu.MUSCLEPROGRAMRESET, 1);
         prefEditor.commit();
-        Intent nextActivity = new Intent(muscleDayList.this, MuscleWeekPlanActivity.class);
+        Intent nextActivity = new Intent(MuscleDayList.this, MuscleWeekPlanActivity.class);
         startActivity(nextActivity);
     }
 }

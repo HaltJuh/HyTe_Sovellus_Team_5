@@ -15,10 +15,24 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/**
+ * @author Tommi Vainio
+ * @version 1.0
+ */
 public class WeekPlanActivity extends AppCompatActivity {
+    /**
+     * The index of the day.
+     */
     public static final String EXTRAWP = "MESSAGEWP";
     private TextView caloriesView;
     private Button createButton;
+
+    /**
+     * Creates a list which includes days of the week and sets onItemClickListener to that list.
+     * Sets onClickListener and alertDialog to Create new week plan button.
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +85,9 @@ public class WeekPlanActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Updates text view at the top of the screen based on how many calories a user still needs to burn.
+     */
     public void updateUI(){
         caloriesView = findViewById(R.id.caloriesRemaining);
         SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
@@ -78,6 +95,10 @@ public class WeekPlanActivity extends AppCompatActivity {
         caloriesView.setText("You have " + calories + " kcal left to burn this week");
     }
 
+    /**
+     * Starts ProgramMenu activity.
+     * @param view Back to menu button that is clicked to perform this method.
+     */
     public void backToMenuButton(View view){
         Intent nextActivity = new Intent(WeekPlanActivity.this, ProgramMenu.class);
         startActivity(nextActivity);

@@ -60,10 +60,10 @@ public class MuscleWeekPlanActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
                         SharedPreferences.Editor prefEditor = prefPut.edit();
-                        prefEditor.putInt(muscleDayList.RESET, 0);
+                        prefEditor.putInt(MuscleDayList.RESET, 0);
                         prefEditor.putInt(ProgramMenu.MUSCLEPROGRAMRESET, 2);
                         prefEditor.commit();
-                        Intent nextActivity = new Intent(MuscleWeekPlanActivity.this, muscleDayList.class);
+                        Intent nextActivity = new Intent(MuscleWeekPlanActivity.this, MuscleDayList.class);
                         startActivity(nextActivity);
                     }
                 });

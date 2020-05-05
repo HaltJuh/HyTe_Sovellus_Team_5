@@ -57,7 +57,7 @@ public class MuscleBuildingExerciseInfo extends AppCompatActivity {
                 Toast.makeText(this, "Don't be so weak, let's do a little more!", Toast.LENGTH_LONG).show();
             }else{
                 Bundle b = getIntent().getExtras();
-                final int k = b.getInt(muscleDayList.EXTRA, 0);
+                final int k = b.getInt(MuscleDayList.EXTRA, 0);
                 SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
                 int isItEmpty = prefGet.getInt(Integer.toString(k), 100);
                 if(isItEmpty == 100) {
@@ -74,7 +74,7 @@ public class MuscleBuildingExerciseInfo extends AppCompatActivity {
                     prefEditor.putInt(Integer.toString(k), i);
                     prefEditor.putInt(Integer.toString(correctedI), timeInt);
                     prefEditor.commit();
-                    Intent intent = new Intent(this, muscleDayList.class);
+                    Intent intent = new Intent(this, MuscleDayList.class);
                     startActivity(intent);
                     Toast.makeText(this, "Information saved successfully.", Toast.LENGTH_LONG).show();
                 }else{

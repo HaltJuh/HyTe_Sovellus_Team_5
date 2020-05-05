@@ -12,7 +12,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * @author Tommi Vainio
+ * @version 1.0
+ */
 public class MaintainFitnessLevel extends AppCompatActivity {
+    /**
+     * The value of this key is kilocalories eaten by user per week.
+     */
     public static final String CALORIESEATENKEY = "SavedCaloriesEaten";
     private int age;
     private Double height;
@@ -22,6 +29,13 @@ public class MaintainFitnessLevel extends AppCompatActivity {
     private EditText tvCaloriesEaten;
     private int caloriesEaten;
     private int rmr;
+
+    /**
+     * Retrieves user's age, height, weight and gender from sharedPreferences.
+     * Creates new Calculator instance and puts the retrieved information as parameters.
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +48,15 @@ public class MaintainFitnessLevel extends AppCompatActivity {
         calculator = new Calculator(age, height, weight, gender);
     }
 
+    /**
+     * Retrieves the value in the text field and saves it to sharedPreferences.
+     * <p>
+     * This method is called when Send button is clicked. If the text field is not empty and the value user entered
+     * is not lower than his resting metabolic rate, the value is saved to sharedPreferences and
+     * DaysActivity is started.
+     *
+     * @param view Send button that is clicked to perform this method.
+     */
     public void caloriesEatenButtonPressed(View view){
         tvCaloriesEaten = findViewById(R.id.caloriesEatenText);
         String text = tvCaloriesEaten.getText().toString().trim();
