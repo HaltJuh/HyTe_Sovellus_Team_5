@@ -28,6 +28,10 @@ import static com.example.hyte_projekti.MainActivity.WEEKPLANKEY;
 import static com.example.hyte_projekti.MainActivity.WEIGHTKEY;
 import static com.example.hyte_projekti.WeightLossWeekPlan.CALORIESBURNEDWEEKLY;
 
+/**
+ @author Juho Halttunen
+ @version 1.0
+*/
 public class ExActivityOne extends AppCompatActivity {
 
     public static final String IDEAL_WEIGHT = "idealWeight";
@@ -52,6 +56,12 @@ public class ExActivityOne extends AppCompatActivity {
     private ListView weekPlanView;
     Calendar calendar;
 
+    /**
+     * OnCreate instantiates all needed fields and checks which layout to display.
+     * Setups layout elements depending on which layout was loaded.
+     * @param savedInstanceState
+     * @return void
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("Create","Created");
@@ -66,67 +76,77 @@ public class ExActivityOne extends AppCompatActivity {
                 Double.longBitsToDouble(prefGet.getLong(WEIGHTKEY,0)),
                 prefGet.getString(GENDERKEY,"Male"));
         if(prefGet.getInt(WEEKPLANKEY,0)==1){
-            setContentView(R.layout.activity_weightloss_week_plan);
-            caloriesToBurn = findViewById(R.id.caloriesToBurn);
-            caloriesToBurn.setText("You have "+Double.longBitsToDouble(prefGet.getLong(WEEKLYCALORIESTOBURN,0))+" kcal left to burn this week");
-            kilosLostPerWeek = findViewById(R.id.kilosLostPerWeek);
-            double kilosLost = Math.floor(calculator.getKilosLostPerWeek(Double.longBitsToDouble(prefGet.getLong(CALORIESBURNEDWEEKLY,0)))*100)/100;
-            kilosLostPerWeek.setText("Kilos lost per week "+kilosLost+"kg");
-            exercises = WeightLossList.getInstance();
-            weekPlanView = findViewById(R.id.weightLossPlan);
-            weekPlanView.setAdapter(new ArrayAdapter<Days>(
-                    this,
-                    R.layout.days_item_layout,
-                    days.getDays()
-            ));
-            weekPlanView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-                    Intent intent = new Intent(ExActivityOne.this,DayActivity.class);
-                    Days day = days.getDay(i);
-                    int time = prefGet.getInt(day.getSaveKey(),0);
-                    intent.putExtra(EXTRA_DAY_INDEX,i);
-                    intent.putExtra(EXTRA_DAY_TIME,time);
-                    intent.putExtra(EXTRA_DAY_NAME,day.getName());
-                    startActivity(intent);
-                }
-            });
-            dayWiew = findViewById(R.id.creationDay);
-            switch (prefGet.getInt(CREATIONDAY,0)){
-                case 1:
-                    dayWiew.setText("Reset every Sunday");
-                    break;
-                case 2:
-                    dayWiew.setText("Reset every Monday");
-                    break;
-                case 3:
-                    dayWiew.setText("Reset every Tuesday");
-                    break;
-                case 4:
-                    dayWiew.setText("Reset every Wednesday");
-                    break;
-                case 5:
-                    dayWiew.setText("Reset every Thursday");
-                    break;
-                case 6:
-                    dayWiew.setText("Reset every Friday");
-                    break;
-                case 7:
-                    dayWiew.setText("Reset every Saturday");
-                    break;
-                default:
-                    dayWiew.setText("I am Error.");
-                    break;
-            }
+            setUpPlanLayout();
         }else{
             setContentView(R.layout.activity_ex_one);
             weightText = findViewById(R.id.weightView);
             calorieText = findViewById(R.id.calorieView);
         }
-
-
     }
 
+    /**
+     * Setups layout for Weekplan listview.
+     * @return void
+     */
+    private void setUpPlanLayout(){
+        setContentView(R.layout.activity_weightloss_week_plan);
+        caloriesToBurn = findViewById(R.id.caloriesToBurn);
+        caloriesToBurn.setText("You have "+Double.longBitsToDouble(prefGet.getLong(WEEKLYCALORIESTOBURN,0))+" kcal left to burn this week");
+        kilosLostPerWeek = findViewById(R.id.kilosLostPerWeek);
+        double kilosLost = Math.floor(calculator.getKilosLostPerWeek(Double.longBitsToDouble(prefGet.getLong(CALORIESBURNEDWEEKLY,0)))*100)/100;
+        kilosLostPerWeek.setText("Kilos lost per week "+kilosLost+"kg");
+        exercises = WeightLossList.getInstance();
+        weekPlanView = findViewById(R.id.weightLossPlan);
+        weekPlanView.setAdapter(new ArrayAdapter<Days>(
+                this,
+                R.layout.days_item_layout,
+                days.getDays()
+        ));
+        weekPlanView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                Intent intent = new Intent(ExActivityOne.this,DayActivity.class);
+                Days day = days.getDay(i);
+                int time = prefGet.getInt(day.getSaveKey(),0);
+                intent.putExtra(EXTRA_DAY_INDEX,i);
+                intent.putExtra(EXTRA_DAY_TIME,time);
+                intent.putExtra(EXTRA_DAY_NAME,day.getName());
+                startActivity(intent);
+            }
+        });
+        dayWiew = findViewById(R.id.creationDay);
+        switch (prefGet.getInt(CREATIONDAY,0)){
+            case 1:
+                dayWiew.setText("Reset every Sunday");
+                break;
+            case 2:
+                dayWiew.setText("Reset every Monday");
+                break;
+            case 3:
+                dayWiew.setText("Reset every Tuesday");
+                break;
+            case 4:
+                dayWiew.setText("Reset every Wednesday");
+                break;
+            case 5:
+                dayWiew.setText("Reset every Thursday");
+                break;
+            case 6:
+                dayWiew.setText("Reset every Friday");
+                break;
+            case 7:
+                dayWiew.setText("Reset every Saturday");
+                break;
+            default:
+                dayWiew.setText("I am Error.");
+                break;
+        }
+    }
+
+    /**
+     * Checks if values given are correct.
+     * @return true if given values are correct.
+     */
     private boolean checkIfOk(){
         String weightString = weightText.getText().toString();
         String calorieString = calorieText.getText().toString();
@@ -154,6 +174,11 @@ public class ExActivityOne extends AppCompatActivity {
         }
         return true;
     }
+
+    /**
+     * Calls the reset method and starts the WeightLossWeekPlan activity if CheckIfOk returns true
+     * @param view
+     */
     public void onContinue(View view){
         if(checkIfOk()){
             reset();
@@ -161,6 +186,11 @@ public class ExActivityOne extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    /**
+     * Resets weekly calories burned this week and sets up new reset day.
+     * @param view
+     */
     public void onResetButton(View view){
         SharedPreferences.Editor prefEditor = prefGet.edit();
         for(int i=0;i<days.getDays().size();i++) {
@@ -175,10 +205,19 @@ public class ExActivityOne extends AppCompatActivity {
         finish();
         startActivity(intent);
     }
+
+    /**
+     * Returns to ProgramMenu activity
+     * @param view
+     */
     public void backToMenu(View view){
         Intent intent = new Intent(ExActivityOne.this,ProgramMenu.class);
         startActivity(intent);
     }
+
+    /**
+     * Resets existing plan.
+     */
     private void reset(){
         prefPut = getSharedPreferences(KEY,Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
