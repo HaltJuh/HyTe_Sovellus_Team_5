@@ -60,6 +60,7 @@ public class ProgramMenu extends AppCompatActivity {
         else {
             muscleFunction();
 
+            }
         }
     }
 
