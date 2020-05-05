@@ -3,9 +3,9 @@ package com.example.hyte_projekti;
 import androidx.annotation.NonNull;
 
 /**
+ * A class used to store weekdays and data related to them.
  * @author Tommi Vainio, Juho Halttunen
  * @version 1.0
- * A class used to store weekdays and data related to them.
  */
 public class Days {
     private String name;

@@ -29,6 +29,7 @@ import static com.example.hyte_projekti.MainActivity.WEIGHTKEY;
 import static com.example.hyte_projekti.WeightLossWeekPlan.CALORIESBURNEDWEEKLY;
 
 /**
+ * Activity that lets the user enter their goal and let's them see their plan.
  @author Juho Halttunen
  @version 1.0
 */

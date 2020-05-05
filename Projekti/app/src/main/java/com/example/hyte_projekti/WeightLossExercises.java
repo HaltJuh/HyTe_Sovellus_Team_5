@@ -14,9 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import static com.example.hyte_projekti.WeightLossWeekPlan.EXTRA_WEEK_INDEX;
 
 /**
+ * Creates a list of available weightloss exercises.
  * @author Juho Halttunen
  * @version 1.0
- * Creates a list of available weightloss exercises.
  */
 public class WeightLossExercises extends AppCompatActivity {
     /**

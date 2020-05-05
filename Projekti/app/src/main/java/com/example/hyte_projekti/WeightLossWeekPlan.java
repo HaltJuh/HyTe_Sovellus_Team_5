@@ -31,11 +31,11 @@ import static com.example.hyte_projekti.MainActivity.WEEKPLANKEY;
 import static com.example.hyte_projekti.MainActivity.WEIGHTKEY;
 
 /**
- * @author Juho Halttunen
- * @version 1.0
  * This activity shows the user a daylist from which they can choose on which days they'd like to exercise.
  * The user also sees a estimate on how many calories they should burn a week a calculated according to a healthy average.
  * After the done button is clicked ExActivityOne() activity is loaded.
+ * @author Juho Halttunen
+ * @version 1.0
  */
 public class WeightLossWeekPlan extends AppCompatActivity {
 

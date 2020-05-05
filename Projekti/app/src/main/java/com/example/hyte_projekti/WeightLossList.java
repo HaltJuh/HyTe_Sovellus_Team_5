@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * A singleton class meant to store data of weight loss exercises
  * @author Juho Halttunen
  * @version 1.0
- * A singleton class meant to store data of weight loss exercises
  */
 public class WeightLossList {
 
