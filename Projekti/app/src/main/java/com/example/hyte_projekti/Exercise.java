@@ -3,9 +3,9 @@ package com.example.hyte_projekti;
 import androidx.annotation.NonNull;
 
 /**
+ * A class used to store the information of different exercises.
  * @author Tommi Vainio, Juho Halttunen
  * @version 1.0
- * A class used to store the information of different exercises.
  */
 public class Exercise {
     private String name;
@@ -13,10 +13,10 @@ public class Exercise {
     private Double metMultiplier;
 
     /**
+     * Constructor for the Exercise object.
      * @param name
      * @param info
      * @param multiplier
-     * Constructor for the Exercise object
      */
     public Exercise(String name, String info, Double multiplier){
         this.name = name;
@@ -25,32 +25,32 @@ public class Exercise {
     }
 
     /**
-     * @return Returns the name of the exercise.
      * Getter method for the object name.
+     * @return Returns the name of the exercise.
      */
     public String getName(){
         return this.name;
     }
 
     /**
-     * @return Returns the info of the exercise.
      * Getter method for the info of the object.
+     * @return Returns the info of the exercise.
      */
     public String getInfo() {
         return this.info;
     }
 
     /**
-     * @return Returns the metMultiplier of the exercise.
      * Getter method for the Met Multiplier of the object.
+     * @return Returns the metMultiplier of the exercise.
      */
     public Double getMetMultiplier() {
         return this.metMultiplier;
     }
 
     /**
-     * @return Returns the name of the exercise.
      * toString method of the object
+     * @return Returns the name of the exercise.
      */
     @Override
     public String toString() {

@@ -21,9 +21,9 @@ import static com.example.hyte_projekti.MainActivity.WEEKLYCALORIESTOBURN;
 import static com.example.hyte_projekti.MainActivity.WEIGHTKEY;
 
 /**
+ * This activity shows the user their exercise for the selected day
  * @author Juho Halttunen
  * @version 1.0
- * This activity shows the user their exercise for the selected day
  */
 public class DayActivity extends AppCompatActivity {
 

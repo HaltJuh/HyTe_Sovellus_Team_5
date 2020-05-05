@@ -17,9 +17,9 @@ import static com.example.hyte_projekti.WeightLossExercises.EXTRA_EXERCISE_INDEX
 import static com.example.hyte_projekti.WeightLossWeekPlan.EXTRA_WEEK_INDEX;
 
 /**
+ * This activity is used to let the user choose how long they will do the selected exercise.
  * @author Juho Halttunen
  * @version 1.0
- * This activity is used to let the user choose how long they will the selected exercise
  */
 public class WeightLossExercise extends AppCompatActivity {
 

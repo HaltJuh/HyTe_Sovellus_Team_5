@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Singleton class used to store a list of Day objects.
  * @author Tommi Vainio, Juho Halttunen
  * @version 1.0
- * Singleton class used to store a list of Day objects.
  */
 public class DaysList {
     private List<Days> days;
