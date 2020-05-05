@@ -13,6 +13,7 @@ public class ExercisesListTwo {
 
     /**
      * Returns the only instance you can create of this class.
+     *
      * @return ourInstance instance of this class.
      */
     public static ExercisesListTwo getInstance(){
@@ -22,6 +23,8 @@ public class ExercisesListTwo {
     /**
      * Creates new ArrayList and adds nine instances of Exercise class into it.
      * These instances are used in Maintain fitness program.
+     *
+     * @see Exercise
      */
     private ExercisesListTwo(){
         exercises = new ArrayList<>();
@@ -38,7 +41,9 @@ public class ExercisesListTwo {
 
     /**
      * Returns List created in constructor.
+     *
      * @return exercises list which includes instances of Exercise class.
+     * @see Exercise
      */
     public List<Exercise> getExercises(){
         return exercises;
@@ -46,8 +51,10 @@ public class ExercisesListTwo {
 
     /**
      * Returns single instance of exercise class.
+     *
      * @param i index of instance in exercises list.
      * @return single instance of Exercise class from exercises list.
+     * @see Exercise
      */
     public Exercise getExercise(int i){
         return exercises.get(i);

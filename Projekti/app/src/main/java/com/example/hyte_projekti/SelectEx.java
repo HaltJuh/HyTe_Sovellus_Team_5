@@ -56,7 +56,9 @@ public class SelectEx extends AppCompatActivity {
      * Checks that text field is not empty and the entered value is not under 15. Also there should
      * not be any exercise already set for this day.
      *
-     * @param view Add to the week plan button that is clicked to perform this method.
+     * @param view
+     * @see Calculator
+     * @see ExercisesListTwo
      */
     public void selectButtonPressed(View view){
         time = findViewById(R.id.editTime);

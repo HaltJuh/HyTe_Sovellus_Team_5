@@ -111,6 +111,8 @@ public class DaysActivity extends AppCompatActivity {
      * Retrieves needed information, creates new Calculator instance, calculates how many calories
      * a user needs to burn per week and then checks how many calories activities, the user has already
      * added to the week plan, burn. Finally those values are set to the text view.
+     *
+     * @see Calculator
      */
     public void updateUI(){
         SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);

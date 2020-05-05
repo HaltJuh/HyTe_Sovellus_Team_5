@@ -35,6 +35,7 @@ public class MaintainFitnessLevel extends AppCompatActivity {
      * Creates new Calculator instance and puts the retrieved information as parameters.
      *
      * @param savedInstanceState
+     * @see Calculator
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {

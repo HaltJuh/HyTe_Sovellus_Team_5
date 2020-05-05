@@ -74,6 +74,8 @@ public class WpExerciseActivity extends AppCompatActivity {
      * WeekPlanActivity.
      *
      * @param view Done button that is clicked to perform this method.
+     * @see Calculator
+     * @see ExercisesListTwo
      */
     public void doneButtonClicked(View view){
         if(iEx != 100) {
