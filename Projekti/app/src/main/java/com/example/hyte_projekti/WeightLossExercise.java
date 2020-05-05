@@ -12,17 +12,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static com.example.hyte_projekti.MainActivity.AGEKEY;
-import static com.example.hyte_projekti.MainActivity.GENDERKEY;
-import static com.example.hyte_projekti.MainActivity.HEIGHTKEY;
 import static com.example.hyte_projekti.MainActivity.KEY;
-import static com.example.hyte_projekti.MainActivity.WEIGHTKEY;
 import static com.example.hyte_projekti.WeightLossExercises.EXTRA_EXERCISE_INDEX;
 import static com.example.hyte_projekti.WeightLossWeekPlan.EXTRA_WEEK_INDEX;
 
 /**
  * @author Juho Halttunen
  * @version 1.0
+ * This activity is used to let the user choose how long they will the selected exercise
  */
 public class WeightLossExercise extends AppCompatActivity {
 
@@ -35,7 +32,6 @@ public class WeightLossExercise extends AppCompatActivity {
     private DaysList days;
     private Exercise exercise;
     private int time;
-    private Calculator calculator;
     private SharedPreferences prefGet;
 
     /**
@@ -59,13 +55,6 @@ public class WeightLossExercise extends AppCompatActivity {
         exerciseText.setText(exercise.getName());
         infoText.setText(exercise.getInfo());
         prefGet = getSharedPreferences(KEY, Activity.MODE_PRIVATE);
-        calculator = new Calculator(
-                prefGet.getInt(AGEKEY,0),
-                Double.longBitsToDouble(prefGet.getLong(HEIGHTKEY,0)),
-                Double.longBitsToDouble(prefGet.getLong(WEIGHTKEY,0)),
-                prefGet.getString(GENDERKEY,"Male")
-        );
-
     }
 
     /**

@@ -30,11 +30,22 @@ import static com.example.hyte_projekti.MainActivity.WEEKLYCALORIESTOBURN;
 import static com.example.hyte_projekti.MainActivity.WEEKPLANKEY;
 import static com.example.hyte_projekti.MainActivity.WEIGHTKEY;
 
+/**
+ * @author Juho Halttunen
+ * @version 1.0
+ * This activity shows the user a daylist from which they can choose on which days they'd like to exercise.
+ * The user also sees a estimate on how many calories they should burn a week a calculated according to a healthy average.
+ * After the done button is clicked ExActivityOne() activity is loaded.
+ */
 public class WeightLossWeekPlan extends AppCompatActivity {
 
-    public static final String TOTALCALORIETEXT= "The amount of kilocalories you\n should burn weekly: ";
-    public static final String CURRENTCALORIETEXT = "The amount of kilocalories your\n current week plan burns: ";
+    /**
+     * The value of this String is used to get the extra that holds the index of the week day
+     */
     public static final String EXTRA_WEEK_INDEX = "weekIndex";
+    /**
+     * This static String is used as a key to store the weekly burned calories.
+     */
     public static final String CALORIESBURNEDWEEKLY = "CaloriesBurnedWeekly";
     private DaysList days;
     private WeightLossList exercises;
@@ -44,12 +55,22 @@ public class WeightLossWeekPlan extends AppCompatActivity {
     private SharedPreferences prefGet;
     private Calculator calculator;
     private Calendar calendar;
+    private String totalCalorieText = "The amount of kilocalories you\n should burn weekly: ";
+    private String currentCalorieText = "The amount of kilocalories your\n current week plan burns: ";
 
     private int idealWeight;
     private double dailyCalories;
     private double caloriesToLosePerWeek;
     private double currentBurnedWeeklyCalories;
-    private int weeksToLoseExtraWeight;
+
+    /**
+     * @param savedInstanceState
+     * @return void
+     * @see {@link #calculator}
+     * Instantiates important values
+     * Calculates how many calories currently selected exercises burn weekly
+     * Setups listview for the user to choose days
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +95,6 @@ public class WeightLossWeekPlan extends AppCompatActivity {
         dailyCalories = Double.longBitsToDouble(prefGet.getLong(CALORIE_INTAKE,0));
         Log.d("calories", ""+dailyCalories);
         caloriesToLosePerWeek = calculator.getCaloriesToBurnPerWeek(dailyCalories);
-        weeksToLoseExtraWeight = calculator.getWeeksToLoseAllExtraWeight(idealWeight,dailyCalories);
         for(int i=0;i<days.getDays().size();i++){
             Days day = days.getDay(i);
             int time = prefGet.getInt(day.getSaveKey(),0);
@@ -83,9 +103,8 @@ public class WeightLossWeekPlan extends AppCompatActivity {
         }
         totalCalorieView = findViewById(R.id.totalWeeklyCaloriesView);
         currentCalorieView = findViewById(R.id.currentWeeklyCaloriesView);
-        totalCalorieView.setText(TOTALCALORIETEXT+caloriesToLosePerWeek);
-        currentCalorieView.setText(CURRENTCALORIETEXT+currentBurnedWeeklyCalories);
-        Toast.makeText(this, "Estimated time to lose the extra weight\naccording to average values: "+weeksToLoseExtraWeight, Toast.LENGTH_SHORT).show();
+        totalCalorieView.setText(totalCalorieText+caloriesToLosePerWeek);
+        currentCalorieView.setText(currentCalorieText+currentBurnedWeeklyCalories);
         weekList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
@@ -96,6 +115,14 @@ public class WeightLossWeekPlan extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * @param view
+     * @return void
+     * Calculates burned calories and saves the gained value into two fields in sharedpreferences.
+     * Saves a value used to check if a week plan exists and a the value of the creation day.
+     * Returns to the ExActivityOne activity
+     */
     public void onDone(View view){
         SharedPreferences prefPut = getSharedPreferences(KEY,Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();

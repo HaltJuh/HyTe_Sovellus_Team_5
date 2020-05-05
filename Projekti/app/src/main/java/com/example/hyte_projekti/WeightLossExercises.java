@@ -13,13 +13,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import static com.example.hyte_projekti.WeightLossWeekPlan.EXTRA_WEEK_INDEX;
 
+/**
+ * @author Juho Halttunen
+ * @version 1.0
+ * Creates a list of available weightloss exercises.
+ */
 public class WeightLossExercises extends AppCompatActivity {
+    /**
+     * The value of this String is used to get the extra that holds the index of the exercise.
+     */
     public static final String EXTRA_EXERCISE_INDEX = "exerciseIndex";
 
     private ListView exerciseView;
     private WeightLossList weightLossList;
     private int dayIndex;
     @Override
+
+    /**
+     * Instantiates needed fields and setups listview to open WeightLossExercise class
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weight_loss_exercises);

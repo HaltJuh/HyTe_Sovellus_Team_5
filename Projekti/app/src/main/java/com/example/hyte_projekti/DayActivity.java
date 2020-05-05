@@ -23,6 +23,7 @@ import static com.example.hyte_projekti.MainActivity.WEIGHTKEY;
 /**
  * @author Juho Halttunen
  * @version 1.0
+ * This activity shows the user their exercise for the selected day
  */
 public class DayActivity extends AppCompatActivity {
 
@@ -77,10 +78,11 @@ public class DayActivity extends AppCompatActivity {
     }
 
     /**
-     * Calculates burned calories and saves the gained value into two fields in sharedpreferences
      * @param view
-     * @See {@link #calculator}
      * @retutn void
+     * @See {@link #calculator}
+     * Calculates how many calories the selected activity burns with the given time and reduces it from the weekly total.
+     * Returns to the ExActivityOne activity
      */
     public void onDone(View view){
         if(prefGet.getInt(day.getDoneKey(),0)==0){

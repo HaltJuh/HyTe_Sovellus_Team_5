@@ -34,10 +34,25 @@ import static com.example.hyte_projekti.WeightLossWeekPlan.CALORIESBURNEDWEEKLY;
 */
 public class ExActivityOne extends AppCompatActivity {
 
+    /**
+     * This static String is used as a key to store the ideal weight of the user.
+     */
     public static final String IDEAL_WEIGHT = "idealWeight";
+    /**
+     * This static String is used as a key to store the calorie intake of the user.
+     */
     public static final String CALORIE_INTAKE = "calorieIntake";
+    /**
+     * The value of this String is used to get the extra that holds the index of the day.
+     */
     public static final String EXTRA_DAY_INDEX = "Day_Index";
+    /**
+     * The value of this String is used to get the extra that holds the amount of time exercised each day.
+     */
     public static final String EXTRA_DAY_TIME = "Day_Time";
+    /**
+     * The value of this String is used to get the extra that holds the name of the day.
+     */
     public static final String EXTRA_DAY_NAME = "Day_Name";
 
     private WeightLossList exercises;
