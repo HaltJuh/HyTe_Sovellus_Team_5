@@ -26,15 +26,11 @@ public class MuscleWpExerciseActivity extends AppCompatActivity {
     private TextView dayName;
     private TextView exName;
     private TextView exInfo;
-    private int age;
-    private Double height;
-    private Double weight;
-    private String gender;
-    private Calculator calculator;
 
     /**
      * onCreate() method takes the SharedPreferences from MuscleWeekPlanActivity "EXTRAWP" updates the UI accordingly by calling the updateUI() method.
      * @param savedInstanceState
+     * @see MuscleWeekPlanActivity for EXTRAWP
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +49,10 @@ public class MuscleWpExerciseActivity extends AppCompatActivity {
      * updateUI() method selects the components in the .xml file and sets the information for those components throught the given variables.
      * It displays the name of the day, the exercise saved on that day, the amount of minutes user inputted to do that exercise and the information
      * about that chosed exercise.
+     * @see GymExerciseList for getThisInstance and getGymExercise
+     * @see DaysList for methods
+     * @see Days for methods
+     * @see Exercise for getName and getInfo
      */
     public void updateUI(){
         dayName = findViewById(R.id.whatDay);
@@ -78,12 +78,6 @@ public class MuscleWpExerciseActivity extends AppCompatActivity {
      */
     public void doneButtonClicked(View view){
         if(iEx != 100) {
-            SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
-            age = prefGet.getInt(MainActivity.AGEKEY, 0);
-            height = Double.longBitsToDouble(prefGet.getLong(MainActivity.HEIGHTKEY, 0));
-            weight = Double.longBitsToDouble(prefGet.getLong(MainActivity.WEIGHTKEY, 0));
-            gender = prefGet.getString(MainActivity.GENDERKEY, "Not found.");
-            calculator = new Calculator(age, height, weight, gender);
             resetValue();
             Toast.makeText(this, "Great job! Workout complete!", Toast.LENGTH_LONG).show();
         }

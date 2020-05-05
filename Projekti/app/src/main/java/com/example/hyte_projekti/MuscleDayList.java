@@ -102,6 +102,7 @@ public class MuscleDayList extends AppCompatActivity {
      * This changes the SharedPreference of ProgramMenu.MUSCLEPROGRAMRESET into "1" which means that information is now saved into the week plan so it is not empty!
      * doneButtonPressed() then opens MuscleWeekPlanActivity.
      * @param view
+     * @see ProgramMenu for MUSCLEPROGRAMRESET
      */
     public void doneButtonPressed(View view){
         SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);

@@ -30,6 +30,7 @@ public class ExActivityThree extends AppCompatActivity {
      * it also transfers the choses exercise and day to the next activity MuscleBuildingExerciseInfo.
      * Calls the showDialog() function if it hasn't been called off (read below).
      * @param savedInstanceState
+     * @see MuscleDayList for EXTRA value
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -22,16 +22,13 @@ public class MuscleBuildingExerciseInfo extends AppCompatActivity {
     private int i;
     private EditText time;
     private int timeInt;
-    private int age;
-    private Double height;
-    private Double weight;
-    private String gender;
-    private Calculator calculator;
-    private int calories;
 
     /**
      * onCreate() method gets the saved int EXEXTRA from ExActivityThree which is used to fetch the correct exercises info for the TextViews
      * @param savedInstanceState
+     * @see ExActivityThree for EXEXTRA
+     * @see GymExerciseList for getThisInstance and getGymExercises
+     * @see Exercise for getName() and other implementations
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +59,7 @@ public class MuscleBuildingExerciseInfo extends AppCompatActivity {
      * When the button in successfully pressed a toast will display that the information was saved.
      * If you happen to have an exercise on this day already it will not be overwritten and a text will display that you have already an activity on this day.
      * @param view
+     * @see MuscleDayList for EXTRA
      */
     public void selectButtonPressed(View view){
         time = findViewById(R.id.editTime2);
@@ -79,12 +77,6 @@ public class MuscleBuildingExerciseInfo extends AppCompatActivity {
                 int isItEmpty = prefGet.getInt(Integer.toString(k), 100);
                 if(isItEmpty == 100) {
                     int correctedI = (10 * k) + i + 10;
-                    age = prefGet.getInt(MainActivity.AGEKEY, 0);
-                    height = Double.longBitsToDouble(prefGet.getLong(MainActivity.HEIGHTKEY, 0));
-                    weight = Double.longBitsToDouble(prefGet.getLong(MainActivity.WEIGHTKEY, 0));
-                    gender = prefGet.getString(MainActivity.GENDERKEY, "Not found.");
-                    calculator = new Calculator(age, height, weight, gender);
-                    int caloriesToEat = calculator.getCalPerDay(timeInt);
 
                     SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
                     SharedPreferences.Editor prefEditor = prefPut.edit();

@@ -35,6 +35,8 @@ public class MuscleWeekPlanActivity extends AppCompatActivity {
      * onCreate creates an interactable ListView that displays the week days.
      * By selecting a day, it will open the saved activity of that day if there is any through "ETRAWP, i"
      * @param savedInstanceState
+     * @see DaysList for methods
+     * @see Days for methods
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +99,8 @@ public class MuscleWeekPlanActivity extends AppCompatActivity {
                      * This will divert the user back to MuscleDayList where a new plan will be created.
                      * @param dialog
                      * @param which
+                     * @see ProgramMenu for MUSCLEPROGRAMRESET
+                     * @see MuscleDayList for RESET
                      */
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
