@@ -175,6 +175,10 @@ public class ExActivityOne extends AppCompatActivity {
         finish();
         startActivity(intent);
     }
+    public void backToMenu(View view){
+        Intent intent = new Intent(ExActivityOne.this,ProgramMenu.class);
+        startActivity(intent);
+    }
     private void reset(){
         prefPut = getSharedPreferences(KEY,Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
