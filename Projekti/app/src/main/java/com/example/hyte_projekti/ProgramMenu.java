@@ -40,26 +40,26 @@ public class ProgramMenu extends AppCompatActivity {
 
         SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         int muscleProgram = prefGet.getInt(MUSCLEPROGRAMRESET, 0);
-        if(muscleProgram == 0) {
+        if (muscleProgram == 0) {
             saveLatestActivity(3);
             Intent intentMuscle = new Intent(this, BuildMuscle.class);
             startActivity(intentMuscle);
-        }else if(muscleProgram == 1){
+        } else if (muscleProgram == 1) {
             Intent intentMuscle = new Intent(this, MuscleWeekPlanActivity.class);
             startActivity(intentMuscle);
-        }else {
+        } else {
             Intent intentMuscle = new Intent(this, MuscleDayList.class);
             startActivity(intentMuscle);
 
-        if(isItFirstTime == 0 && muscleReset == 0 && weightLoss == 0) {
-            muscleFunction();
-        }else if(!clicked && muscleReset == 0){
-            whichProgram = 3;
-            alertOneButton();
-        }
-        else {
-            muscleFunction();
+            if (isItFirstTime == 0 && muscleReset == 0 && weightLoss == 0) {
+                muscleFunction();
+            } else if (!clicked && muscleReset == 0) {
+                whichProgram = 3;
+                alertOneButton();
+            } else {
+                muscleFunction();
 
+            }
         }
     }
 

@@ -2,14 +2,24 @@ package com.example.hyte_projekti;
 
 import androidx.annotation.NonNull;
 
+/**
+ * @author Tommi Vainio, Juho Halttunen
+ * @version 1.0
+ * A class used to store weekdays and data related to them.
+ */
 public class Days {
     private String name;
-    private String exercise;
     private String saveKey;
     private String doneKey;
-    private int exerciseTime;
     private int index;
 
+    /**
+     * @param name
+     * @param index
+     * @param saveKey
+     * @param doneKey
+     * Constructor for the day object.
+     */
     public Days(String name, int index, String saveKey, String doneKey){
         this.name = name;
         this.index = index;
@@ -17,36 +27,34 @@ public class Days {
         this.doneKey = doneKey;
     }
 
-    public String getName() {
-        return this.name;
-    }
+    /**
+     * @return Returns the name of the object.
+     * Getter method for the object name.
+     */
+    public String getName() {return this.name; }
 
-    public String getExercise() {
-        return this.exercise;
-    }
+    /**
+     * @return Returns the given index of the object.
+     * Getter method for the objects index.
+     */
+    public int getIndex() {return this.index; }
 
-    public int getExerciseTime() {
-        return this.exerciseTime;
-    }
+    /**
+     * @return Returns the objects savekey.
+     * Getter method for the objects savekey.
+     */
+    public String getSaveKey() {return this.saveKey; }
 
-    public int getIndex() {
-        return this.index;
-    }
+    /**
+     * @return Returns the objects donekey.
+     * Getter method for the objects donekey.
+     */
+    public String getDoneKey() {return  this.doneKey; }
 
-    public String getSaveKey() {return this.saveKey;}
-
-    public String getDoneKey() {return  this.doneKey;}
-
+    /**
+     * @return Returns the name of the object.
+     * To string method.
+     */
     @Override
-    public String toString() {
-        return this.name;
-    }
-
-    public void setExercise(String exercise) {
-        this.exercise = exercise;
-    }
-
-    public void setExerciseTime(int exerciseTime) {
-        this.exerciseTime = exerciseTime;
-    }
+    public String toString() {return this.name; }
 }
