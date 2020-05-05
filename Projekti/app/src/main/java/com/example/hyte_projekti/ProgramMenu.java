@@ -39,7 +39,7 @@ public class ProgramMenu extends AppCompatActivity {
             Intent intentMuscle = new Intent(this, MuscleWeekPlanActivity.class);
             startActivity(intentMuscle);
         }else {
-            Intent intentMuscle = new Intent(this, muscleDayList.class);
+            Intent intentMuscle = new Intent(this, MuscleDayList.class);
             startActivity(intentMuscle);
         }
     }

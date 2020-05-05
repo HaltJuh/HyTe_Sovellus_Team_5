@@ -9,10 +9,20 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
+/**
+ * @author Tino Kankkunen
+ * @version 1.0
+ * IconScreen activity is the main displayable screen when opening Fit Summit -application. This is purely for a visually enhanced and more pleasing look of the app.
+ * This activity has the logo of the application with a fitting theme background and the name of the creators "Team 5"
+ */
 public class IconScreen extends AppCompatActivity {
 
     private int targetLastActivity;
 
+    /**
+     * onCreate calls the isItLatestActivity() method onCreate()
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +40,11 @@ public class IconScreen extends AppCompatActivity {
 
     }
 
+    /**
+     * isItLatestActivity() Method is purely for navigation purposes. On launching the app it jumps to IconScreen after which this method is called.
+     * This method checks what was the latest activity through a SharedPreference in MainActivity and then according to its value either displays MainActivity OR
+     * ProgramMenu after a delay of 2000-3000 millis.
+     */
     public void isItLatestActivity(){
         SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         targetLastActivity = prefGet.getInt(MainActivity.TARGETACTIVITY, 0);
