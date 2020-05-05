@@ -72,5 +72,8 @@ public class MuscleWeekPlanActivity extends AppCompatActivity {
         });
     }
 
-    // UpdateUI text for calores to eat!
+    public void backToProgramMenu(View view){
+        Intent programActivity = new Intent(MuscleWeekPlanActivity.this, ProgramMenu.class);
+        startActivity(programActivity);
+    }
 }

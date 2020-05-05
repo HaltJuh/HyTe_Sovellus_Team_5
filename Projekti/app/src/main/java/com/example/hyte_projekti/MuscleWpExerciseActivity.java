@@ -45,7 +45,7 @@ public class MuscleWpExerciseActivity extends AppCompatActivity {
         dayName.setText(DaysList.getInstance().getDay(i).getName());
 
         if(iEx == 100){
-            exName.setText("There is nothing for this day.");
+            exName.setText("    There is nothing for this day.");
             exInfo.setText("");
         }else{
             exName.setText(GymExerciseList.getThisInstance().getGymExercise(iEx).getName() + " for " + time + " minutes");

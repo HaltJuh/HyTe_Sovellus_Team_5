@@ -33,7 +33,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ExActivityTwo" />
         </activity>
-        <activity android:name=".IconScreen" />
+        <activity
+            android:name=".IconScreen"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MuscleBuildingExerciseInfo" />
         <activity android:name=".muscleDayList" />
         <activity android:name=".ExActivityThree" />
@@ -72,12 +80,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ProgramMenu" />
         </activity>
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity
+            android:name=".MainActivity"
+            android:noHistory="true">
         </activity>
     </application>
 

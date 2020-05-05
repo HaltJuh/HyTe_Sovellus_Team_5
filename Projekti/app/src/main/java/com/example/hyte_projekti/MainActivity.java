@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // MUISTA LAITTAA IF LAUSEELLA TSEKKAUS MISSÄ AKTIVITEETISSA OLTU VIIMEKSI!
         latestActivity();
     }
 
