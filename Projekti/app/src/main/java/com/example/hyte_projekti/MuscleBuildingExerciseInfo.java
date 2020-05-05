@@ -11,18 +11,25 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * @author Tino Kankkunen
+ * @version 1.0
+ * This class inputs the individual selected gym exercises information in its activity by changing the TextView components.
+ * After the user presses the "ADD TO WEEK PLAN" button, it calls the selectButtonPressed() method and saves the chosen exercise into the users week plan with the inputted duration "timeInt".
+ */
 public class MuscleBuildingExerciseInfo extends AppCompatActivity {
 
     private int i;
     private EditText time;
     private int timeInt;
-    private int age;
-    private Double height;
-    private Double weight;
-    private String gender;
-    private Calculator calculator;
-    private int calories;
 
+    /**
+     * onCreate() method gets the saved int EXEXTRA from ExActivityThree which is used to fetch the correct exercises info for the TextViews
+     * @param savedInstanceState
+     * @see ExActivityThree for EXEXTRA
+     * @see GymExerciseList for getThisInstance and getGymExercises
+     * @see Exercise for getName() and other implementations
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,42 +50,44 @@ public class MuscleBuildingExerciseInfo extends AppCompatActivity {
 
     }
 
-    // SelectEx:
-    // SelectExerciseButtonPressed method to select the time of exercise done and then saves exercise into week list!
-
+    /**
+     * selectButtonPressed() method is used as an onClick method for a button.
+     * This method takes the user input from editTime2 and then adds the exercise through a SharedPreference into the users Week plan.
+     *
+     * If timeInt input from editTime2 is under 15 a toast will appear to add more time
+     * If timeInt input is non-existant the user will be asked to enter a time.
+     * When the button in successfully pressed a toast will display that the information was saved.
+     * If you happen to have an exercise on this day already it will not be overwritten and a text will display that you have already an activity on this day.
+     * @param view
+     * @see MuscleDayList for EXTRA
+     */
     public void selectButtonPressed(View view){
         time = findViewById(R.id.editTime2);
         String text = time.getText().toString().trim();
         if(text.isEmpty() || text.length() == 0 || text.equals("")){
-            Toast.makeText(this, "Please enter the time.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please enter the time.", Toast.LENGTH_SHORT).show();
         }else {
             timeInt = Integer.parseInt(time.getText().toString());
             if (timeInt < 15) {
-                Toast.makeText(this, "Don't be so weak, let's do a little more!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Don't be so weak, let's do a little more!", Toast.LENGTH_SHORT).show();
             }else{
                 Bundle b = getIntent().getExtras();
-                final int k = b.getInt(muscleDayList.EXTRA, 0);
+                final int k = b.getInt(MuscleDayList.EXTRA, 0);
                 SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
                 int isItEmpty = prefGet.getInt(Integer.toString(k), 100);
                 if(isItEmpty == 100) {
                     int correctedI = (10 * k) + i + 10;
-                    age = prefGet.getInt(MainActivity.AGEKEY, 0);
-                    height = Double.longBitsToDouble(prefGet.getLong(MainActivity.HEIGHTKEY, 0));
-                    weight = Double.longBitsToDouble(prefGet.getLong(MainActivity.WEIGHTKEY, 0));
-                    gender = prefGet.getString(MainActivity.GENDERKEY, "Not found.");
-                    calculator = new Calculator(age, height, weight, gender);
-                    int caloriesToEat = calculator.getCalPerDay(timeInt);
 
                     SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
                     SharedPreferences.Editor prefEditor = prefPut.edit();
                     prefEditor.putInt(Integer.toString(k), i);
                     prefEditor.putInt(Integer.toString(correctedI), timeInt);
                     prefEditor.commit();
-                    Intent intent = new Intent(this, muscleDayList.class);
+                    Intent intent = new Intent(this, MuscleDayList.class);
                     startActivity(intent);
-                    Toast.makeText(this, "Information saved successfully.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Information saved successfully.", Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(this, "You have already selected this day's activity!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "You have already selected this day's activity!", Toast.LENGTH_SHORT).show();
                 }
             }
         }

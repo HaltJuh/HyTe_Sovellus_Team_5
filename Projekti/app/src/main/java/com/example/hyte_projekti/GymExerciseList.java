@@ -3,6 +3,13 @@ package com.example.hyte_projekti;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * @author Tino Kankkunen
+ * @version 1.0
+ * GymExerciseList class is a Singleton.
+ * It holds a list of Exercise objects and creates their values accordingly. The values and info of each workout is created based on real data and have been tested
+ * with years of experience.
+ */
 public class GymExerciseList {
 
     private List<Exercise> gymExercises;
@@ -87,14 +94,28 @@ public class GymExerciseList {
                 "- Frontal raises (with disc or dumbbells)\n", 5.0 ));
     }
 
+    /**
+     * Gets the instance of GymExerciseList
+     * @return an instance of GymExerciseList
+     */
     public static GymExerciseList getThisInstance() {
         return thisInstance;
     }
 
+    /**
+     * Returns a list of Exercise objects
+     * @return an ArrayList of Exercise objects
+     */
     public List<Exercise> getGymExercises() {
         return gymExercises;
     }
 
+    /**
+     * Used to access a specific Exercise and its components or methods on the List.
+     * @param i the number of which of the Exercise is referred to
+     * @return the Exercise number "i" on the gymExercises list.
+     *
+     */
     public Exercise getGymExercise(int i) {
         return gymExercises.get(i);
     }

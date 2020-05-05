@@ -32,16 +32,18 @@
 
     <Button
         android:id="@+id/reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="240sp"
+        android:layout_height="45sp"
+        android:background="@drawable/button_design_large"
         android:onClick="onResetButton"
         android:text="Reset Weekly Calorie amount"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.21" />
+        app:layout_constraintVertical_bias="0.217" />
 
     <TextView
         android:id="@+id/creationDay"
@@ -70,14 +72,17 @@
     <Button
         android:id="@+id/menuButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40sp"
+        android:background="@drawable/button_menu_design"
         android:onClick="backToMenu"
         android:text="@string/button_mainToMenu"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.281" />
+        app:layout_constraintVertical_bias="0.301" />
 
     <ListView
         android:id="@+id/weightLossPlan"
