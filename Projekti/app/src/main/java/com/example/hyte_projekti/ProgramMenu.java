@@ -13,14 +13,35 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * @author Tommi Vainio, Tino Kankkunen, Juho Halttunen
+ * @version 1.0
+ *
+ * In this activity a user can choose to which program he/she wants to go. There is buttons for all three
+ * programs. A user can also change his/her information by clicking the button at the bottom of the screen.
+ */
 public class ProgramMenu extends AppCompatActivity {
+    /**
+     * The value of this key controls which activity is opened when a user clicks the button of
+     * Maintain fitness program.
+     */
     public static final String ISITFIRSTTIME = "FirstTimeOrNot";
+    /**
+     * The value of this key controls which activity is opened when a user clicks the button of
+     * Muscle building program.
+     */
     public static final String MUSCLEPROGRAMRESET = "MuscleProgram";
     private Boolean clicked;
     private int whichProgram;
     private int isItFirstTime;
     private int muscleReset;
     private int weightLoss;
+
+    /**
+     * Sets clicked to false and retrieves values that are needed to check if there are a week plan
+     * created in any of the three programs.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +56,19 @@ public class ProgramMenu extends AppCompatActivity {
         muscleReset = prefGet.getInt(MUSCLEPROGRAMRESET, 0);
         weightLoss = prefGet.getInt(MainActivity.WEEKPLANKEY, 0);
     }
-
+    /**
+     * goToMuscle() method is an onClick() method initiated by a button in the activity.
+     * This method checks the value of MUSCLEPROGRAMRESET SharedPreference for an existing week plan. Depending on the value this method
+     * will direct the user to a different activity from BuildMuscle the introduction, MuscleWeekPlanActivity for an existing weekly plan or
+     * MuscleDayList to create a new plan.
+     * This method also checks for other existing plans from the saved values of isItFirstTime, muscleReset and weightLoss.
+     * If there is no week plans in any of the programs it triggers the muscleFunction() method.
+     * If there IS an existing week plan in a program, an alert is triggered by the alertOneButton() which will ask the user if he/she wants to
+     * overwrite the existing plan.
+     * @see ProgramMenu for muscleFunction() method
+     * @see ProgramMenu for alertOneButton() method
+     */
     public void goToMuscle(View view) {
-
         SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         int muscleProgram = prefGet.getInt(MUSCLEPROGRAMRESET, 0);
         if (muscleProgram == 0) {
@@ -62,7 +93,15 @@ public class ProgramMenu extends AppCompatActivity {
             }
         }
     }
-
+    /**
+     * goToLoseWeight() method is an onClick() method initiated by a button in the activity.
+     * This method checks for existing week plans in all of the programs through the saved variables of
+     * isItFirstTime, muscleReset and weightLoss. If there is no existing plan, the weightLossFunction() method is called and the user is directed to the next activity.
+     * If there IS an existing plan, the user will be shown an Alert Dialog by the alertOneButton() method to confirm if he/she wants to overwrite the current existing plan
+     * and continue or cancel the process.
+     * @see ProgramMenu for weightLossFunction() method
+     * @see ProgramMenu for alertOneButton() method
+     */
     public void goToLoseWeight(View view) {
         if(isItFirstTime == 0 && muscleReset == 0 && weightLoss == 0) {
             weightLossFunction();
@@ -74,7 +113,15 @@ public class ProgramMenu extends AppCompatActivity {
             weightLossFunction();
         }
     }
-
+    /**
+     * goToMaintain() method is an onClick() method initiated by a button in the activity.
+     * This method checks for existing week plans in all of the programs through the saved variables of
+     * isItFirstTime, muscleReset and weightLoss. If there is no existing plan, the maintainFunction() method is called and the user is directed to the next activity.
+     * If there IS an existing plan, the user will be shown an Alert Dialog by the alertOneButton() method to confirm if he/she wants to overwrite the current existing plan
+     * and continue or cancel the process.
+     * @see ProgramMenu for maintainFunction() method
+     * @see ProgramMenu for alertOneButton() method
+     */
     public void goToMaintain(View view) {
         if(isItFirstTime == 0 && muscleReset == 0 && weightLoss == 0) {
             maintainFunction();
@@ -87,6 +134,10 @@ public class ProgramMenu extends AppCompatActivity {
         }
     }
 
+    /**
+     * Changes the value of LATESTACTIVITY key depending on to which program's button a user cliks.
+     * @param i 1-3 depending on program.
+     */
     public void saveLatestActivity(int i){
         SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
@@ -94,6 +145,12 @@ public class ProgramMenu extends AppCompatActivity {
         prefEditor.commit();
     }
 
+    /**
+     * Changes the value of TARGETACTIVITY Key to 0 and starts MainActivity so that
+     * a user can change his/her information.
+     *
+     * @param view Change your information button that is clicked to perform this method.
+     */
     public void changeInfoClicked(View view){
         SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
@@ -103,6 +160,11 @@ public class ProgramMenu extends AppCompatActivity {
         startActivity(intentMaintain);
     }
 
+    /**
+     * Creates Alert Dialog with OK button and Cancel button and if a user clicks OK button, this method calls method which
+     * called this method so that the method called will not call this method again.
+     * If a user clicks Cancel button this method does nothing.
+     */
     public void alertOneButton() {
         AlertDialog.Builder builder = new AlertDialog.Builder(ProgramMenu.this);
         builder.setCancelable(true);
@@ -137,6 +199,11 @@ public class ProgramMenu extends AppCompatActivity {
         }).show();
     }
 
+    /**
+     * This method checks if Maintain Fitness program is latest program a user has used.
+     * If it is, this method starts the activity where a user was last time he/she used Maintain Fitness program.
+     * If it is not, this method resets other programs and and starts MaintainFitnessLevel activity.
+     */
     public void maintainFunction(){
         SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         int firstTime = prefGet.getInt(ISITFIRSTTIME, 0);
@@ -163,7 +230,11 @@ public class ProgramMenu extends AppCompatActivity {
             startActivity(intentMaintain);
         }
     }
-
+    /**
+     * This method checks if Muscle Building program is latest program a user has used.
+     * If it is, this method starts the activity where a user was last time he/she used Muscle Building program.
+     * If it is not, this method resets other programs and and starts BuildMuscle activity.
+     */
     public void muscleFunction(){
         SharedPreferences prefGet = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         int muscleProgram = prefGet.getInt(MUSCLEPROGRAMRESET, 0);
@@ -186,6 +257,9 @@ public class ProgramMenu extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method resets Maintain Fitness Level and Build Muscle Mass programs and starts ExActivityOne activity.
+     */
     public void weightLossFunction(){
         SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();

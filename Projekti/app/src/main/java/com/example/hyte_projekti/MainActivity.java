@@ -14,17 +14,53 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+/**
+ * @author Tommi Vainio, Juho Halttunen, Tino Kankkunen
+ * @version 1.0
+ *
+ * This activity controls which activity is opened when app is started. If app is started for the first time,
+ * This activity asks user's information.
+ */
 public class MainActivity extends AppCompatActivity {
+    /**
+     * All this app's sharedPreference's kay-value pairs' key.
+     */
     public static final String KEY = "SavedData";
+    /**
+     * User's age is saved with this key.
+     */
     public static final String AGEKEY = "SavedAge";
+    /**
+     * User's height is saved with this key.
+     */
     public static final String HEIGHTKEY = "SavedHeight";
+    /**
+     * User's weight is saved with this key.
+     */
     public static final String WEIGHTKEY = "SavedWeight";
+    /**
+     * User's gender is saved with this key.
+     */
     public static final String GENDERKEY = "SavedGender";
+    /**
+     * The value of this key controls which activity is opened when a user starts this app.
+     */
     public static final String TARGETACTIVITY = "SavedActivity";
+    /**
+     * The value of this key tells in which program a user was last time when this app was running.
+     */
     public static final String LATESTACTIVITY = "SavedActivityLatest";
+    /**
+     * If the value of this key is something else than 1, the week plan of the weight loss program is reset.
+     */
     public static final String WEEKPLANKEY = "weekPlan";
+    /**
+     * This String is used as a key to save calories needed to burn weekly.
+     */
     public static final String WEEKLYCALORIESTOBURN = "CaloriesToBurn";
-    public static final String TOTALCALORIESLEFTTOBURNKEY = "TotalCaloriesLeft";
+    /**
+     * This String is used as a key to save the day of creation for the weight loss plan.
+     */
     public static final String CREATIONDAY = "CreationDay";
 
     private int targetActivity;
@@ -38,12 +74,21 @@ public class MainActivity extends AppCompatActivity {
     private String age;
     private String weight;
     private String height;
+
+    /**
+     * Calls latestActivity method.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         latestActivity();
     }
 
+    /**
+     * Checks the value of TARGETACTICITY key. If it is 0, stay in this activity and retrieve all text fields and buttons.
+     * If it is 1, go to Program menu.
+     */
     public void latestActivity(){
         SharedPreferences prefGet = getSharedPreferences(KEY, Activity.MODE_PRIVATE);
         targetActivity = prefGet.getInt(TARGETACTIVITY, 0);
@@ -65,6 +110,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Checks which radio button is clicked. Also changes clicked to true so that the program knows
+     * that either one is clicked.
+     *
+     * @param view Radio button which is clicked. Either male button or female button.
+     */
     public void radioButtonClicked(View view){
         clicked = true;
         RadioGroup radioGroup = (RadioGroup)findViewById(R.id.radioGroupGender);
@@ -79,6 +130,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Checks if any of the text fields are empty or have value 0.
+     * If so, this method returns false. If not this method returns true.
+     *
+     * @return true or false
+     */
     public Boolean checkIfOk(){
         age = ageView.getText().toString();
         height = heightView.getText().toString();
@@ -106,6 +163,12 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * If checkIfOk method returns true, the values of the text fields are saved and
+     * ProgramMenu activity is started.
+     *
+     * @param view Send button that is clicked to perform this method.
+     */
     public void buttonPressed(View view){
         if(checkIfOk()){
             Log.i("Mode", "OK");
