@@ -12,9 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 /**
+ * This activity creates an interactable ListView that displays the days of the week so the user can create his weekly plan.
  * @author Tino Kankkunen
  * @version 1.0
- * This activity creates an interactable ListView that displays the days of the week so the user can create his weekly plan.
  */
 public class MuscleDayList extends AppCompatActivity {
 
@@ -91,7 +91,6 @@ public class MuscleDayList extends AppCompatActivity {
             }
             SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
             SharedPreferences.Editor prefEditor = prefPut.edit();
-            prefEditor.putInt(SelectEx.CALORIESBURNED, 0);
             prefEditor.putInt(RESET, 1);
             prefEditor.commit();
         }
@@ -107,7 +106,6 @@ public class MuscleDayList extends AppCompatActivity {
     public void doneButtonPressed(View view){
         SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
-        //prefEditor.putInt(CALORIESREMAINING, caloriesToBurn);
         prefEditor.putInt(ProgramMenu.MUSCLEPROGRAMRESET, 1);
         prefEditor.commit();
         Intent nextActivity = new Intent(MuscleDayList.this, MuscleWeekPlanActivity.class);

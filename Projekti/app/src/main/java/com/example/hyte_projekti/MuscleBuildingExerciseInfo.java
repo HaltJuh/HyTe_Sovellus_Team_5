@@ -12,10 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * @author Tino Kankkunen
- * @version 1.0
  * This class inputs the individual selected gym exercises information in its activity by changing the TextView components.
  * After the user presses the "ADD TO WEEK PLAN" button, it calls the selectButtonPressed() method and saves the chosen exercise into the users week plan with the inputted duration "timeInt".
+ * @author Tino Kankkunen
+ * @version 1.0
  */
 public class MuscleBuildingExerciseInfo extends AppCompatActivity {
 
