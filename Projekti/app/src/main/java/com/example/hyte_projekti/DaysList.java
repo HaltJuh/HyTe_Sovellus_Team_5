@@ -13,8 +13,8 @@ public class DaysList {
     private static final DaysList ourInstance = new DaysList();
 
     /**
-     * @return Returns Instance of DaysList
      * Getter method for an instance of the singleton.
+     * @return Returns Instance of DaysList
      */
     public static DaysList getInstance(){
         return ourInstance;
@@ -34,14 +34,14 @@ public class DaysList {
         days.add(new Days("Sunday", 1,"SundayTime","SundayDone"));
     }
     /**
-     * @return Returns a list of Days objects.
      * Getter method for List<Days>
+     * @return Returns a list of Days objects.
      */
     public List<Days> getDays(){
         return days;
     }
     /**
-     *
+     * Getter method for a specific Days object
      * @param i
      * @return Returns the Days object at position i
      */

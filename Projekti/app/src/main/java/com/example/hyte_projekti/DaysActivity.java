@@ -47,7 +47,6 @@ public class DaysActivity extends AppCompatActivity {
     /**
      * Reset saved information if needed, updates textView, creates a list which includes days of the week and
      * sets onItemClickListener to that list.
-     *
      * @param savedInstanceState
      */
     @Override

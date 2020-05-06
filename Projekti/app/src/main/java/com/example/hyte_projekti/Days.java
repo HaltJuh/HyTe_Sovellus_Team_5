@@ -14,11 +14,11 @@ public class Days {
     private int index;
 
     /**
+     * Constructor for the day object.
      * @param name
      * @param index
      * @param saveKey
      * @param doneKey
-     * Constructor for the day object.
      */
     public Days(String name, int index, String saveKey, String doneKey){
         this.name = name;
@@ -28,32 +28,32 @@ public class Days {
     }
 
     /**
-     * @return Returns the name of the object.
      * Getter method for the object name.
+     * @return Returns the name of the object.
      */
     public String getName() {return this.name; }
 
     /**
-     * @return Returns the given index of the object.
      * Getter method for the objects index.
+     * @return Returns the given index of the object.
      */
     public int getIndex() {return this.index; }
 
     /**
-     * @return Returns the objects savekey.
      * Getter method for the objects savekey.
+     * @return Returns the objects savekey.
      */
     public String getSaveKey() {return this.saveKey; }
 
     /**
-     * @return Returns the objects donekey.
      * Getter method for the objects donekey.
+     * @return Returns the objects donekey.
      */
     public String getDoneKey() {return  this.doneKey; }
 
     /**
-     * @return Returns the name of the object.
      * To string method.
+     * @return Returns the name of the object.
      */
     @Override
     public String toString() {return this.name; }

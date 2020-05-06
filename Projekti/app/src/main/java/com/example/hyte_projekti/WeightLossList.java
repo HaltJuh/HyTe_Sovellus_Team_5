@@ -14,9 +14,8 @@ public class WeightLossList {
     private static final WeightLossList ourInstance = new WeightLossList();
 
     /**
-     * @see {@link Exercise}
-     * Constructor
      * Constructs a list of weight loss exercises
+     * @see {@link Exercise}
      */
     private WeightLossList(){
         exercises = new ArrayList<>();
@@ -32,26 +31,25 @@ public class WeightLossList {
     }
 
     /**
-     * @return Instance of WeightLossList
      * Getter method for an instance of the Singleton
+     * @return Instance of WeightLossList
      */
     public static WeightLossList getInstance(){
         return ourInstance;
     }
 
     /**
-     * @return List<Exercise></>
      * Getter method for List<Exercise>
+     * @return List<Exercise>
      */
     public List<Exercise> getWeightLossList(){
         return exercises;
     }
 
     /**
-     *
+     * Getter method for an Exercise at the position of index
      * @param index
      * @return Exercise
-     * Getter method for an Exercise at the position of index
      */
     public Exercise getWeightLossExercise(int index){
         return exercises.get(index);

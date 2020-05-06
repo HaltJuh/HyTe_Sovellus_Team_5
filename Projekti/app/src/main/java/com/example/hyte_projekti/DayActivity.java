@@ -78,11 +78,11 @@ public class DayActivity extends AppCompatActivity {
     }
 
     /**
+     * Calculates how many calories the selected activity burns with the given time and reduces it from the weekly total.
+     * Returns to the ExActivityOne activity
      * @param view
      * @retutn void
      * @See {@link #calculator}
-     * Calculates how many calories the selected activity burns with the given time and reduces it from the weekly total.
-     * Returns to the ExActivityOne activity
      */
     public void onDone(View view){
         if(prefGet.getInt(day.getDoneKey(),0)==0){

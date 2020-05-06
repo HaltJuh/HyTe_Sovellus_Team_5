@@ -64,12 +64,12 @@ public class WeightLossWeekPlan extends AppCompatActivity {
     private double currentBurnedWeeklyCalories;
 
     /**
-     * @param savedInstanceState
-     * @return void
-     * @see {@link #calculator}
      * Instantiates important values
      * Calculates how many calories currently selected exercises burn weekly
      * Setups listview for the user to choose days
+     * @param savedInstanceState
+     * @return void
+     * @see {@link #calculator}
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,11 +117,11 @@ public class WeightLossWeekPlan extends AppCompatActivity {
     }
 
     /**
-     * @param view
-     * @return void
      * Calculates burned calories and saves the gained value into two fields in sharedpreferences.
      * Saves a value used to check if a week plan exists and a the value of the creation day.
      * Returns to the ExActivityOne activity
+     * @param view
+     * @return void
      */
     public void onDone(View view){
         SharedPreferences prefPut = getSharedPreferences(KEY,Activity.MODE_PRIVATE);
