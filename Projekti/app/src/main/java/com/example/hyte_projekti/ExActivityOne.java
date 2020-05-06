@@ -221,6 +221,11 @@ public class ExActivityOne extends AppCompatActivity {
         finish();
         startActivity(intent);
     }
+    public void onResetPlan(View view){
+        reset();
+        Intent intent = getIntent();
+        startActivity(intent);
+    }
 
     /**
      * Returns to ProgramMenu activity
@@ -239,6 +244,7 @@ public class ExActivityOne extends AppCompatActivity {
         SharedPreferences.Editor prefEditor = prefPut.edit();
         prefEditor.putInt(IDEAL_WEIGHT,idealWeight);
         prefEditor.putLong(CALORIE_INTAKE,Double.doubleToRawLongBits(dailyCalories));
+        prefEditor.putInt(MainActivity.WEEKPLANKEY, 0);
         for(int i=0;i<days.getDays().size();i++) {
             Days day = days.getDay(i);
             prefEditor.putInt(day.getSaveKey(), 0);
