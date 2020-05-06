@@ -13,6 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
+ * In this activity a user can see information about an exercise he/she clicked.
+ * The user can enter how long he/she will perform this exercise and add it to the week plan.
+ *
  * @author Tommi Vainio
  * @version 1.0
  */

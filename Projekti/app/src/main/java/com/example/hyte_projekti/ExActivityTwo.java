@@ -10,6 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 /**
+ * This activity shows Maintain Fitness exercise list.
+ * By clicking any exercise of that list, the user can see more information about that exercise.
+ *
  * @author Tommi Vainio
  * @version 1.0
  */

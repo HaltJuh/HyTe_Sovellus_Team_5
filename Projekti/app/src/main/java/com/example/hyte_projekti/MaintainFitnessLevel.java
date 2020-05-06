@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
+ * In this activity a user tells a program how many kilocalories he/she eats per day approximately.
+ *
  * @author Tommi Vainio
  * @version 1.0
  */
