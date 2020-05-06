@@ -25,7 +25,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ProgramMenu" />
         </activity>
-        <activity android:name=".TestActivity" />
         <activity
             android:name=".SelectEx"
             android:parentActivityName=".ExActivityTwo">
@@ -68,13 +67,6 @@
         </activity>
         <activity
             android:name=".MaintainFitnessLevel"
-            android:parentActivityName=".ProgramMenu">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ProgramMenu" />
-        </activity>
-        <activity
-            android:name=".Weightloss"
             android:parentActivityName=".ProgramMenu">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

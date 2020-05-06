@@ -98,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Click on the weekdays to chose exercises for the days.\nWe reccomend 2-5 days per week"
+        android:text="Click on the weekdays to chose exercises for the days.\nWe recommend 2-5 days per week"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

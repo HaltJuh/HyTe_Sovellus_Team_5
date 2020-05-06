@@ -3,9 +3,9 @@ package com.example.hyte_projekti;
 import android.service.autofill.FieldClassification;
 
 /**
+ * Calculator class is as its name suggests, a class for the sole purpose of calculations with methods used all around the different parts of the application.
  * @author Tino Kankkunen, Juho Halttunen, Tommi Vainio
  * @version 1.0
- * Calculator class is as its name suggests, a class for the sole purpose of calculations with methods used all around the different parts of the application.
  */
 public class Calculator {
     /**
