@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * @author Tino Kankkunen
- * @version 1.0
  * GymExerciseList class is a Singleton.
  * It holds a list of Exercise objects and creates their values accordingly. The values and info of each workout is created based on real data and have been tested
  * with years of experience.
+ * @author Tino Kankkunen
+ * @version 1.0
  */
 public class GymExerciseList {
 

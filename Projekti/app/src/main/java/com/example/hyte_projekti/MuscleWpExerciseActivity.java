@@ -11,11 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * @author Tino Kankkunen
- * @version 1.0
  * MuscleWpExerciseActivity class creates and fills the new activity with information based on SharedPreference values that were saved from MuscleDayList
  * and MuscleBuildingExerciseInfo. These values hold the information about the selected day and what activity was chosen for that day.
  * The user can now select the workout to be "DONE" or completed by a button and then move back to the current Week plan.
+ * @author Tino Kankkunen
+ * @version 1.0
  */
 public class MuscleWpExerciseActivity extends AppCompatActivity {
 

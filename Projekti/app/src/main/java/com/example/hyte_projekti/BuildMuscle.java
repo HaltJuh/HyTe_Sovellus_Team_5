@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 
 /**
+ * This activity is an introduction to the Muscle Building program.
  * @author Tino Kankkunen
  * @version 1.0
- * This activity is an introduction to the Muscle Building program.
  */
 public class BuildMuscle extends AppCompatActivity {
 

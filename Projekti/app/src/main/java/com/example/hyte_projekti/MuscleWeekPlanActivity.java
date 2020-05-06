@@ -15,12 +15,12 @@ import android.widget.Button;
 import android.widget.ListView;
 
 /**
- * @author Tino Kankkunen
- * @version 1.0
  * MuscleWeekPlanActivity creates the final Weekly Plan for the user as an interactable list.
  * Each week day can be clicked and will open the chosed days activitys information if there is any.
  * The chosen exercises can then be marked as "DONE" which then removes the exercise from the list.
  * The user can create a new week plan and overwrite the old one.
+ * @author Tino Kankkunen
+ * @version 1.0
  */
 public class MuscleWeekPlanActivity extends AppCompatActivity {
 

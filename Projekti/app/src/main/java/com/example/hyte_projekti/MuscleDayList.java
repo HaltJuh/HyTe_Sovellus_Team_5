@@ -12,9 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 /**
+ * This activity creates an interactable ListView that displays the days of the week so the user can create his weekly plan.
  * @author Tino Kankkunen
  * @version 1.0
- * This activity creates an interactable ListView that displays the days of the week so the user can create his weekly plan.
  */
 public class MuscleDayList extends AppCompatActivity {
 
