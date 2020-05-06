@@ -3,6 +3,8 @@ package com.example.hyte_projekti;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,7 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 /**
- * This activity creates an interactable ListView that displays the days of the week so the user can create his weekly plan.
+ * This activity creates an interactable ListView that displays the days of the week so the user can create his weekly plan. A repeating popup notification is displayed
+ * weekly from the finishing of the week plan to remind the user to create a new plan.
  * @author Tino Kankkunen
  * @version 1.0
  */
@@ -98,12 +101,20 @@ public class MuscleDayList extends AppCompatActivity {
 
     /**
      * doneButtonPressed() method displays in the xml editor and is used as an onClick method when the user is done editing the week plan and wants to finish it by creating one.
-     * This changes the SharedPreference of ProgramMenu.MUSCLEPROGRAMRESET into "1" which means that information is now saved into the week plan so it is not empty!
+     * When this method is called an AlarmManager communicates with the BroadcastReceiver class "Receiver" to engage a timer for a weekly popup notification.
+     * This notification is a reminder for the user to view and create a new weekly plan by the end of the week.
+     * This method changes the SharedPreference of ProgramMenu.MUSCLEPROGRAMRESET into "1" which means that information is now saved into the week plan so it is not empty!
      * doneButtonPressed() then opens MuscleWeekPlanActivity.
      * @param view
+     * @see Receiver for the popup notification
      * @see ProgramMenu for MUSCLEPROGRAMRESET
      */
     public void doneButtonPressed(View view){
+        Intent intentReceiver = new Intent(MuscleDayList.this, Receiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(MuscleDayList.this, 0, intentReceiver, 0);
+        AlarmManager am = (AlarmManager)getSystemService(ALARM_SERVICE);
+        am.setRepeating(am.RTC_WAKEUP, System.currentTimeMillis(), am.INTERVAL_DAY*7, pendingIntent);                           // am.INTERVAL_DAY*7 for once a week!! Can use lower values for more frequent notifications!
+
         SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
         prefEditor.putInt(ProgramMenu.MUSCLEPROGRAMRESET, 1);

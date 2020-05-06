@@ -1,39 +1,40 @@
 package com.example.hyte_projekti;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
-public class NotificationMethod extends AppCompatActivity {
+import androidx.core.app.NotificationCompat;
+
+/**
+ * This class acts as a BroadcastReceiver holds a method for creating a popup notification.
+ * The @Override onReceive() method is used together with an AlarmManager to create weekly popup notifications for the user to see even if the application is off.
+ * @author Tino Kankkunen
+ * @version 1.0
+ * @see Receiver for createNotification() method!
+ */
+public class Receiver extends BroadcastReceiver {
 
     private NotificationManager notificationManager;
 
+    /**
+     * This method works as the BroadcastReceiver and calls the createNotification() method when called through the AlartManager in each program.
+     * Together with the AlarmManager a popup notification is created and displayed every week upon creating a week plan to remind the user to check the plan and possibly create a new one.
+     * @see MuscleDayList for the use of AlartManager and this method
+     * @see DaysActivity for the use of AlartManager and this method
+     * @see
+     * @see Receiver for createNotification() method
+     * @param context
+     * @param intent
+     */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notification_testing);
-
-        // Finds you button from the xml layout file
-        Button createNotificationButton = findViewById(R.id.button_notification_test);
-
-        // Waits for you to click the button
-        createNotificationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Starts the function below
-                createNotification("Come check your weekly plan!", getApplicationContext());
-            }
-        });
+    public void onReceive(Context context, Intent intent) {
+        createNotification("Remember to check your weekly plan!", context);
     }
 
     /**
@@ -74,7 +75,7 @@ public class NotificationMethod extends AppCompatActivity {
                 notificationManager.createNotificationChannel(notificationChannel);
             }
             builder = new NotificationCompat.Builder(context, id);
-            intent = new Intent(context, NotificationMethod.class);
+            intent = new Intent(context, Receiver.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
             builder.setContentTitle("Fit Summit")                                                   // REQUIRED! The title used for the notification
@@ -88,7 +89,7 @@ public class NotificationMethod extends AppCompatActivity {
         }
         else {
             builder = new NotificationCompat.Builder(context, id);
-            intent = new Intent(context, NotificationMethod.class);
+            intent = new Intent(context, Receiver.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
             builder.setContentTitle("Fit Summit")                                                   // REQUIRED! The title used for the notification
