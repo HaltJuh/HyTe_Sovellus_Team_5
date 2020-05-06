@@ -11,10 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 /**
- * @author Tino Kankkunen
- * @version 1.0
  * ExActivityThree creates an interactable ListView based on the GymExerciseList Singleton and displays the names of each exercise.
  * This class also directs the user into MuscleBuildingExerciseInfo to display more information on the selected workout.
+ * @author Tino Kankkunen
+ * @version 1.0
  */
 public class ExActivityThree extends AppCompatActivity {
 
