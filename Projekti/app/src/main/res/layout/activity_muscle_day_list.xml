@@ -22,13 +22,14 @@
         android:layout_marginTop="26dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/buttondesign"
-        android:textColor="@android:color/white"
-        android:onClick="DoneButtonPressed"
+        android:onClick="doneButtonPressed"
         android:text="Done"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/muscleDayList" />
+        app:layout_constraintTop_toBottomOf="@+id/muscleDayList"
+        tools:ignore="OnClick" />
 
     <TextView
         android:id="@+id/caloriesToEat"
