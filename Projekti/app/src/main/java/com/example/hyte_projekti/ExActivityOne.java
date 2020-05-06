@@ -3,6 +3,8 @@ package com.example.hyte_projekti;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -203,6 +205,10 @@ public class ExActivityOne extends AppCompatActivity {
     }
     public void onResetPlan(View view){
         reset();
+        Intent intentReceiver = new Intent(ExActivityOne.this, Receiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(ExActivityOne.this, 0, intentReceiver, 0);
+        AlarmManager am = (AlarmManager)getSystemService(ALARM_SERVICE);
+        am.setRepeating(am.RTC_WAKEUP, System.currentTimeMillis(), am.INTERVAL_DAY*7, pendingIntent);       // am.INTERVAL_DAY*7 for once a week!! Can use lower values for more frequent notifications!
         Intent intent = getIntent();
         startActivity(intent);
     }
