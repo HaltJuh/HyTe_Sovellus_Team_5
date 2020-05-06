@@ -3,6 +3,8 @@ package com.example.hyte_projekti;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -135,10 +137,18 @@ public class DaysActivity extends AppCompatActivity {
      * Saves the amount of calories a user needs to burn in a week and starts WeekPlanActivity.
      * Changes also ISITFIRSTTIME key's value so that the right activity is started when a user
      * clicks the button of this program in the menu.
+     * When this method is called an AlarmManager communicates with the BroadcastReceiver class "Receiver" to engage a timer for a weekly popup notification.
+     * This notification is a reminder for the user to view and create a new weekly plan by the end of the week.
      *
      * @param view Done button that is clicked to perform this method.
+     * @see Receiver for the popup notification
      */
     public void DoneButtonPressed(View view){
+        Intent intentReceiver = new Intent(DaysActivity.this, Receiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(DaysActivity.this, 0, intentReceiver, 0);
+        AlarmManager am = (AlarmManager)getSystemService(ALARM_SERVICE);
+        am.setRepeating(am.RTC_WAKEUP, System.currentTimeMillis(), am.INTERVAL_DAY*7, pendingIntent);                           // am.INTERVAL_DAY*7 for once a week!! Can use lower values for more frequent notifications!
+
         SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
         prefEditor.putInt(CALORIESREMAINING, caloriesToBurn);

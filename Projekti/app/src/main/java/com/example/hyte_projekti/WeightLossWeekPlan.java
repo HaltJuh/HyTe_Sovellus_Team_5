@@ -1,6 +1,8 @@
 package com.example.hyte_projekti;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -119,11 +121,20 @@ public class WeightLossWeekPlan extends AppCompatActivity {
     /**
      * Calculates burned calories and saves the gained value into two fields in sharedpreferences.
      * Saves a value used to check if a week plan exists and a the value of the creation day.
+     * When this method is called an AlarmManager communicates with the BroadcastReceiver class "Receiver" to engage a timer for a weekly popup notification.
+     * This notification is a reminder for the user to view and create a new weekly plan by the end of the week.
      * Returns to the ExActivityOne activity
      * @param view
+     * @see Receiver for popup notification
      * @return void
      */
     public void onDone(View view){
+        Intent intentReceiver = new Intent(WeightLossWeekPlan.this, Receiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(WeightLossWeekPlan.this, 0, intentReceiver, 0);
+        AlarmManager am = (AlarmManager)getSystemService(ALARM_SERVICE);
+        am.setRepeating(am.RTC_WAKEUP, System.currentTimeMillis(), am.INTERVAL_DAY*7, pendingIntent);                           // am.INTERVAL_DAY*7 for once a week!! Can use lower values for more frequent notifications!
+
+
         SharedPreferences prefPut = getSharedPreferences(KEY,Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
         prefEditor.putInt(WEEKPLANKEY,1);
