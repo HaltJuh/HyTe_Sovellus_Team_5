@@ -15,11 +15,11 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 /**
- * @author Tommi Vainio, Juho Halttunen, Tino Kankkunen
- * @version 1.0
- *
  * This activity controls which activity is opened when app is started. If app is started for the first time,
  * This activity asks user's information.
+ *
+ * @author Tommi Vainio, Juho Halttunen, Tino Kankkunen
+ * @version 1.0
  */
 public class MainActivity extends AppCompatActivity {
     /**
