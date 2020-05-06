@@ -16,6 +16,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 /**
+ * This activity shows the week plan a user created.
+ * By clicking the days of the week the user can see if he/she has any activity for that day.
+ * The user can also see how many calories he/she still has to burn.
+ *
  * @author Tommi Vainio
  * @version 1.0
  */

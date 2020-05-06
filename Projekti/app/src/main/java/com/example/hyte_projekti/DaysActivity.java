@@ -13,6 +13,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 /**
+ * This activity shows a user the days of the week list.
+ * By clicking any day of the list, the user can choose exercise for that day.
+ *
  * @author Tommi Vainio
  * @version 1.0
  */

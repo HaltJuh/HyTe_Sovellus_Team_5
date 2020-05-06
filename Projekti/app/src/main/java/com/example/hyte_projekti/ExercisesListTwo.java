@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * This class puts instances of Exercise class into list and creates one instance of this class.
+ * With that instance the program can retrieve the information of Maintain Fitness exercises.
+ *
  * @author Tommi Vainio
  * @version 1.0
  */

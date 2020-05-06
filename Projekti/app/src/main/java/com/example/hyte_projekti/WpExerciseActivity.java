@@ -11,6 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
+ * This activity shows user if there is an exercise for this day.
+ * If there is an exercise, this activity shows its name, information about it and duration how long
+ * the user has to perform this exercise.
+ *
  * @author Tommi Vainio
  * @version 1.0
  */
