@@ -12,10 +12,6 @@
         <activity android:name=".MuscleWpExerciseActivity"></activity>
         <activity android:name=".MuscleWeekPlanActivity" />
         <activity
-            android:name=".ProgressActivity"
-            android:parentActivityName=".ExActivityOne">
-        </activity>
-        <activity
             android:name=".DayActivity"
             android:parentActivityName=".ExActivityOne" />
         <activity android:name=".WeekPlanActivity"
@@ -47,7 +43,6 @@
         <activity android:name=".ExActivityTwo" />
         <activity android:name=".ExActivityOne" />
         <activity android:name=".DaysActivity" />
-        <activity android:name=".MenuActivity" />
         <activity android:name=".WeightLossWeekPlan" />
         <activity android:name=".WeightLossExercises" />
         <activity android:name=".WeightLossExercise" />
