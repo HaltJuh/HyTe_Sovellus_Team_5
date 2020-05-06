@@ -208,7 +208,7 @@ public class ExActivityOne extends AppCompatActivity {
         Intent intentReceiver = new Intent(ExActivityOne.this, Receiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(ExActivityOne.this, 0, intentReceiver, 0);
         AlarmManager am = (AlarmManager)getSystemService(ALARM_SERVICE);
-        am.setRepeating(am.RTC_WAKEUP, System.currentTimeMillis(), am.INTERVAL_DAY*7, pendingIntent);       // am.INTERVAL_DAY*7 for once a week!! Can use lower values for more frequent notifications!
+        am.setRepeating(am.RTC_WAKEUP, System.currentTimeMillis(), am.INTERVAL_DAY*7, pendingIntent);                       // am.INTERVAL_DAY*7 for once a week!! Can use lower values for more frequent notifications!
         Intent intent = getIntent();
         startActivity(intent);
     }
