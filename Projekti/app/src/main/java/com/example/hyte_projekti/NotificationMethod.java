@@ -14,7 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class NotificationTesting extends AppCompatActivity {
+public class NotificationMethod extends AppCompatActivity {
 
     private NotificationManager notificationManager;
 
@@ -74,7 +74,7 @@ public class NotificationTesting extends AppCompatActivity {
                 notificationManager.createNotificationChannel(notificationChannel);
             }
             builder = new NotificationCompat.Builder(context, id);
-            intent = new Intent(context, NotificationTesting.class);
+            intent = new Intent(context, NotificationMethod.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
             builder.setContentTitle("Fit Summit")                                                   // REQUIRED! The title used for the notification
@@ -88,7 +88,7 @@ public class NotificationTesting extends AppCompatActivity {
         }
         else {
             builder = new NotificationCompat.Builder(context, id);
-            intent = new Intent(context, NotificationTesting.class);
+            intent = new Intent(context, NotificationMethod.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
             builder.setContentTitle("Fit Summit")                                                   // REQUIRED! The title used for the notification
