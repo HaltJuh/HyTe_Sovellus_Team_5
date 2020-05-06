@@ -23,7 +23,6 @@ public class Calculator {
     private String gender;
     private Double rmr;
     private int rmrInt;
-    private int calBurned;
     private int calPerDay;
     private double caloriesToLose;
     private double extraCalories;
@@ -31,7 +30,6 @@ public class Calculator {
     private Double caloriesBurned;
     private int caloriesBurnedInt;
     private int caloriesBurnedAtGym;
-
     /**
      * The Calculator constructor has age, height, weight and gender parameters that are derived from the users input at the start of the program.
      * @param age
@@ -45,7 +43,6 @@ public class Calculator {
         this.weight = weight;
         this.gender = gender;
     }
-
     /**
      * getRmR() is a method that counts the Resting Metabolic Rate of the user.
      * The methods outcome depends on the users gender input
@@ -60,7 +57,6 @@ public class Calculator {
        rmrInt = (int) (Math.round(rmr));
        return rmrInt;
     }
-
     /**
      * Used in getWeeksToLoseAllExtraWeight() method AND in the WeightLossWeekPlan class's onCreate method.
      * @see WeightLossWeekPlan for usage
@@ -72,7 +68,6 @@ public class Calculator {
         caloriesToLose = (KILOSTOLOSEPERWEEK*KALORIESTOLOSEKGMULTIPLIER)+(extraCalories*7);
         return caloriesToLose;
     }
-
     /**
      * getKilosLostPerWeek() method returns the amount of how many kilos the user loses per week with the current week plan.
      * it uses the static KALORIESTOLOSEKGMULTIPLIER defined in the top of the Calculator class
@@ -84,20 +79,6 @@ public class Calculator {
     public double getKilosLostPerWeek(double caloriesBurnedPerWeek){
         return caloriesBurnedPerWeek/KALORIESTOLOSEKGMULTIPLIER;
     }
-
-    /**
-     * This method calculates from the users input of ideal weight goal and the daily calories intake a time to lose all of the desires weight in weeks.
-     * @param idealWeight
-     * @param dailyCalories
-     * @return the time to lose all extra weight in weeks.
-     */
-    public int getWeeksToLoseAllExtraWeight(int idealWeight,double dailyCalories){
-        double caloriesToBurnPerWeek = getCaloriesToBurnPerWeek(dailyCalories);
-        double totalCaloriesToBurn = getTotalCaloriesToBurn(idealWeight,weight);
-        int weeks = (int)Math.round(totalCaloriesToBurn/caloriesToBurnPerWeek);
-        return weeks;
-    }
-
     /**
      * getTotalCaloriesToBurn() method takes the input of users target of desired weight and the current weight,
      * then calcuclates the total calories to burn from the kilos to lose * KALORIESTOLOSEKGMULTIPLIER equation.
@@ -106,11 +87,6 @@ public class Calculator {
      * @param currentWeight
      * @return the double value of total calories to burn for target weight.
      */
-    public double getTotalCaloriesToBurn(int targetWeight,double currentWeight){
-        double kilosToLose = currentWeight-targetWeight;
-        return kilosToLose*KALORIESTOLOSEKGMULTIPLIER;
-    }
-
     /**
      * getWeeklyCaloriesToBurn() method calculates the amount of calories to burn per week to maintain weight.
      * The calculation is done from the amount of the users calories eaten multiplied by 7 days, and then substracted the users RMR which is multiplied by 7 days.
@@ -123,7 +99,6 @@ public class Calculator {
         weeklyCaloriestoBurn = (7 * caloriesEaten) - (7 * getRmr());
         return  weeklyCaloriestoBurn;
     }
-
     /**
      * getCaloriesBurned() method takes the multiplier of the chosen sport activity and the value of time done in minutes,
      * then it calculates the calories burned during this exercise based on users weight and time done.
@@ -140,17 +115,5 @@ public class Calculator {
         caloriesBurned = multiplier * this.weight * (timeDouble/60);
         caloriesBurnedInt = (int) Math.round(caloriesBurned);
         return caloriesBurnedInt;
-    }
-
-    /**
-     * getCalPerDay counts the amount of calories burned at the gym based on the activitys multiplier which is 5.0, users weight and time done in minutes.
-     * @param time
-     * @return calories burned during the exercise
-     */
-    public int getCalPerDay(int time) {
-        Double timeDouble = Double.valueOf(time);
-        caloriesBurnedAtGym = (int) Math.round(5.0 * this.weight * (timeDouble/60));
-        calPerDay = caloriesBurnedAtGym;
-        return calPerDay;
     }
 }

@@ -131,31 +131,11 @@ public class ExActivityOne extends AppCompatActivity {
             }
         });
         dayWiew = findViewById(R.id.creationDay);
-        switch (prefGet.getInt(CREATIONDAY,0)){
-            case 1:
-                dayWiew.setText("Reset every Sunday");
-                break;
-            case 2:
-                dayWiew.setText("Reset every Monday");
-                break;
-            case 3:
-                dayWiew.setText("Reset every Tuesday");
-                break;
-            case 4:
-                dayWiew.setText("Reset every Wednesday");
-                break;
-            case 5:
-                dayWiew.setText("Reset every Thursday");
-                break;
-            case 6:
-                dayWiew.setText("Reset every Friday");
-                break;
-            case 7:
-                dayWiew.setText("Reset every Saturday");
-                break;
-            default:
-                dayWiew.setText("I am Error.");
-                break;
+        for(int i = 0;i<days.getDays().size();i++)
+        {
+            if(days.getDay(i).getIndex()==prefGet.getInt(CREATIONDAY,0)){
+                dayWiew.setText("Reset every "+days.getDay(i).getName());
+            }
         }
     }
 

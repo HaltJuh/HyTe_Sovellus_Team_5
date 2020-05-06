@@ -48,5 +48,4 @@ public class DaysList {
     public Days getDay(int i){
         return days.get(i);
     }
-
 }
