@@ -25,8 +25,8 @@ public class WeightLossList {
         exercises.add(new Exercise("Running","Running at your own running pace",9.8));
         exercises.add(new Exercise("Cycling","Cycling at your own pace",7.5));
         exercises.add(new Exercise("Swimming","Swimming at your own pace.",7.0));
-        exercises.add(new Exercise("Power Yoga","",4.0));
-        exercises.add(new Exercise("Hatha Yoga","",2.5));
+        exercises.add(new Exercise("Power Yoga","Fitness based apprtoach to vinyasa-style yoga",4.0));
+        exercises.add(new Exercise("Hatha Yoga","General style yoga",2.5));
         exercises.add(new Exercise("Rope Jumping","Rope Jumping with around 100 skips per minute.",11.8));
         exercises.add(new Exercise("Pilates","",3.0));
     }
