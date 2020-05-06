@@ -9,13 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MuscleWpExerciseActivity"></activity>
+        <activity android:name=".NotificationTesting"></activity>
+        <activity android:name=".MuscleWpExerciseActivity" />
         <activity android:name=".MuscleWeekPlanActivity" />
         <activity
             android:name=".DayActivity"
             android:parentActivityName=".ExActivityOne" />
-        <activity android:name=".WeekPlanActivity"
-            android:parentActivityName=".ExActivityOne"></activity>
+        <activity
+            android:name=".WeekPlanActivity"
+            android:parentActivityName=".ExActivityOne" />
         <activity android:name=".WpExerciseActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -69,8 +71,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:noHistory="true">
-        </activity>
+            android:noHistory="true"></activity>
     </application>
 
 </manifest>
