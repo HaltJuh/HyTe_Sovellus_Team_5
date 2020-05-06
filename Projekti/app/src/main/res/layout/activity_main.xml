@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:text="Enter your information below"
         android:textSize="24sp"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

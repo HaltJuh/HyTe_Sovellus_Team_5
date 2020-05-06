@@ -92,12 +92,14 @@ public class WpExerciseActivity extends AppCompatActivity {
             SharedPreferences.Editor prefEditor = prefPut.edit();
             if (caloriesBurned < calories) {
                 prefEditor.putInt(DaysActivity.CALORIESREMAINING, (calories - caloriesBurned));
+                Toast.makeText(this, "Great job! You have burned about " + caloriesBurned + " kcal.", Toast.LENGTH_LONG).show();
             } else {
                 prefEditor.putInt(DaysActivity.CALORIESREMAINING, 0);
+                Toast.makeText(this, "Great job! You have burned about " + caloriesBurned + " kcal.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Excellent! You have reached your weekly goal!", Toast.LENGTH_LONG).show();
             }
             prefEditor.commit();
             resetValue();
-            Toast.makeText(this, "Great job! You have burned about " + caloriesBurned + " kcal.", Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(this, "You have done nothing. Thanks for the information!", Toast.LENGTH_LONG).show();
         }

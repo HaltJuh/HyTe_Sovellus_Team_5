@@ -13,6 +13,7 @@
         android:text="TextView"
         android:textSize="36sp"
         android:textColor="#002157"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
