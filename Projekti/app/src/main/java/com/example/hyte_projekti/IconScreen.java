@@ -27,6 +27,7 @@ public class IconScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_icon_screen);
+
         /*
         // THIS CODE RESETS THE SHARED PREFS!!!
         SharedPreferences preferences =getSharedPreferences(MainActivity.KEY,Activity.MODE_PRIVATE);

@@ -95,12 +95,29 @@ public class ProgramMenu extends AppCompatActivity {
     }
 
     public void changeInfoClicked(View view){
-        SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
-        SharedPreferences.Editor prefEditor = prefPut.edit();
-        prefEditor.putInt(MainActivity.TARGETACTIVITY, 0);
-        prefEditor.commit();
         Intent intentMaintain = new Intent(this, MainActivity.class);
-        startActivity(intentMaintain);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(ProgramMenu.this);
+        builder.setCancelable(true);
+        builder.setTitle("Are you sure?");
+        builder.setMessage("You will have to enter user information again.");
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
+                SharedPreferences.Editor prefEditor = prefPut.edit();
+                prefEditor.putInt(MainActivity.TARGETACTIVITY, 0);
+                prefEditor.commit();
+                startActivity(intentMaintain);
+            }
+        }).show();
     }
 
     public void alertOneButton() {
