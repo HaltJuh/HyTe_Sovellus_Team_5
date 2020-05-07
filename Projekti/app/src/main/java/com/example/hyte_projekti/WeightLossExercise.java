@@ -12,7 +12,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static com.example.hyte_projekti.MainActivity.KEY;
+import com.example.hyte_projekti.General.DaysList;
+import com.example.hyte_projekti.General.Exercise;
+
+import static com.example.hyte_projekti.General.MainActivity.KEY;
 import static com.example.hyte_projekti.WeightLossExercises.EXTRA_EXERCISE_INDEX;
 import static com.example.hyte_projekti.WeightLossWeekPlan.EXTRA_WEEK_INDEX;
 

@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.MucleBulding;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.hyte_projekti.General.Exercise;
+import com.example.hyte_projekti.R;
 
 /**
  * ExActivityThree creates an interactable ListView based on the GymExerciseList Singleton and displays the names of each exercise.

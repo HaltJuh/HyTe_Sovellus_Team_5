@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.MucleBulding;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.hyte_projekti.General.Exercise;
+import com.example.hyte_projekti.General.MainActivity;
+import com.example.hyte_projekti.R;
 
 /**
  * This class inputs the individual selected gym exercises information in its activity by changing the TextView components.

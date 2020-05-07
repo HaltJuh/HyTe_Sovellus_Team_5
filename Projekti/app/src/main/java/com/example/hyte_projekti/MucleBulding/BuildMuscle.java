@@ -1,10 +1,12 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.MucleBulding;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.hyte_projekti.R;
 
 /**
  * This activity is an introduction to the Muscle Building program.

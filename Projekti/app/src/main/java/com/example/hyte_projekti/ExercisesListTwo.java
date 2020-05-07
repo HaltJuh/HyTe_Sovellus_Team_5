@@ -1,5 +1,7 @@
 package com.example.hyte_projekti;
 
+import com.example.hyte_projekti.General.Exercise;
+
 import java.util.ArrayList;
 import java.util.List;
 

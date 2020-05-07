@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.MucleBulding;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.hyte_projekti.General.Days;
+import com.example.hyte_projekti.General.DaysList;
+import com.example.hyte_projekti.General.Exercise;
+import com.example.hyte_projekti.General.MainActivity;
+import com.example.hyte_projekti.R;
 
 /**
  * MuscleWpExerciseActivity class creates and fills the new activity with information based on SharedPreference values that were saved from MuscleDayList

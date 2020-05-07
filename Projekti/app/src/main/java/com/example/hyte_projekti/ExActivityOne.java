@@ -18,16 +18,23 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hyte_projekti.General.Calculator;
+import com.example.hyte_projekti.General.Days;
+import com.example.hyte_projekti.General.DaysList;
+import com.example.hyte_projekti.General.MainActivity;
+import com.example.hyte_projekti.General.ProgramMenu;
+import com.example.hyte_projekti.General.Receiver;
+
 import java.util.Calendar;
 
-import static com.example.hyte_projekti.MainActivity.AGEKEY;
-import static com.example.hyte_projekti.MainActivity.CREATIONDAY;
-import static com.example.hyte_projekti.MainActivity.GENDERKEY;
-import static com.example.hyte_projekti.MainActivity.HEIGHTKEY;
-import static com.example.hyte_projekti.MainActivity.KEY;
-import static com.example.hyte_projekti.MainActivity.WEEKLYCALORIESTOBURN;
-import static com.example.hyte_projekti.MainActivity.WEEKPLANKEY;
-import static com.example.hyte_projekti.MainActivity.WEIGHTKEY;
+import static com.example.hyte_projekti.General.MainActivity.AGEKEY;
+import static com.example.hyte_projekti.General.MainActivity.CREATIONDAY;
+import static com.example.hyte_projekti.General.MainActivity.GENDERKEY;
+import static com.example.hyte_projekti.General.MainActivity.HEIGHTKEY;
+import static com.example.hyte_projekti.General.MainActivity.KEY;
+import static com.example.hyte_projekti.General.MainActivity.WEEKLYCALORIESTOBURN;
+import static com.example.hyte_projekti.General.MainActivity.WEEKPLANKEY;
+import static com.example.hyte_projekti.General.MainActivity.WEIGHTKEY;
 import static com.example.hyte_projekti.WeightLossWeekPlan.CALORIESBURNEDWEEKLY;
 
 /**
@@ -218,7 +225,7 @@ public class ExActivityOne extends AppCompatActivity {
      * @param view
      */
     public void backToMenu(View view){
-        Intent intent = new Intent(ExActivityOne.this,ProgramMenu.class);
+        Intent intent = new Intent(ExActivityOne.this, ProgramMenu.class);
         startActivity(intent);
     }
 

@@ -1,4 +1,6 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.MucleBulding;
+
+import com.example.hyte_projekti.General.Exercise;
 
 import java.util.List;
 import java.util.ArrayList;

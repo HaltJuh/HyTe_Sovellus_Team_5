@@ -15,6 +15,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.hyte_projekti.General.Days;
+import com.example.hyte_projekti.General.DaysList;
+import com.example.hyte_projekti.General.MainActivity;
+import com.example.hyte_projekti.General.ProgramMenu;
+
 /**
  * This activity shows the week plan a user created.
  * By clicking the days of the week the user can see if he/she has any activity for that day.

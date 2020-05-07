@@ -6,31 +6,35 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import com.example.hyte_projekti.General.Calculator;
+import com.example.hyte_projekti.General.Days;
+import com.example.hyte_projekti.General.DaysList;
+import com.example.hyte_projekti.General.Exercise;
+import com.example.hyte_projekti.General.Receiver;
 
 import java.util.Calendar;
 import java.util.Date;
 
 import static com.example.hyte_projekti.ExActivityOne.CALORIE_INTAKE;
 import static com.example.hyte_projekti.ExActivityOne.IDEAL_WEIGHT;
-import static com.example.hyte_projekti.MainActivity.AGEKEY;
-import static com.example.hyte_projekti.MainActivity.CREATIONDAY;
-import static com.example.hyte_projekti.MainActivity.GENDERKEY;
-import static com.example.hyte_projekti.MainActivity.HEIGHTKEY;
-import static com.example.hyte_projekti.MainActivity.KEY;
-import static com.example.hyte_projekti.MainActivity.WEEKLYCALORIESTOBURN;
-import static com.example.hyte_projekti.MainActivity.WEEKPLANKEY;
-import static com.example.hyte_projekti.MainActivity.WEIGHTKEY;
+import static com.example.hyte_projekti.General.MainActivity.AGEKEY;
+import static com.example.hyte_projekti.General.MainActivity.CREATIONDAY;
+import static com.example.hyte_projekti.General.MainActivity.GENDERKEY;
+import static com.example.hyte_projekti.General.MainActivity.HEIGHTKEY;
+import static com.example.hyte_projekti.General.MainActivity.KEY;
+import static com.example.hyte_projekti.General.MainActivity.WEEKLYCALORIESTOBURN;
+import static com.example.hyte_projekti.General.MainActivity.WEEKPLANKEY;
+import static com.example.hyte_projekti.General.MainActivity.WEIGHTKEY;
 
 /**
  * This activity shows the user a daylist from which they can choose on which days they'd like to exercise.

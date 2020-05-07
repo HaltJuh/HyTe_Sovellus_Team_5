@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.General;
 
 import androidx.annotation.NonNull;
 

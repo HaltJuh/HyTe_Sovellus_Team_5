@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.General;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+
+import com.example.hyte_projekti.R;
 
 /**
  *  * IconScreen activity is the main displayable screen when opening Fit Summit -application. This is purely for a visually enhanced and more pleasing look of the app.

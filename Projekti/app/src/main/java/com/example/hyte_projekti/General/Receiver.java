@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.General;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -10,6 +10,10 @@ import android.content.Intent;
 import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
+
+import com.example.hyte_projekti.DaysActivity;
+import com.example.hyte_projekti.MucleBulding.MuscleDayList;
+import com.example.hyte_projekti.R;
 
 /**
  * This class acts as a BroadcastReceiver holds a method for creating a popup notification.

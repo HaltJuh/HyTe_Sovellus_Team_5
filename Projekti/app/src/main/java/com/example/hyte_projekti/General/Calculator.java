@@ -1,6 +1,11 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.General;
 
-import android.service.autofill.FieldClassification;
+import com.example.hyte_projekti.DayActivity;
+import com.example.hyte_projekti.DaysActivity;
+import com.example.hyte_projekti.ExActivityOne;
+import com.example.hyte_projekti.SelectEx;
+import com.example.hyte_projekti.WeightLossWeekPlan;
+import com.example.hyte_projekti.WpExerciseActivity;
 
 /**
  * Calculator class is as its name suggests, a class for the sole purpose of calculations with methods used all around the different parts of the application.
