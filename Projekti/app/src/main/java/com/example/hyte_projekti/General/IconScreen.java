@@ -12,8 +12,8 @@ import android.util.Log;
 import com.example.hyte_projekti.R;
 
 /**
- *  * IconScreen activity is the main displayable screen when opening Fit Summit -application. This is purely for a visually enhanced and more pleasing look of the app.
- *  * This activity has the logo of the application with a fitting theme background and the name of the creators "Team 5"
+ * IconScreen activity is the main displayable screen when opening Fit Summit -application. This is purely for a visually enhanced and more pleasing look of the app.
+ * This activity has the logo of the application with a fitting theme background and the name of the creators "Team 5"
  * @author Tino Kankkunen
  * @version 1.0
  */
