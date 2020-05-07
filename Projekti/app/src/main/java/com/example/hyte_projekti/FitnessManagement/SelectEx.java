@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.FitnessManagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import com.example.hyte_projekti.General.Calculator;
 import com.example.hyte_projekti.General.MainActivity;
+import com.example.hyte_projekti.FitnessManagement.DaysActivity;
+import com.example.hyte_projekti.FitnessManagement.ExActivityTwo;
+import com.example.hyte_projekti.FitnessManagement.ExercisesListTwo;
 
 /**
  * In this activity a user can see information about an exercise he/she clicked.

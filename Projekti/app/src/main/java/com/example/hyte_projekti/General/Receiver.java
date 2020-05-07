@@ -11,7 +11,7 @@ import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
 
-import com.example.hyte_projekti.DaysActivity;
+import com.example.hyte_projekti.FitnessManagement.DaysActivity;
 import com.example.hyte_projekti.MucleBulding.MuscleDayList;
 import com.example.hyte_projekti.R;
 

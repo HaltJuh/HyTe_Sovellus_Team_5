@@ -3,11 +3,11 @@ package com.example.hyte_projekti.General;
 import com.example.hyte_projekti.WeightLoss.ExActivityOne;
 import com.example.hyte_projekti.WeightLoss.WeightLossWeekPlan;
 import com.example.hyte_projekti.WeightLoss.DayActivity;
-import com.example.hyte_projekti.DaysActivity;
 import com.example.hyte_projekti.ExActivityOne;
-import com.example.hyte_projekti.SelectEx;
 import com.example.hyte_projekti.WeightLossWeekPlan;
-import com.example.hyte_projekti.WpExerciseActivity;
+import com.example.hyte_projekti.FitnessManagement.DaysActivity;
+import com.example.hyte_projekti.FitnessManagement.SelectEx;
+import com.example.hyte_projekti.FitnessManagement.WpExerciseActivity;
 
 /**
  * Calculator class is as its name suggests, a class for the sole purpose of calculations with methods used all around the different parts of the application.

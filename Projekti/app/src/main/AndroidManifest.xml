@@ -19,17 +19,17 @@
         <activity
             android:name=".WeekPlanActivity"
             android:parentActivityName=".WeightLoss.ExActivityOne" />
-        <activity android:name=".WpExerciseActivity">
+        <activity android:name=".FitnessManagement.WpExerciseActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".General.ProgramMenu" />
         </activity>
         <activity
-            android:name=".SelectEx"
-            android:parentActivityName=".ExActivityTwo">
+            android:name=".FitnessManagement.SelectEx"
+            android:parentActivityName=".FitnessManagement.ExActivityTwo">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ExActivityTwo" />
+                android:value=".FitnessManagement.ExActivityTwo" />
         </activity>
         <activity
             android:name=".General.IconScreen"
@@ -43,9 +43,9 @@
         <activity android:name=".MucleBulding.MuscleBuildingExerciseInfo" />
         <activity android:name=".MucleBulding.MuscleDayList" />
         <activity android:name=".MucleBulding.ExActivityThree" />
-        <activity android:name=".ExActivityTwo" />
+        <activity android:name=".FitnessManagement.ExActivityTwo" />
         <activity android:name=".WeightLoss.ExActivityOne" />
-        <activity android:name=".DaysActivity" />
+        <activity android:name=".FitnessManagement.DaysActivity" />
         <activity android:name=".WeightLoss.WeightLossWeekPlan" />
         <activity android:name=".WeightLoss.WeightLossExercises" />
         <activity android:name=".WeightLoss.WeightLossExercise" />
@@ -64,7 +64,7 @@
                 android:value=".General.ProgramMenu" />
         </activity>
         <activity
-            android:name=".MaintainFitnessLevel"
+            android:name=".FitnessManagement.MaintainFitnessLevel"
             android:parentActivityName=".General.ProgramMenu">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

@@ -1,4 +1,6 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.FitnessManagement;
+
+import com.example.hyte_projekti.Exercise;
 
 import com.example.hyte_projekti.General.Exercise;
 
