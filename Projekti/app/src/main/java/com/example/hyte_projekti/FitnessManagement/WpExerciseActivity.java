@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.FitnessManagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.hyte_projekti.Calculator;
+import com.example.hyte_projekti.DaysList;
+import com.example.hyte_projekti.MainActivity;
+import com.example.hyte_projekti.R;
 
 /**
  * This activity shows user if there is an exercise for this day.

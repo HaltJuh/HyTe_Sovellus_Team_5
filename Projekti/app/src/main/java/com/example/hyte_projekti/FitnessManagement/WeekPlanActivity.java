@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.FitnessManagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.hyte_projekti.Days;
+import com.example.hyte_projekti.DaysList;
+import com.example.hyte_projekti.MainActivity;
+import com.example.hyte_projekti.ProgramMenu;
+import com.example.hyte_projekti.R;
 
 /**
  * This activity shows the week plan a user created.

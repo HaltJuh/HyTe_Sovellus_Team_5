@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.FitnessManagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.hyte_projekti.Calculator;
+import com.example.hyte_projekti.MainActivity;
+import com.example.hyte_projekti.R;
 
 /**
  * In this activity a user tells a program how many kilocalories he/she eats per day approximately.

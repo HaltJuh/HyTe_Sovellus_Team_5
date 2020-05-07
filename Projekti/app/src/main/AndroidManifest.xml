@@ -17,19 +17,19 @@
             android:name=".DayActivity"
             android:parentActivityName=".ExActivityOne" />
         <activity
-            android:name=".WeekPlanActivity"
+            android:name=".FitnessManagement.WeekPlanActivity"
             android:parentActivityName=".ExActivityOne" />
-        <activity android:name=".WpExerciseActivity">
+        <activity android:name=".FitnessManagement.WpExerciseActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ProgramMenu" />
         </activity>
         <activity
-            android:name=".SelectEx"
-            android:parentActivityName=".ExActivityTwo">
+            android:name=".FitnessManagement.SelectEx"
+            android:parentActivityName=".FitnessManagement.ExActivityTwo">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ExActivityTwo" />
+                android:value=".FitnessManagement.ExActivityTwo" />
         </activity>
         <activity
             android:name=".IconScreen"
@@ -43,9 +43,9 @@
         <activity android:name=".MuscleBuildingExerciseInfo" />
         <activity android:name=".MuscleDayList" />
         <activity android:name=".ExActivityThree" />
-        <activity android:name=".ExActivityTwo" />
+        <activity android:name=".FitnessManagement.ExActivityTwo" />
         <activity android:name=".ExActivityOne" />
-        <activity android:name=".DaysActivity" />
+        <activity android:name=".FitnessManagement.DaysActivity" />
         <activity android:name=".WeightLossWeekPlan" />
         <activity android:name=".WeightLossExercises" />
         <activity android:name=".WeightLossExercise" />
@@ -64,7 +64,7 @@
                 android:value=".ProgramMenu" />
         </activity>
         <activity
-            android:name=".MaintainFitnessLevel"
+            android:name=".FitnessManagement.MaintainFitnessLevel"
             android:parentActivityName=".ProgramMenu">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

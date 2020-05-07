@@ -5,7 +5,7 @@
     android:id="@+id/exName"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectEx">
+    tools:context=".FitnessManagement.SelectEx">
 
     <TextView
         android:id="@+id/editName"

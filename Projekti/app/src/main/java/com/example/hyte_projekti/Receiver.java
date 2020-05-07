@@ -11,6 +11,8 @@ import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
 
+import com.example.hyte_projekti.FitnessManagement.DaysActivity;
+
 /**
  * This class acts as a BroadcastReceiver holds a method for creating a popup notification.
  * The @Override onReceive() method is used together with an AlarmManager to create weekly popup notifications for the user to see even if the application is off.

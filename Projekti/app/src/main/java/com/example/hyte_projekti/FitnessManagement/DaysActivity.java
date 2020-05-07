@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.FitnessManagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.hyte_projekti.Calculator;
+import com.example.hyte_projekti.Days;
+import com.example.hyte_projekti.DaysList;
+import com.example.hyte_projekti.MainActivity;
+import com.example.hyte_projekti.ProgramMenu;
+import com.example.hyte_projekti.R;
+import com.example.hyte_projekti.Receiver;
 
 /**
  * This activity shows a user the days of the week list.
