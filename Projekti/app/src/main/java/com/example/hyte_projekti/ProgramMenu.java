@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hyte_projekti.WeightLoss.ExActivityOne;
+
 /**
  * In this activity a user can choose to which program he/she wants to go. There is buttons for all three
  * programs. A user can also change his/her information by clicking the button at the bottom of the screen.

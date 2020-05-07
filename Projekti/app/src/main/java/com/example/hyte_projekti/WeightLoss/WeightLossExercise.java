@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.WeightLoss;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,9 +12,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hyte_projekti.DaysList;
+import com.example.hyte_projekti.Exercise;
+import com.example.hyte_projekti.R;
+
 import static com.example.hyte_projekti.MainActivity.KEY;
-import static com.example.hyte_projekti.WeightLossExercises.EXTRA_EXERCISE_INDEX;
-import static com.example.hyte_projekti.WeightLossWeekPlan.EXTRA_WEEK_INDEX;
+import static com.example.hyte_projekti.WeightLoss.WeightLossExercises.EXTRA_EXERCISE_INDEX;
+import static com.example.hyte_projekti.WeightLoss.WeightLossWeekPlan.EXTRA_WEEK_INDEX;
 
 /**
  * This activity is used to let the user choose how long they will do the selected exercise.
@@ -94,7 +98,7 @@ public class WeightLossExercise extends AppCompatActivity {
         prefEditor.putInt(days.getDay(dayIndex).getSaveKey(),time);
         prefEditor.putInt(Integer.toString(days.getDay(dayIndex).getIndex()),exerciseIndex);
         prefEditor.commit();
-        Intent intent = new Intent(WeightLossExercise.this,WeightLossWeekPlan.class);
+        Intent intent = new Intent(WeightLossExercise.this, WeightLossWeekPlan.class);
         startActivity(intent);
     }
 }

@@ -1,17 +1,18 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.WeightLoss;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static com.example.hyte_projekti.WeightLossWeekPlan.EXTRA_WEEK_INDEX;
+import com.example.hyte_projekti.Exercise;
+import com.example.hyte_projekti.R;
+
+import static com.example.hyte_projekti.WeightLoss.WeightLossWeekPlan.EXTRA_WEEK_INDEX;
 
 /**
  * Creates a list of available weightloss exercises.
@@ -47,7 +48,7 @@ public class WeightLossExercises extends AppCompatActivity {
         exerciseView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-                Intent intent = new Intent(WeightLossExercises.this,WeightLossExercise.class);
+                Intent intent = new Intent(WeightLossExercises.this, WeightLossExercise.class);
                 intent.putExtra(EXTRA_EXERCISE_INDEX,i);
                 intent.putExtra(EXTRA_WEEK_INDEX,dayIndex);
                 startActivity(intent);

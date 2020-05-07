@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.WeightLoss;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +18,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hyte_projekti.Calculator;
+import com.example.hyte_projekti.DayActivity;
+import com.example.hyte_projekti.Days;
+import com.example.hyte_projekti.DaysList;
+import com.example.hyte_projekti.MainActivity;
+import com.example.hyte_projekti.ProgramMenu;
+import com.example.hyte_projekti.R;
+import com.example.hyte_projekti.Receiver;
+
 import java.util.Calendar;
 
 import static com.example.hyte_projekti.MainActivity.AGEKEY;
@@ -28,7 +37,7 @@ import static com.example.hyte_projekti.MainActivity.KEY;
 import static com.example.hyte_projekti.MainActivity.WEEKLYCALORIESTOBURN;
 import static com.example.hyte_projekti.MainActivity.WEEKPLANKEY;
 import static com.example.hyte_projekti.MainActivity.WEIGHTKEY;
-import static com.example.hyte_projekti.WeightLossWeekPlan.CALORIESBURNEDWEEKLY;
+import static com.example.hyte_projekti.WeightLoss.WeightLossWeekPlan.CALORIESBURNEDWEEKLY;
 
 /**
  * Activity that lets the user enter their goal and let's them see their plan.
@@ -123,7 +132,7 @@ public class ExActivityOne extends AppCompatActivity {
         weekPlanView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-                Intent intent = new Intent(ExActivityOne.this,DayActivity.class);
+                Intent intent = new Intent(ExActivityOne.this, DayActivity.class);
                 Days day = days.getDay(i);
                 int time = prefGet.getInt(day.getSaveKey(),0);
                 intent.putExtra(EXTRA_DAY_INDEX,i);
@@ -180,7 +189,7 @@ public class ExActivityOne extends AppCompatActivity {
     public void onContinue(View view){
         if(checkIfOk()){
             reset();
-            Intent intent = new Intent(this,WeightLossWeekPlan.class);
+            Intent intent = new Intent(this, WeightLossWeekPlan.class);
             startActivity(intent);
         }
     }
@@ -218,7 +227,7 @@ public class ExActivityOne extends AppCompatActivity {
      * @param view
      */
     public void backToMenu(View view){
-        Intent intent = new Intent(ExActivityOne.this,ProgramMenu.class);
+        Intent intent = new Intent(ExActivityOne.this, ProgramMenu.class);
         startActivity(intent);
     }
 

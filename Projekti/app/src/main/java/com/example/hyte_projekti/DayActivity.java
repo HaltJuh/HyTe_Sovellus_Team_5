@@ -10,9 +10,12 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.example.hyte_projekti.ExActivityOne.EXTRA_DAY_INDEX;
-import static com.example.hyte_projekti.ExActivityOne.EXTRA_DAY_NAME;
-import static com.example.hyte_projekti.ExActivityOne.EXTRA_DAY_TIME;
+import com.example.hyte_projekti.WeightLoss.ExActivityOne;
+import com.example.hyte_projekti.WeightLoss.WeightLossList;
+
+import static com.example.hyte_projekti.WeightLoss.ExActivityOne.EXTRA_DAY_INDEX;
+import static com.example.hyte_projekti.WeightLoss.ExActivityOne.EXTRA_DAY_NAME;
+import static com.example.hyte_projekti.WeightLoss.ExActivityOne.EXTRA_DAY_TIME;
 import static com.example.hyte_projekti.MainActivity.AGEKEY;
 import static com.example.hyte_projekti.MainActivity.GENDERKEY;
 import static com.example.hyte_projekti.MainActivity.HEIGHTKEY;
@@ -92,7 +95,7 @@ public class DayActivity extends AppCompatActivity {
             prefEditor.putLong(WEEKLYCALORIESTOBURN,Double.doubleToLongBits(weeklyCaloriesLeft));
             prefEditor.putInt(day.getDoneKey(),1);
             prefEditor.commit();
-            Intent intent = new Intent(DayActivity.this,ExActivityOne.class);
+            Intent intent = new Intent(DayActivity.this, ExActivityOne.class);
             startActivity(intent);
         }else {
             Toast.makeText(this,"You've already done the activity for this day.",Toast.LENGTH_SHORT).show();

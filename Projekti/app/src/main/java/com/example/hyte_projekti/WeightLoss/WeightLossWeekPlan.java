@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.WeightLoss;
 
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -6,23 +6,28 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.example.hyte_projekti.Calculator;
+import com.example.hyte_projekti.Days;
+import com.example.hyte_projekti.DaysList;
+import com.example.hyte_projekti.Exercise;
+import com.example.hyte_projekti.R;
+import com.example.hyte_projekti.Receiver;
+
 import java.util.Calendar;
 import java.util.Date;
 
-import static com.example.hyte_projekti.ExActivityOne.CALORIE_INTAKE;
-import static com.example.hyte_projekti.ExActivityOne.IDEAL_WEIGHT;
+import static com.example.hyte_projekti.WeightLoss.ExActivityOne.CALORIE_INTAKE;
+import static com.example.hyte_projekti.WeightLoss.ExActivityOne.IDEAL_WEIGHT;
 import static com.example.hyte_projekti.MainActivity.AGEKEY;
 import static com.example.hyte_projekti.MainActivity.CREATIONDAY;
 import static com.example.hyte_projekti.MainActivity.GENDERKEY;
@@ -111,7 +116,7 @@ public class WeightLossWeekPlan extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
                 Log.d("Click",""+days.getDay(i).getName());
-                Intent intent = new Intent(WeightLossWeekPlan.this,WeightLossExercises.class);
+                Intent intent = new Intent(WeightLossWeekPlan.this, WeightLossExercises.class);
                 intent.putExtra(EXTRA_WEEK_INDEX,i);
                 startActivity(intent);
             }
@@ -145,7 +150,7 @@ public class WeightLossWeekPlan extends AppCompatActivity {
         prefEditor.putInt(CREATIONDAY,calendar.get(Calendar.DAY_OF_WEEK));
         prefEditor.commit();
         Log.d("Calendar",""+calendar.get(Calendar.DAY_OF_WEEK));
-        Intent intent = new Intent(WeightLossWeekPlan.this,ExActivityOne.class);
+        Intent intent = new Intent(WeightLossWeekPlan.this, ExActivityOne.class);
         startActivity(intent);
     }
 }
