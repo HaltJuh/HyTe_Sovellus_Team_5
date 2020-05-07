@@ -1,7 +1,5 @@
 package com.example.hyte_projekti.WeightLoss;
 
-import com.example.hyte_projekti.Exercise;
-
 import com.example.hyte_projekti.General.Exercise;
 
 import java.util.ArrayList;

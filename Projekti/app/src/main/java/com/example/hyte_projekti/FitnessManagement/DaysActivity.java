@@ -20,6 +20,7 @@ import com.example.hyte_projekti.General.DaysList;
 import com.example.hyte_projekti.General.MainActivity;
 import com.example.hyte_projekti.General.ProgramMenu;
 import com.example.hyte_projekti.General.Receiver;
+import com.example.hyte_projekti.R;
 
 /**
  * This activity shows a user the days of the week list.

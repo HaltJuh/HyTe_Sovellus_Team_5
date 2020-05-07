@@ -19,6 +19,7 @@ import com.example.hyte_projekti.General.Days;
 import com.example.hyte_projekti.General.DaysList;
 import com.example.hyte_projekti.General.MainActivity;
 import com.example.hyte_projekti.General.ProgramMenu;
+import com.example.hyte_projekti.R;
 
 /**
  * This activity shows the week plan a user created.

@@ -14,10 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hyte_projekti.General.DaysList;
 import com.example.hyte_projekti.General.Exercise;
+import com.example.hyte_projekti.R;
 
 import static com.example.hyte_projekti.General.MainActivity.KEY;
-import static com.example.hyte_projekti.WeightLossExercises.EXTRA_EXERCISE_INDEX;
-import static com.example.hyte_projekti.WeightLossWeekPlan.EXTRA_WEEK_INDEX;
+import static com.example.hyte_projekti.WeightLoss.WeightLossExercises.EXTRA_EXERCISE_INDEX;
+import static com.example.hyte_projekti.WeightLoss.WeightLossWeekPlan.EXTRA_WEEK_INDEX;
 
 /**
  * This activity is used to let the user choose how long they will do the selected exercise.

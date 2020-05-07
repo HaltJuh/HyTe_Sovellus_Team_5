@@ -3,8 +3,6 @@ package com.example.hyte_projekti.General;
 import com.example.hyte_projekti.WeightLoss.ExActivityOne;
 import com.example.hyte_projekti.WeightLoss.WeightLossWeekPlan;
 import com.example.hyte_projekti.WeightLoss.DayActivity;
-import com.example.hyte_projekti.ExActivityOne;
-import com.example.hyte_projekti.WeightLossWeekPlan;
 import com.example.hyte_projekti.FitnessManagement.DaysActivity;
 import com.example.hyte_projekti.FitnessManagement.SelectEx;
 import com.example.hyte_projekti.FitnessManagement.WpExerciseActivity;

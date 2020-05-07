@@ -21,6 +21,7 @@ import com.example.hyte_projekti.General.Days;
 import com.example.hyte_projekti.General.DaysList;
 import com.example.hyte_projekti.General.Exercise;
 import com.example.hyte_projekti.General.Receiver;
+import com.example.hyte_projekti.R;
 
 import java.util.Calendar;
 import java.util.Date;

@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hyte_projekti.WeightLoss.ExActivityOne;
-import com.example.hyte_projekti.ExActivityOne;
 import com.example.hyte_projekti.MucleBulding.BuildMuscle;
 import com.example.hyte_projekti.MucleBulding.MuscleDayList;
 import com.example.hyte_projekti.MucleBulding.MuscleWeekPlanActivity;

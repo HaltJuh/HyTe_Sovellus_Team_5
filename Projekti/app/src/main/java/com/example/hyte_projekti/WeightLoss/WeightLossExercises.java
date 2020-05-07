@@ -10,8 +10,9 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hyte_projekti.General.Exercise;
+import com.example.hyte_projekti.R;
 
-import static com.example.hyte_projekti.WeightLossWeekPlan.EXTRA_WEEK_INDEX;
+import static com.example.hyte_projekti.WeightLoss.WeightLossWeekPlan.EXTRA_WEEK_INDEX;
 
 /**
  * Creates a list of available weightloss exercises.

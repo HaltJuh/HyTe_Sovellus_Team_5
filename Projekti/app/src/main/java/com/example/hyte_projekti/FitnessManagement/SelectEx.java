@@ -16,6 +16,7 @@ import com.example.hyte_projekti.General.MainActivity;
 import com.example.hyte_projekti.FitnessManagement.DaysActivity;
 import com.example.hyte_projekti.FitnessManagement.ExActivityTwo;
 import com.example.hyte_projekti.FitnessManagement.ExercisesListTwo;
+import com.example.hyte_projekti.R;
 
 /**
  * In this activity a user can see information about an exercise he/she clicked.

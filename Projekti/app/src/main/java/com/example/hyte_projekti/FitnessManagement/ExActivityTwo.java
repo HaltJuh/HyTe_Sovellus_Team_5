@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.hyte_projekti.General.Exercise;
+import com.example.hyte_projekti.R;
 
 /**
  * This activity shows Maintain Fitness exercise list.

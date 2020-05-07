@@ -24,6 +24,7 @@ import com.example.hyte_projekti.General.DaysList;
 import com.example.hyte_projekti.General.MainActivity;
 import com.example.hyte_projekti.General.ProgramMenu;
 import com.example.hyte_projekti.General.Receiver;
+import com.example.hyte_projekti.R;
 
 import java.util.Calendar;
 
@@ -35,7 +36,7 @@ import static com.example.hyte_projekti.General.MainActivity.KEY;
 import static com.example.hyte_projekti.General.MainActivity.WEEKLYCALORIESTOBURN;
 import static com.example.hyte_projekti.General.MainActivity.WEEKPLANKEY;
 import static com.example.hyte_projekti.General.MainActivity.WEIGHTKEY;
-import static com.example.hyte_projekti.WeightLossWeekPlan.CALORIESBURNEDWEEKLY;
+import static com.example.hyte_projekti.WeightLoss.WeightLossWeekPlan.CALORIESBURNEDWEEKLY;
 
 /**
  * Activity that lets the user enter their goal and let's them see their plan.

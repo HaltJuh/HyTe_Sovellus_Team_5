@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.hyte_projekti.General.Calculator;
 import com.example.hyte_projekti.General.MainActivity;
+import com.example.hyte_projekti.R;
 
 /**
  * In this activity a user tells a program how many kilocalories he/she eats per day approximately.
