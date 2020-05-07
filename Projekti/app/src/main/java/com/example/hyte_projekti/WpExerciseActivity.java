@@ -10,6 +10,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hyte_projekti.General.Calculator;
+import com.example.hyte_projekti.General.DaysList;
+import com.example.hyte_projekti.General.MainActivity;
+
 /**
  * This activity shows user if there is an exercise for this day.
  * If there is an exercise, this activity shows its name, information about it and duration how long

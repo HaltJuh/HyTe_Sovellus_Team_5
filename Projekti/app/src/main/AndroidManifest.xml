@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver android:name="com.example.hyte_projekti.Receiver"></receiver>
+        <receiver android:name="com.example.hyte_projekti.General.Receiver"></receiver>
 
-        <activity android:name=".MuscleWpExerciseActivity" />
-        <activity android:name=".MuscleWeekPlanActivity" />
+        <activity android:name=".MucleBulding.MuscleWpExerciseActivity" />
+        <activity android:name=".MucleBulding.MuscleWeekPlanActivity" />
         <activity
             android:name=".DayActivity"
             android:parentActivityName=".WeightLoss.ExActivityOne" />
@@ -22,7 +22,7 @@
         <activity android:name=".WpExerciseActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ProgramMenu" />
+                android:value=".General.ProgramMenu" />
         </activity>
         <activity
             android:name=".SelectEx"
@@ -32,7 +32,7 @@
                 android:value=".ExActivityTwo" />
         </activity>
         <activity
-            android:name=".IconScreen"
+            android:name=".General.IconScreen"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,9 +40,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MuscleBuildingExerciseInfo" />
-        <activity android:name=".MuscleDayList" />
-        <activity android:name=".ExActivityThree" />
+        <activity android:name=".MucleBulding.MuscleBuildingExerciseInfo" />
+        <activity android:name=".MucleBulding.MuscleDayList" />
+        <activity android:name=".MucleBulding.ExActivityThree" />
         <activity android:name=".ExActivityTwo" />
         <activity android:name=".WeightLoss.ExActivityOne" />
         <activity android:name=".DaysActivity" />
@@ -50,28 +50,28 @@
         <activity android:name=".WeightLoss.WeightLossExercises" />
         <activity android:name=".WeightLoss.WeightLossExercise" />
         <activity
-            android:name=".ProgramMenu"
-            android:parentActivityName=".MainActivity">
+            android:name=".General.ProgramMenu"
+            android:parentActivityName=".General.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".General.MainActivity" />
         </activity>
         <activity
-            android:name=".BuildMuscle"
-            android:parentActivityName=".ProgramMenu">
+            android:name=".MucleBulding.BuildMuscle"
+            android:parentActivityName=".General.ProgramMenu">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ProgramMenu" />
+                android:value=".General.ProgramMenu" />
         </activity>
         <activity
             android:name=".MaintainFitnessLevel"
-            android:parentActivityName=".ProgramMenu">
+            android:parentActivityName=".General.ProgramMenu">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ProgramMenu" />
+                android:value=".General.ProgramMenu" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".General.MainActivity"
             android:noHistory="true"></activity>
     </application>
 

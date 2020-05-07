@@ -9,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.hyte_projekti.General.Exercise;
+
 /**
  * This activity shows Maintain Fitness exercise list.
  * By clicking any exercise of that list, the user can see more information about that exercise.

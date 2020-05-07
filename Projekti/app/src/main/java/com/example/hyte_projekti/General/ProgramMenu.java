@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.General;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hyte_projekti.WeightLoss.ExActivityOne;
+import com.example.hyte_projekti.DaysActivity;
+import com.example.hyte_projekti.ExActivityOne;
+import com.example.hyte_projekti.MaintainFitnessLevel;
+import com.example.hyte_projekti.MucleBulding.BuildMuscle;
+import com.example.hyte_projekti.MucleBulding.MuscleDayList;
+import com.example.hyte_projekti.MucleBulding.MuscleWeekPlanActivity;
+import com.example.hyte_projekti.R;
+import com.example.hyte_projekti.WeekPlanActivity;
 
 /**
  * In this activity a user can choose to which program he/she wants to go. There is buttons for all three

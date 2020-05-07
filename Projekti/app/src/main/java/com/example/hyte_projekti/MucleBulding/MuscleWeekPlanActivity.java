@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.MucleBulding;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+
+import com.example.hyte_projekti.General.Days;
+import com.example.hyte_projekti.General.DaysList;
+import com.example.hyte_projekti.General.MainActivity;
+import com.example.hyte_projekti.General.ProgramMenu;
+import com.example.hyte_projekti.R;
 
 /**
  * MuscleWeekPlanActivity creates the final Weekly Plan for the user as an interactable list.

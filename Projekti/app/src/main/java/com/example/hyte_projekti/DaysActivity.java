@@ -14,6 +14,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.hyte_projekti.General.Calculator;
+import com.example.hyte_projekti.General.Days;
+import com.example.hyte_projekti.General.DaysList;
+import com.example.hyte_projekti.General.MainActivity;
+import com.example.hyte_projekti.General.ProgramMenu;
+import com.example.hyte_projekti.General.Receiver;
+
 /**
  * This activity shows a user the days of the week list.
  * By clicking any day of the list, the user can choose exercise for that day.

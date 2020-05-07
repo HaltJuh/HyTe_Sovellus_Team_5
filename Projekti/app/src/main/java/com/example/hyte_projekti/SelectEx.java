@@ -6,11 +6,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.hyte_projekti.General.Calculator;
+import com.example.hyte_projekti.General.MainActivity;
 
 /**
  * In this activity a user can see information about an exercise he/she clicked.

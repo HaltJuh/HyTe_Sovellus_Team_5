@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.MucleBulding;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.hyte_projekti.General.Days;
+import com.example.hyte_projekti.General.DaysList;
+import com.example.hyte_projekti.General.MainActivity;
+import com.example.hyte_projekti.General.ProgramMenu;
+import com.example.hyte_projekti.R;
+import com.example.hyte_projekti.General.Receiver;
 
 /**
  * This activity creates an interactable ListView that displays the days of the week so the user can create his weekly plan. A repeating popup notification is displayed
