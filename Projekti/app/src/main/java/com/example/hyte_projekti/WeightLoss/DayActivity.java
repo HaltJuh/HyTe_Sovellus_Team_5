@@ -1,4 +1,4 @@
-package com.example.hyte_projekti;
+package com.example.hyte_projekti.WeightLoss;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,22 +10,21 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hyte_projekti.WeightLoss.ExActivityOne;
-import com.example.hyte_projekti.WeightLoss.WeightLossList;
+import com.example.hyte_projekti.R;
 import com.example.hyte_projekti.General.Calculator;
 import com.example.hyte_projekti.General.Days;
 import com.example.hyte_projekti.General.DaysList;
 import com.example.hyte_projekti.General.Exercise;
 
-import static com.example.hyte_projekti.ExActivityOne.EXTRA_DAY_INDEX;
-import static com.example.hyte_projekti.ExActivityOne.EXTRA_DAY_NAME;
-import static com.example.hyte_projekti.ExActivityOne.EXTRA_DAY_TIME;
 import static com.example.hyte_projekti.General.MainActivity.AGEKEY;
 import static com.example.hyte_projekti.General.MainActivity.GENDERKEY;
 import static com.example.hyte_projekti.General.MainActivity.HEIGHTKEY;
 import static com.example.hyte_projekti.General.MainActivity.KEY;
 import static com.example.hyte_projekti.General.MainActivity.WEEKLYCALORIESTOBURN;
 import static com.example.hyte_projekti.General.MainActivity.WEIGHTKEY;
+import static com.example.hyte_projekti.WeightLoss.ExActivityOne.EXTRA_DAY_INDEX;
+import static com.example.hyte_projekti.WeightLoss.ExActivityOne.EXTRA_DAY_NAME;
+import static com.example.hyte_projekti.WeightLoss.ExActivityOne.EXTRA_DAY_TIME;
 
 /**
  * This activity shows the user their exercise for the selected day

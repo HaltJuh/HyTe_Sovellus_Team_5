@@ -14,7 +14,7 @@
         <activity android:name=".MucleBulding.MuscleWpExerciseActivity" />
         <activity android:name=".MucleBulding.MuscleWeekPlanActivity" />
         <activity
-            android:name=".DayActivity"
+            android:name=".WeightLoss.DayActivity"
             android:parentActivityName=".WeightLoss.ExActivityOne" />
         <activity
             android:name=".WeekPlanActivity"

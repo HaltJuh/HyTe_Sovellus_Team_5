@@ -2,7 +2,7 @@ package com.example.hyte_projekti.General;
 
 import com.example.hyte_projekti.WeightLoss.ExActivityOne;
 import com.example.hyte_projekti.WeightLoss.WeightLossWeekPlan;
-import com.example.hyte_projekti.DayActivity;
+import com.example.hyte_projekti.WeightLoss.DayActivity;
 import com.example.hyte_projekti.DaysActivity;
 import com.example.hyte_projekti.ExActivityOne;
 import com.example.hyte_projekti.SelectEx;
