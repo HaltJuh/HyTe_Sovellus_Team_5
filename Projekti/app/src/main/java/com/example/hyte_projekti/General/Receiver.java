@@ -40,7 +40,6 @@ public class Receiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         createNotification("Remember to check your weekly plan!", context);
     }
-
     /**
      * createNotification() method creates a popup notification with given displayable text as the first parameter when called. !Second parameter must use getApplicationContext()
      *
