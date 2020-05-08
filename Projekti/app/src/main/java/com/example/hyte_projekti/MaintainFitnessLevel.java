@@ -69,14 +69,18 @@ public class MaintainFitnessLevel extends AppCompatActivity {
         }else {
             caloriesEaten = Integer.parseInt(tvCaloriesEaten.getText().toString());
             rmr = calculator.getRmr();
-            if (caloriesEaten > rmr) {
+            if (caloriesEaten > rmr && caloriesEaten <= 10000) {
                 SharedPreferences prefPut = getSharedPreferences(MainActivity.KEY, Activity.MODE_PRIVATE);
                 SharedPreferences.Editor prefEditor = prefPut.edit();
                 prefEditor.putInt(CALORIESEATENKEY, caloriesEaten);
                 prefEditor.commit();
                 Intent nextActivity = new Intent(MaintainFitnessLevel.this, DaysActivity.class);
                 startActivity(nextActivity);
-            } else {
+            }
+            if(caloriesEaten > 10000){
+                Toast.makeText(this, "You are eating over 10 000 kcal/day? Check your daily intake again!", Toast.LENGTH_SHORT).show();
+            }
+            else {
                 Toast.makeText(this, "Your resting metabolic rate is " + rmr + " kcal. You do not eat enough!", Toast.LENGTH_LONG).show();
             }
         }

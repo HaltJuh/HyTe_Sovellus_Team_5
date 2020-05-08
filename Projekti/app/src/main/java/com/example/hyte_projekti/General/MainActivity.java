@@ -158,6 +158,18 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Invalid answer!", Toast.LENGTH_SHORT).show();
             return false;
         }
+        if(Integer.parseInt(age) > 150 || Integer.parseInt(height) > 400 || Integer.parseInt(weight) > 500){
+            Toast.makeText(this, "Check your age!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(Integer.parseInt(height) > 400){
+            Toast.makeText(this, "Check your height!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(Integer.parseInt(weight) > 500){
+            Toast.makeText(this, "Check your weight!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
         if(!clicked){
             Toast.makeText(this, "Please choose your gender.", Toast.LENGTH_SHORT).show();
             return false;

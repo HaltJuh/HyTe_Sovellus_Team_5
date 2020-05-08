@@ -173,8 +173,16 @@ public class ExActivityOne extends AppCompatActivity {
             Toast.makeText(this, "This ideal weight is too low for your height", Toast.LENGTH_SHORT).show();
             return false;
         }
+        if(idealWeight > 500){
+            Toast.makeText(this, "This ideal weight is too much, try entering a valid goal!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
         if(dailyCalories < calculator.getRmr()){
             Toast.makeText(this, "Your minimum daily calorie intake should be "+calculator.getRmr()+". You should eat more.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(dailyCalories > 10000){
+            Toast.makeText(this, "Your minimum daily calorie intake should be "+calculator.getRmr()+". You can lose a lot of weight by eating less.", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
