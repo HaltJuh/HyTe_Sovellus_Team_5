@@ -81,7 +81,7 @@ public class MaintainFitnessLevel extends AppCompatActivity {
             if(caloriesEaten > 10000){
                 Toast.makeText(this, "You are eating over 10 000 kcal/day? Check your daily intake again!", Toast.LENGTH_SHORT).show();
             }
-            else {
+            else if(caloriesEaten<rmr){
                 Toast.makeText(this, "Your resting metabolic rate is " + rmr + " kcal. You do not eat enough!", Toast.LENGTH_LONG).show();
             }
         }

@@ -17,7 +17,7 @@
             android:name=".WeightLoss.DayActivity"
             android:parentActivityName=".WeightLoss.ExActivityOne" />
         <activity
-            android:name=".WeekPlanActivity"
+            android:name=".FitnessManagement.WeekPlanActivity"
             android:parentActivityName=".WeightLoss.ExActivityOne" />
         <activity android:name=".FitnessManagement.WpExerciseActivity">
             <meta-data
